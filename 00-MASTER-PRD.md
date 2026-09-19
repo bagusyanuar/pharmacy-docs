@@ -178,6 +178,13 @@ graph TD
    * Kasir dapat tetap melakukan pencarian produk dan penambahan item saat koneksi internet terputus sesaat, dan melakukan sinkronisasi otomatis saat online kembali.
 4. **Isolasi Multi-Cabang:**
    * Kasir cabang A tidak boleh melihat atau memotong stok cabang B kecuali melalui transaksi resmi transfer antar cabang.
+5. **Arsitektur Klien PWA-First (Multi-Device & Cross-Platform):**
+   * Antarmuka dibangun berbasis Progressive Web App (PWA) yang adaptif:
+     * **Di PC Desktop Kasir:** Tampil optimal dengan dukungan keyboard shortcut dan barcode scanner USB.
+     * **Di Tablet Android / iPad:** Tampil dengan antarmuka sentuh ramah jari (*touch-friendly grid*) untuk meja kasir modern.
+     * **Di Ponsel Pintar:** Responsif untuk monitoring dashboard omzet oleh Owner dan stock opname di rak obat.
+   * Mendukung instalasi langsung tanpa Play Store (*Install App / Add to Home Screen*) dan pembaruan instan terpusat.
+
 
 ---
 

@@ -157,3 +157,28 @@ sequenceDiagram
    * Menginjeksi `branch_id` tersebut ke dalam kueri database (menggunakan parameterized filter `WHERE branch_id = :branch_id`).
    * Kasir hanya dapat beroperasi pada 1 cabang tempat dia ditugaskan.
    * Owner / Super Admin memiliki izin untuk switch ke cabang manapun atau melihat laporan gabungan (*All Branches Consolidated*).
+
+---
+
+## 7. Arsitektur Klien: Strategi PWA-First & Jalur Migrasi Android
+
+### 7.1 Mengapa Memilih PWA-First (Progressive Web App)?
+Untuk fase awal pengembangan apotek, frontend dibangun dengan pendekatan **PWA-First**:
+* **Satu Basis Kode (*Single Codebase*):** Satu aplikasi web modern dapat diakses dan di-install (*Add to Home Screen*) di seluruh form factor:
+  * **Komputer Kasir PC / Laptop:** Antarmuka lebar dengan dukungan penuh shortcut keyboard (F1–F12, Enter, Esc) dan USB barcode scanner.
+  * **Tablet Android / iPad (10–12 inci):** Antarmuka otomatis beradaptasi menjadi tombol-tombol sentuh ramah jari (*touch-friendly grid*), ideal untuk apotek modern dengan dudukan tablet (*stand dock*).
+  * **Ponsel Pintar (*Smartphone*):** Antarmuka vertikal responsif khusus untuk Owner mengecek dashboard omzet dan staf gudang saat *Stock Opname* di lorong rak obat.
+* **Pembaruan Instan Tanpa Review Play Store:** Setiap perbaikan bug atau penambahan fitur di server langsung aktif di seluruh cabang tanpa perlu mendistribusikan file APK atau menunggu antrean tinjauan Google Play Store.
+* **Ketahanan Luring (*Offline-Resilience*):** Menggunakan *Service Worker* dan penyimpanan lokal browser (*IndexedDB*) untuk menyimpan katalog obat dan menampung antrean transaksi saat internet apotek terputus sementara.
+
+### 7.2 Integrasi Perangkat Keras Kasir pada PWA
+* **Printer Struk & Etiket Thermal:** Komunikasi via WebUSB, WebBluetooth, atau Network Printing (IP Printer LAN/Wi-Fi) menggunakan perintah standar ESC/POS.
+* **Barcode Scanner:** Kompatibel dengan mode *Keyboard Wedge / USB HID Input* tanpa memerlukan driver khusus.
+* **Laci Kasir (Cash Drawer):** Terpicu terbuka otomatis melalui sinyal pulsa kick-out printer thermal (kabel RJ11) saat transaksi berhasil dibukukan.
+
+### 7.3 Jalur Migrasi Masa Depan Menuju Aplikasi Android Native
+Jika di masa depan bisnis berkembang dan membutuhkan aplikasi native Android khusus tablet:
+* **Prinsip Backend Headless (0% Perubahan Backend):** Seluruh aturan bisnis, perhitungan racikan, FEFO, dan skema database berada di Backend REST API. Frontend native Android nantinya hanya bertindak sebagai *consumer* API yang memanggil endpoint yang sama persis dengan PWA.
+* **Opsi A (Jalur Kilat 1 Hari via Capacitor / TWA):** Membungkus (*wrapper*) PWA yang sudah ada ke dalam format `.apk` Android menggunakan Capacitor atau *Trusted Web Activity (TWA)* dari Google, memberikan ikon native dan akses penuh ke hardware Android tanpa perlu menulis ulang antarmuka.
+* **Opsi B (Jalur Dedicated Native via Flutter / Kotlin):** Membangun UI native baru dengan SDK printer Bluetooth bawaan Android untuk perangkat POS all-in-one (seperti Sunmi/iMin), tetap mengacu pada kontrak API TRD yang ada.
+

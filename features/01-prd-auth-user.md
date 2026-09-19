@@ -39,8 +39,8 @@ Operasional apotek memiliki dinamika kerja yang kontras antara area depan (*fron
 
 | Persona | Lingkungan Kerja & Perangkat | Kebutuhan Utama pada Akses & Akun |
 | :--- | :--- | :--- |
-| **Kasir Apotek** | Komputer kasir meja depan (POS), monitor layar sentuh, keyboard barcode scanner. | Login secepat kilat (PIN 6 digit atau scan kartu ID), sesi terkunci aman saat meninggalkan kasir, hanya bertransaksi di cabangnya sendiri. |
-| **Tenaga Teknis Kefarmasian (TTK)** | Meja peracikan & penyerahan obat, komputer tablet/desktop di ruang racik. | Akses ke antrean resep dan racikan obat, pencatatan identitas peracik pada etiket obat, pencatatan izin STRTTK aktif. |
+| **Kasir Apotek** | Meja kasir depan: PWA di PC Desktop / Laptop atau Tablet Android/iPad (10–12 inci), barcode scanner, thermal printer. | Login secepat kilat (PIN 6 digit atau scan kartu ID), sesi terkunci aman saat meninggalkan kasir, hanya bertransaksi di cabangnya sendiri. |
+| **Tenaga Teknis Kefarmasian (TTK)** | Ruang racik: PWA di Tablet atau PC Desktop, area penyerahan obat, printer etiket. | Akses ke antrean resep dan racikan obat, pencatatan identitas peracik pada etiket obat, pencatatan izin STRTTK aktif. |
 | **Apoteker Pengelola Apotek (APA)** | Meja konsultasi / ruang apoteker, laptop/desktop backoffice. | Verifikasi resep obat keras/narkotika, pop-up PIN otorisasi saat kasir meminta approval, penandatanganan SP resmi ke PBF, kontrol masa berlaku SIPA. |
 | **Staf Gudang & Pengadaan** | Area gudang penyimpanan obat, komputer desktop gudang. | Pengelolaan defekta stok, input faktur penerimaan PBF, pencatatan nomor batch obat, tidak memiliki akses melihat laporan keuangan laba rugi. |
 | **Finance & Akuntansi** | Ruang administrasi kantor, laptop/desktop. | Rekonsiliasi fisik uang shift kasir, pelunasan hutang faktur PBF, analisa laba kotor HPP, tidak dapat mengedit transaksi kasir yang sudah ditutup. |
@@ -193,6 +193,9 @@ flowchart TD
   * Tombol keypad angka virtual (angka 0-9, tombol Hapus/Backspace, tombol Batal).
   * Kolom titik-titik PIN tersembunyi (masking: `● ● ● ● ● ●`).
   * Tombol darurat: "Ganti Cabang Kasir" (hanya dapat dibuka dengan otorisasi Owner).
+* **Adaptasi Perangkat (PWA Responsive):**
+  * **Pada PC Desktop Kasir:** Mendukung pengetikan langsung melalui Numpad fisik keyboard kasir.
+  * **Pada Tablet Android / iPad:** Menampilkan tombol virtual keypad angka layar sentuh berukuran besar yang nyaman ditekan dengan jari.
 
 ### 6.2 Layar Modal Supervisor Override (Pop-up di Layar Kasir)
 * **Informasi yang Ditampilkan:**
