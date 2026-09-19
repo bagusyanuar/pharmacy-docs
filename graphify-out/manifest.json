@@ -6,16 +6,16 @@
     "semantic_hash": "1bb1b47ef68096f7dbef9ef1fc423df0"
   },
   ".agents/rules/persona-tika.md": {
-    "mtime": 1789827995.3211386,
-    "seen": 1789828251.94721,
-    "ast_hash": "5350a4f8dd65f4b5ba211733444407a7",
-    "semantic_hash": "5350a4f8dd65f4b5ba211733444407a7"
+    "mtime": 1789828880.5725262,
+    "seen": 1789829019.634115,
+    "ast_hash": "5c6ec4d12ada01b0bd5288ef6c70acc8",
+    "semantic_hash": "5c6ec4d12ada01b0bd5288ef6c70acc8"
   },
   ".agents/skills/business-prd-scaffolder/SKILL.md": {
-    "mtime": 1789828024.3894563,
-    "seen": 1789828251.947211,
-    "ast_hash": "50c2a220c40904c4767f7b8952ec6404",
-    "semantic_hash": "50c2a220c40904c4767f7b8952ec6404"
+    "mtime": 1789828870.9446626,
+    "seen": 1789829019.6341162,
+    "ast_hash": "a2272f8b844573d1fe5899c2fbf6fdd2",
+    "semantic_hash": "a2272f8b844573d1fe5899c2fbf6fdd2"
   },
   ".agents/skills/change-impact-synchronizer/SKILL.md": {
     "mtime": 1789828040.3228347,
@@ -78,16 +78,16 @@
     "semantic_hash": "5a3cfcb84d4bc988ddd3abdce6082be5"
   },
   "FEATURE-CHECKLIST.md": {
-    "mtime": 1789828730.9593902,
-    "seen": 1789828761.190445,
-    "ast_hash": "080ea85ec7d2b8294c9ec7fd58bd9e84",
-    "semantic_hash": "080ea85ec7d2b8294c9ec7fd58bd9e84"
+    "mtime": 1789828999.355244,
+    "seen": 1789829019.6341262,
+    "ast_hash": "e8b5485e52bab90a5e338aa434dc44d3",
+    "semantic_hash": "e8b5485e52bab90a5e338aa434dc44d3"
   },
   "PROGRESS.md": {
-    "mtime": 1789828739.3634903,
-    "seen": 1789828761.1904461,
-    "ast_hash": "cf8152ee06ef176b93fea16ea68f182d",
-    "semantic_hash": "cf8152ee06ef176b93fea16ea68f182d"
+    "mtime": 1789829009.1033752,
+    "seen": 1789829019.6341262,
+    "ast_hash": "9773bb32b899cde3adbf14f6eb064896",
+    "semantic_hash": "9773bb32b899cde3adbf14f6eb064896"
   },
   "README.md": {
     "mtime": 1789828747.5513911,
@@ -100,5 +100,11 @@
     "seen": 1789828251.947232,
     "ast_hash": "359d6dba871420b51ff721ef2af18ec5",
     "semantic_hash": "359d6dba871420b51ff721ef2af18ec5"
+  },
+  "features/01-prd-auth-user.md": {
+    "mtime": 1789828990.9780462,
+    "seen": 1789829019.6341279,
+    "ast_hash": "852ad2063f72698af89fde3ce7412dad",
+    "semantic_hash": "852ad2063f72698af89fde3ce7412dad"
   }
 }

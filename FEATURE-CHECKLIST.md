@@ -9,12 +9,12 @@ Dokumen ini adalah matriks pelacak implementasi fitur menyeluruh lintas fase dan
 
 | Kategori | Total Fitur | Docs Selesai | BE Selesai | FE-WEB Selesai | FE-POS Selesai | Status Fase |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Fase 1: Auth & Master Data** | 8 | 0/8 | 0/8 | 0/8 | 0/8 | 🟡 Dalam Desain |
+| **Fase 1: Auth & Master Data** | 8 | 3/8 | 0/8 | 0/8 | 0/8 | 🟡 Dalam Desain |
 | **Fase 2: POS Kasir & Resep** | 7 | 0/7 | 0/7 | - | 0/7 | ⚪ Antrean |
 | **Fase 3: Inventory WMS & FEFO** | 6 | 0/6 | 0/6 | 0/6 | - | ⚪ Antrean |
 | **Fase 4: Pengadaan PBF** | 6 | 0/6 | 0/6 | 0/6 | - | ⚪ Antrean |
 | **Fase 5: Finansial & Regulasi** | 5 | 0/5 | 0/5 | 0/5 | - | ⚪ Antrean |
-| **TOTAL** | **32** | **0/32** | **0/32** | **0/32** | **0/32** | **0% Selesai** |
+| **TOTAL** | **32** | **3/32** | **0/32** | **0/32** | **0/32** | **9% Selesai** |
 
 ---
 
@@ -25,9 +25,9 @@ Fokus: Akses pengguna, legalitas SIPA/STRTTK, isolasi sesi cabang, fondasi multi
 
 | Kode | Nama Fitur Bisnis | Docs PRD | Docs DRA/TRD | Backend [BE] | Frontend Web/POS |
 | :--- | :--- | :---: | :---: | :---: | :---: |
-| **F0-01** | **Dual-UX Autentikasi & Sesi Cabang:** Fast PIN/Barcode login POS kasir & Email/Password Web ERP terikat `X-Branch-Id`. | [ ] | [ ] | [ ] | [ ] |
-| **F0-02** | **Profil Karyawan & Legalitas Profesi:** Pencatatan izin SIPA Apoteker (masa berlaku) dan STRTTK/SIPTTK untuk SP & etiket. | [ ] | [ ] | [ ] | [ ] |
-| **F0-03** | **Matriks Hak Akses (RBAC) & Supervisor Override:** Hak akses 6 persona dan pop-up PIN otorisasi (void, diskon khusus, approval resep). | [ ] | [ ] | [ ] | [ ] |
+| **F0-01** | **Dual-UX Autentikasi & Sesi Cabang:** Fast PIN/Barcode login POS kasir & Email/Password Web ERP terikat `X-Branch-Id`. | [x] | [ ] | [ ] | [ ] |
+| **F0-02** | **Profil Karyawan & Legalitas Profesi:** Pencatatan izin SIPA Apoteker (masa berlaku) dan STRTTK/SIPTTK untuk SP & etiket. | [x] | [ ] | [ ] | [ ] |
+| **F0-03** | **Matriks Hak Akses (RBAC) & Supervisor Override:** Hak akses 6 persona dan pop-up PIN otorisasi (void, diskon khusus, approval resep). | [x] | [ ] | [ ] | [ ] |
 | **F1-01** | **Master Cabang & Gudang:** Struktur cabang tunggal/jaringan, izin apotek (SIA), APA penanggung jawab, gudang cabang vs pusat. | [ ] | [ ] | [ ] | [ ] |
 | **F1-02** | **Master Obat, Zat Aktif & Golongan:** Nama obat, nama generik, pabrik, barcode EAN-13, golongan (Bebas/Terbatas/Keras/Narko). | [ ] | [ ] | [ ] | [ ] |
 | **F1-03** | **Hierarki Multi-Satuan Bertingkat:** Relasi satuan (Box $\rightarrow$ Strip $\rightarrow$ Tablet) & aturan margin harga jual eceran. | [ ] | [ ] | [ ] | [ ] |
