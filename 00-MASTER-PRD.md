@@ -85,39 +85,64 @@ graph TD
                      ┌─────────────────────────────────────────────────────────┐
                      │            DASHBOARD & EXECUTIVE ANALYTICS              │
                      │  (Omzet, Margin HPP, Dead Stock, ROP, Audit Log Cabang) │
+       ```
+                     ┌─────────────────────────────────────────────────────────┐
+                     │            DASHBOARD & EXECUTIVE ANALYTICS              │
+                     │  (Omzet, Margin HPP, Dead Stock, ROP, Audit Log Cabang) │
                      └────────────────────────────┬────────────────────────────┘
                                                   │
-         ┌───────────────────────┬────────────────┴────────────────┬───────────────────────┐
-         ▼                       ▼                                 ▼                       ▼
-┌──────────────────┐   ┌──────────────────┐             ┌──────────────────┐   ┌──────────────────┐
-│  PILAR 1: MASTER │   │   PILAR 2: POS   │             │ PILAR 3: WMS &   │   │  PILAR 4: SUPPLY │
-│  DATA & CABANG   │   │  KASIR & RESEP   │             │ INVENTORY FEFO   │   │  CHAIN & PBF     │
-├──────────────────┤   ├──────────────────┤             ├──────────────────┤   ├──────────────────┤
-│• Multi-Branch    │   │• Penjualan OTC   │ ◄──Mutasi── │• Batch & ED FEFO │ ◄─│• Defekta ROP     │
-│• Master Produk   │   │• Skrining Resep  │    Stok     │• Multi-Satuan    │ PO│• SP Resmi APA    │
-│  (Paten/Generik) │   │• Modul Racikan   │             │• Kartu Stok BPOM │   │• Faktur Masuk    │
-│• Multi-Satuan    │   │• Cetak Etiket    │             │• Stock Opname    │   │• Retur ED ke PBF │
-│• Master PBF & SIP│   │• Shift & Laci Kas│             │• Mutasi Cabang   │   │• Hutang & TOP    │
-└──────────────────┘   └──────────────────┘             └──────────────────┘   └──────────────────┘
-                                                                  │
-                                                                  ▼
-                                                ┌──────────────────────────────────┐
-                                                │ PILAR 5: FINANSIAL & KEPATUHAN   │
-                                                ├──────────────────────────────────┤
-                                                │• HPP Moving Average & Laba Rugi  │
-                                                │• Laporan SIPNAP (Kemenkes/BPOM)  │
-                                                │• Kesiapan Integrasi SatuSehat    │
-                                                └──────────────────────────────────┘
+ ┌────────────────────────────────────────────────┴──────────────────────────────────────────────┐
+ │               FONDASI: AUTENTIKASI, LEGALITAS PROFESI & KONTROL AKSES CABANG                  │
+ │      • Dual-UX Login (Fast PIN POS & Web ERP) • SIPA Apoteker & STRTTK • RBAC & Override      │
+ └───────┬────────────────────────┬───────────────────────────────┬──────────────────────────────┘
+         │                        │                               │
+         ▼                        ▼                               ▼
+┌──────────────────┐    ┌──────────────────┐            ┌──────────────────┐
+│  PILAR 1: MASTER │    │   PILAR 2: POS   │            │ PILAR 3: WMS &   │
+│  DATA & CABANG   │    │  KASIR & RESEP   │            │ INVENTORY FEFO   │
+├──────────────────┤    ├──────────────────┤            ├──────────────────┤
+│• Multi-Branch    │    │• Penjualan OTC   │ ◄──Mutasi─ │• Batch & ED FEFO │
+│• Master Produk   │    │• Skrining Resep  │    Stok    │• Multi-Satuan    │
+│  (Paten/Generik) │    │• Modul Racikan   │            │• Kartu Stok BPOM │
+│• Multi-Satuan    │    │• Cetak Etiket    │            │• Stock Opname    │
+│• Master PBF & SIP│    │• Shift & Laci Kas│            │• Mutasi Cabang   │
+└──────────────────┘    └──────────────────┘            └──────────────────┘
+         │                                                        ▲
+         ▼                                                        │ PO Masuk
+┌──────────────────────────────────────────┐                      │
+│       PILAR 4: SUPPLY CHAIN & PBF        │──────────────────────┘
+├──────────────────────────────────────────┤
+│• Buku Defekta ROP • SP Resmi Ber-SIPA    │
+│• Faktur Masuk PBF • HPP Moving Average   │
+│• Retur Barang ED ke Distributor PBF      │
+└──────────────────────────────────────────┘
+         │
+         ▼
+┌──────────────────────────────────────────┐
+│     PILAR 5: FINANSIAL & KEPATUHAN       │
+├──────────────────────────────────────────┤
+│• Hutang Dagang PBF & Term of Payment     │
+│• Laba Rugi Cabang & Konsolidasi          │
+│• Ekspor Laporan SIPNAP Kemenkes/BPOM     │
+│• Kesiapan Integrasi SatuSehat (FHIR)     │
+└──────────────────────────────────────────┘
 ```
+
+### Fondasi: Autentikasi, Akun Pengguna & Hak Akses (RBAC)
+* **Dual-UX Login:** Fast Login (PIN 4-6 digit / Barcode Scan ID Card) untuk kasir di meja depan agar pergantian kasir cepat tanpa hambatan antrean, serta Email + Password untuk Web Backoffice ERP.
+* **Profil Legalitas Profesi Farmasi:** Pencatatan nomor STRA dan SIPA Apoteker Pengelola Apotek (wajib tercetak di SP PBF dan etiket) serta STRTTK/SIPTTK untuk Asisten Apoteker.
+* **Mekanisme Supervisor / Apoteker Override:** Validasi otorisasi PIN supervisor/apoteker saat kasir melakukan *Void Transaksi*, diskon khusus, atau pembatalan racikan.
+* **Isolasi Sesi Multi-Cabang:** Pengikatan akun kasir ke 1 cabang aktif (`branch_id`), serta *Branch Switcher* fleksibel bagi Owner / Super Admin.
 
 ### Pilar 1: Master Data & Tata Kelola Multi-Cabang
 * **Hierarki Cabang:** Struktur fleksibel dari Apotek Tunggal (*Single-Outlet*) yang siap instan diekspansi ke Jaringan Apotek Multi-Cabang (*Branch Office & Central Warehouse*).
 * **Katalog Produk Global:** Standarisasi nama paten, nama generik (zat aktif), produsen farmasi, golongan obat (Bebas, Terbatas, Keras, Narkotika), dan barcode EAN-13/UPC.
 * **Hierarki Satuan Bertingkat:** Relasi konversi satuan terkecil hingga terbesar (contoh: 1 Box = 10 Strip = 100 Tablet) dengan perhitungan harga jual proporsional.
+* **Master PBF & Dokter Perujuk:** Direktori distributor resmi PBF (syarat izin & TOP) dan dokter perujuk (No SIP).
 
 ### Pilar 2: Front-Office POS, Resep & Racikan
 * **Kasir Cepat Keyboard-First:** Navigasi tanpa mouse, auto-focus scanner barcode, dan fitur *hold/recall* keranjang saat pasien konsultasi tambahan.
-* **Pelayanan Resep Dokter:** Pencatatan dokter perujuk, nomor SIP, data pasien (berat badan, umur, alergi), dan riwayat medikasi pasien (*Patient Medication Record*).
+* **Pelayanan Resep Dokter:** Pencatatan dokter perujuk, nomor SIP, data pasien (berat badan, umur, alergi), salinan resep (*copy resep/iter*), dan riwayat medikasi pasien (*Patient Medication Record*).
 * **Kalkulator Racikan (Puyer, Kapsul, Sirup, Salep):** Pemotongan otomatis bahan baku mentah (tablet, sirup, salep) ditambah biaya jasa farmasi (**Tuslah**) dan biaya kemasan (**Embalase**).
 * **Pencetakan Otomatis:** Struk kasir thermal (ESC/POS) dan etiket obat sesuai regulasi (Etiket Putih untuk obat dalam & Etiket Biru untuk obat luar).
 
@@ -158,8 +183,8 @@ graph TD
 
 ## 6. Roadmap & Milestone Implementasi
 
-* **Fase 1: Fondasi Master Data, Multi-Branch & Autentikasi**
-  * Master cabang, role kasir/apoteker/gudang, master obat, golongan obat, multi-satuan, dan arsitektur database DRA awal.
+* **Fase 1: Autentikasi, Akun Pengguna, Master Data & Multi-Branch Ready**
+  * Dokumen PRD Autentikasi & Akun (`features/01-prd-auth-user.md`), Master Cabang, Master Obat, Multi-Satuan, Master PBF, dan skema database DRA awal.
 * **Fase 2: Front-Office POS, Resep & Peracikan**
   * Kasir cepat OTC, transaksi resep dokter, kalkulator racikan (tuslah & embalase), cetak etiket & struk kasir, shift kasir.
 * **Fase 3: Inventory WMS, Batch FEFO & Kartu Stok BPOM**
@@ -168,3 +193,43 @@ graph TD
   * Buku defekta ROP, generator SP resmi (Reguler, OOT, Prekursor, Narkotika), penerimaan faktur PBF, HPP Moving Average, jatuh tempo hutang.
 * **Fase 5: Dashboard Finansial, SIPNAP & Integrasi SatuSehat**
   * Laporan laba rugi konsolidasian per cabang, ekspor SIPNAP BPOM, dan integrasi SatuSehat Kemenkes FHIR API.
+
+---
+
+## 7. Indeks Rincian 31 Fitur Bisnis Sistem
+
+| Kode | Nama Fitur Bisnis | Klaster Dokumen PRD |
+| :--- | :--- | :--- |
+| **F0-01** | Dual-UX Autentikasi & Sesi Multi-Cabang | `features/01-prd-auth-user.md` |
+| **F0-02** | Profil Karyawan & Legalitas Profesi (SIPA / STRTTK) | `features/01-prd-auth-user.md` |
+| **F0-03** | Matriks Hak Akses (RBAC) & Supervisor Override | `features/01-prd-auth-user.md` |
+| **F1-01** | Master Cabang & Gudang | `features/master-data/01-prd-cabang-dan-gudang.md` |
+| **F1-02** | Master Obat, Zat Aktif & Golongan Regulasi | `features/master-data/02-prd-obat-dan-satuan-bertingkat.md` |
+| **F1-03** | Hierarki Multi-Satuan Bertingkat & Pricing | `features/master-data/02-prd-obat-dan-satuan-bertingkat.md` |
+| **F1-04** | Master Distributor / Supplier (PBF) | `features/master-data/03-prd-pbf-supplier-dan-dokter.md` |
+| **F1-05** | Master Dokter & Rekam Medikasi Pasien (PMR) | `features/master-data/03-prd-pbf-supplier-dan-dokter.md` |
+| **F2-01** | Kasir Cepat Penjualan Bebas (OTC) & Hold Cart | `features/pos-resep/01-prd-kasir-otc-dan-shift.md` |
+| **F2-02** | Pelayanan Resep Dokter (Non-Racikan & Copy Resep) | `features/pos-resep/02-prd-pelayanan-resep-dokter.md` |
+| **F2-03** | Kalkulator Racikan Otomatis (Puyer/Kapsul/Salep) | `features/pos-resep/03-prd-obat-racikan-tuslah-embalase.md` |
+| **F2-04** | Biaya Jasa Farmasi (Tuslah & Embalase) | `features/pos-resep/03-prd-obat-racikan-tuslah-embalase.md` |
+| **F2-05** | Generator & Cetak Etiket Thermal (Putih & Biru) | `features/pos-resep/02-prd-pelayanan-resep-dokter.md` |
+| **F2-06** | Multi-Metode Pembayaran (Cash, QRIS, EDC, Piutang) | `features/pos-resep/01-prd-kasir-otc-dan-shift.md` |
+| **F2-07** | Manajemen Shift & Rekonsiliasi Laci Kasir | `features/pos-resep/01-prd-kasir-otc-dan-shift.md` |
+| **F3-01** | Alokasi Pengeluaran Stok FEFO Otomatis | `features/inventory-wms/01-prd-alokasi-batch-fefo-dan-warning-ed.md` |
+| **F3-02** | Early Warning Expiry Date (Radar ED 6/3/1 Bulan) | `features/inventory-wms/01-prd-alokasi-batch-fefo-dan-warning-ed.md` |
+| **F3-03** | Kartu Stok Digital Terverifikasi Standar BPOM | `features/inventory-wms/02-prd-kartu-stok-bpom-dan-stock-opname.md` |
+| **F3-04** | Stock Opname Dinamis & Parsial per Rak | `features/inventory-wms/02-prd-kartu-stok-bpom-dan-stock-opname.md` |
+| **F3-05** | Penyesuaian Stok & Berita Acara Pemusnahan | `features/inventory-wms/02-prd-kartu-stok-bpom-dan-stock-opname.md` |
+| **F3-06** | Transfer Stok Antar Cabang (Inter-Branch Transfer) | `features/inventory-wms/03-prd-transfer-stok-antar-cabang.md` |
+| **F4-01** | Buku Defekta Otomatis (Reorder Point & Buffer Stock)| `features/procurement-pbf/01-prd-defekta-rop-dan-surat-pesanan-sp.md` |
+| **F4-02** | Generator Surat Pesanan (SP) Resmi BPOM | `features/procurement-pbf/01-prd-defekta-rop-dan-surat-pesanan-sp.md` |
+| **F4-03** | Manajemen Purchase Order (PO) ke PBF | `features/procurement-pbf/01-prd-defekta-rop-dan-surat-pesanan-sp.md` |
+| **F4-04** | Penerimaan Barang & Faktur PBF (Diskon Bertingkat) | `features/procurement-pbf/02-prd-faktur-masuk-hpp-dan-retur-pbf.md` |
+| **F4-05** | HPP Dinamis (Moving Average) | `features/procurement-pbf/02-prd-faktur-masuk-hpp-dan-retur-pbf.md` |
+| **F4-06** | Retur Pembelian ke PBF (Obat Menjelang ED/Rusak) | `features/procurement-pbf/02-prd-faktur-masuk-hpp-dan-retur-pbf.md` |
+| **F5-01** | Monitoring Hutang Dagang PBF & Term of Payment | `features/finance-laporan/01-prd-hutang-pbf-dan-laba-rugi-cabang.md` |
+| **F5-02** | Laporan Laba Rugi & Margin per Cabang / Konsolidasi | `features/finance-laporan/01-prd-hutang-pbf-dan-laba-rugi-cabang.md` |
+| **F5-03** | Analisis Performa Persediaan (Pareto ABC & Dead Stock)| `features/finance-laporan/01-prd-hutang-pbf-dan-laba-rugi-cabang.md` |
+| **F5-04** | Ekspor Laporan Resmi SIPNAP (Kemenkes/BPOM) | `features/finance-laporan/02-prd-kepatuhan-sipnap-dan-satusehat.md` |
+| **F5-05** | Kesiapan Integrasi SatuSehat Kemenkes (FHIR) | `features/finance-laporan/02-prd-kepatuhan-sipnap-dan-satusehat.md` |
+

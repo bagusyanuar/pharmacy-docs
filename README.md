@@ -79,6 +79,7 @@ pharmacy-docs/
 ├── PROGRESS.md                               # Checkpoint resmi dan progres pengerjaan
 ├── README.md                                 # Hub navigasi utama (dokumen ini)
 ├── features/                                 # Kumpulan spesifikasi kebutuhan bisnis (PRD)
+│   ├── 01-prd-auth-user.md                   # PRD Autentikasi Dual-UX, Legalitas SIPA & Hak Akses
 │   ├── master-data/                          # PRD Master Cabang, Produk, Multi-Satuan, PBF
 │   ├── pos-resep/                            # PRD Kasir OTC, Resep, Racikan, Shift
 │   ├── inventory-wms/                        # PRD Batch FEFO, Kartu Stok BPOM, Transfer Cabang

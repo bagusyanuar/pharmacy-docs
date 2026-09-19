@@ -1,10 +1,10 @@
 # Graph Report - pharmacy-docs  (2026-09-19)
 
 ## Corpus Check
-- Corpus is ~10,033 words - fits in a single context window. You may not need a graph.
+- Corpus is ~10,964 words - fits in a single context window. You may not need a graph.
 
 ## Summary
-- 147 nodes · 146 edges · 14 communities
+- 140 nodes · 139 edges · 15 communities
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -23,51 +23,52 @@
 - Business PRD Scaffolder
 - Frontend POS Task Template
 - Frontend Web Task Template
+- Community 14
 
 ## God Nodes (most connected - your core abstractions)
 1. `Langkah-Langkah Eksekusi Otomatis` - 7 edges
-2. `Pharmacy Management System: POS & ERP Apotek` - 7 edges
-3. `Pharmacy POS & ERP System (Dokumentasi & Spesifikasi Arsitektur)` - 7 edges
-4. `Pharmacy POS & ERP System` - 7 edges
-5. `2. Invariants & Standards for DRA (Database Architecture & ERD)` - 6 edges
-6. `Langkah-Langkah Eksekusi Otomatis` - 6 edges
-7. `4. Arsitektur 5 Pilar Modul Utama` - 6 edges
-8. `🏷️ Rincian Fitur per Fase` - 6 edges
-9. `Pharmacy POS & ERP System (Apotek)` - 6 edges
-10. `2. Standard 4-Step Cascade Update Workflow` - 5 edges
+2. `Pharmacy POS & ERP System (Dokumentasi & Spesifikasi Arsitektur)` - 7 edges
+3. `Pharmacy POS & ERP System` - 7 edges
+4. `2. Invariants & Standards for DRA (Database Architecture & ERD)` - 6 edges
+5. `Langkah-Langkah Eksekusi Otomatis` - 6 edges
+6. `🏷️ Rincian Fitur per Fase` - 6 edges
+7. `Pharmacy POS & ERP System (Apotek)` - 6 edges
+8. `2. Standard 4-Step Cascade Update Workflow` - 5 edges
+9. `Pharmacy Management System: POS & ERP Apotek` - 5 edges
+10. `3. Standar Invarian Database (PostgreSQL 15+)` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (14 total, 0 thin omitted)
+## Communities (15 total, 0 thin omitted)
 
 ### Community 0 - "Governance Rules & Persona Tika"
 Cohesion: 0.12
-Nodes (12): graphify, 1. Identitas & Profil Utama, 2. Penguasaan Domain & Pengetahuan Sistem (Core Competencies), 3. Tanggung Jawab Harian Tika dalam Tim, Persona: Tika — Lead System Analyst & Technical Project Manager, Workflow: graphify, 🛡️ Aturan Bisnis yang Wajib Dipenuhi, 📚 Dokumen Acuan (SSOT) (+4 more)
-
-### Community 1 - "Multi-Branch Architecture & DB Invariants"
-Cohesion: 0.12
 Nodes (16): 1.1 Masalah Klasik Migrasi Apotek, 1.2 Strategi Solusi: Multi-Branch Ready Sejak Hari Pertama (Day 1), 1. Filosofi: "Single-Branch in Mind, Multi-Branch in Design", 2. Pemisahan Data: "Global Master" vs "Branch-Specific Data", 3.1 Universal Audit Trail (5 Kolom Standar), 3.2 Kolom Cabang Wajib (`branch_id`), 3.3 Relational Integrity & Zero Hard-Delete, 3.4 Tipe Data Presisi Anti-Floating Point (+8 more)
 
-### Community 2 - "Master PRD Pharmacy POS & ERP"
-Cohesion: 0.12
-Nodes (15): 1. Metadata Dokumen, 2.1 Konteks Masalah Operasional Apotek, 2.2 Visi & Solusi Produk, 2. Latar Belakang & Problem Statement, 3. Matriks Peran Pengguna (Role-Based Access Control / RBAC), 4. Arsitektur 5 Pilar Modul Utama, 5. Non-Functional Requirements (NFR), 6. Roadmap & Milestone Implementasi (+7 more)
-
-### Community 3 - "Master Hub & System Architecture"
+### Community 1 - "Multi-Branch Architecture & DB Invariants"
 Cohesion: 0.14
 Nodes (13): 1. Membuka Graf Pengetahuan Interaktif, 2. Menanyakan Relasi Arsitektur via AI, 3. Memperbarui Graf Pengetahuan, 🏛️ Arsitektur 5 Pilar Sistem, Cara Menerbitkan Tiket via AI:, 👥 Matriks Peran Pengguna (Role-Based Access Control / RBAC), Menutup Tiket Otomatis via Pull Request (Cross-Repo Auto-Close):, 🧠 Panduan Navigasi Knowledge Graph (Graphify) (+5 more)
 
-### Community 4 - "Technical Architecture & DRA Standards"
+### Community 2 - "Master PRD Pharmacy POS & ERP"
 Cohesion: 0.15
 Nodes (12): 1. Core Principles of Technical Documentation, 2.1 Multi-Branch Ready from Day 1 (Invarian Mutlak), 2.2 Universal Audit Trail (Wajib di Setiap Tabel), 2.3 Relational Integrity & Deletion Policy, 2.4 Strict Data Type Conventions, 2.5 Indexing Strategy for Pharmacy Performance, 2. Invariants & Standards for DRA (Database Architecture & ERD), 3.1 Standard RESTful API Envelope (+4 more)
 
-### Community 5 - "Issue-Driven Development Scaffolder"
+### Community 3 - "Master Hub & System Architecture"
+Cohesion: 0.18
+Nodes (7): graphify, 1. Identitas & Profil Utama, 2. Penguasaan Domain & Pengetahuan Sistem (Core Competencies), 3. Tanggung Jawab Harian Tika dalam Tim, Persona: Tika — Lead System Analyst & Technical Project Manager, Workflow: graphify, Status Progres Pengerjaan Dokumentasi & Arsitektur
+
+### Community 4 - "Technical Architecture & DRA Standards"
 Cohesion: 0.20
 Nodes (9): 1. Core Principles of Issue-Driven Development (IDD), 2. Format Penamaan & Labeling Standar, 3. Template Body Tiket Standar, A. Format Backend (`[BE]`), B. Format Frontend POS Kasir (`[FE-POS]`), C. Format Frontend Web Admin / ERP (`[FE-WEB]`), Format Judul Tiket:, Issue Task Scaffolder Skill (Spec-Driven / Issue-Driven Development) (+1 more)
 
-### Community 6 - "Feature Checklist & Implementation Matrix"
+### Community 5 - "Issue-Driven Development Scaffolder"
 Cohesion: 0.20
-Nodes (9): Fase 1: Fondasi Master Data, Multi-Branch & Autentikasi, Fase 2: Front-Office POS, Pelayanan Resep & Peracikan, Fase 3: Pergudangan, Batch FEFO & Kartu Stok BPOM, Fase 4: Procurement & Rantai Pasok PBF, Fase 5: Finansial, SIPNAP & Integrasi SatuSehat, Master Feature & Implementation Checklist, 📊 Matriks Status Implementasi Global, Pharmacy POS & ERP System (Apotek) (+1 more)
+Nodes (9): Fase 1: Autentikasi, Legalitas Profesi, Master Data & Multi-Branch Ready, Fase 2: Front-Office POS, Pelayanan Resep & Peracikan, Fase 3: Pergudangan, Batch FEFO & Kartu Stok BPOM, Fase 4: Procurement & Rantai Pasok PBF, Fase 5: Finansial, SIPNAP & Integrasi SatuSehat, Master Feature & Implementation Checklist, 📊 Matriks Status Implementasi Global, Pharmacy POS & ERP System (Apotek) (+1 more)
+
+### Community 6 - "Feature Checklist & Implementation Matrix"
+Cohesion: 0.22
+Nodes (8): 1. Metadata Dokumen, 2.1 Konteks Masalah Operasional Apotek, 2.2 Visi & Solusi Produk, 2. Latar Belakang & Problem Statement, 3. Matriks Peran Pengguna (Role-Based Access Control / RBAC), 4. Arsitektur 5 Pilar Modul Utama, Master Product Requirements Document (PRD), Pharmacy Management System: POS & ERP Apotek
 
 ### Community 7 - "Save Progress Workflow"
 Cohesion: 0.22
@@ -91,26 +92,26 @@ Nodes (5): Business-Centric PRD Scaffolder Skill (Pharmacy POS & ERP), Core Phil
 
 ### Community 12 - "Frontend POS Task Template"
 Cohesion: 0.33
-Nodes (5): 🛡️ Aturan Bisnis yang Wajib Dipenuhi, 📚 Dokumen Acuan (SSOT), 🎯 Lingkup Pengerjaan (Checklist), ⚡ Non-Functional Requirements (NFR), 📌 Ringkasan Tugas
+Nodes (5): 🛡️ Aturan Bisnis yang Wajib Dipenuhi, 📚 Dokumen Acuan (SSOT), 🎯 Lingkup Pengerjaan (Checklist), ⚠️ Perhatian Khusus & Edge Cases, 📌 Ringkasan Tugas
 
 ### Community 13 - "Frontend Web Task Template"
+Cohesion: 0.33
+Nodes (5): 🛡️ Aturan Bisnis yang Wajib Dipenuhi, 📚 Dokumen Acuan (SSOT), 🎯 Lingkup Pengerjaan (Checklist), ⚡ Non-Functional Requirements (NFR), 📌 Ringkasan Tugas
+
+### Community 14 - "Community 14"
 Cohesion: 0.40
 Nodes (4): 🛡️ Aturan Bisnis yang Wajib Dipenuhi, 📚 Dokumen Acuan (SSOT), 🎯 Lingkup Pengerjaan (Checklist), 📌 Ringkasan Tugas
 
 ## Knowledge Gaps
-- **101 isolated node(s):** `graphify`, `1. Identitas & Profil Utama`, `2. Penguasaan Domain & Pengetahuan Sistem (Core Competencies)`, `3. Tanggung Jawab Harian Tika dalam Tim`, `Strictly Prohibited in PRDs:` (+96 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 101 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **95 isolated node(s):** `graphify`, `1. Identitas & Profil Utama`, `2. Penguasaan Domain & Pengetahuan Sistem (Core Competencies)`, `3. Tanggung Jawab Harian Tika dalam Tim`, `Strictly Prohibited in PRDs:` (+90 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 95 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **What connects `graphify`, `1. Identitas & Profil Utama`, `2. Penguasaan Domain & Pengetahuan Sistem (Core Competencies)` to the rest of the system?**
-  _101 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _95 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Governance Rules & Persona Tika` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `Multi-Branch Architecture & DB Invariants` be split into smaller, more focused modules?**
-  _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
-- **Should `Master PRD Pharmacy POS & ERP` be split into smaller, more focused modules?**
-  _Cohesion score 0.125 - nodes in this community are weakly interconnected._
-- **Should `Master Hub & System Architecture` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
