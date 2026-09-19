@@ -178,6 +178,18 @@ flowchart TD
   * Nama supervisor/apoteker penyetuju (berdasarkan PIN yang diinput).
   * Alasan otorisasi (wajib memilih dari opsi: *Pasien Batal Beli*, *Salah Input Jumlah*, *Uang Kurang*, *Diskon Khusus Karyawan*, atau *Lainnya*).
 
+### 5.5 Pemisahan Entitas Staf Karyawan Fisik vs Akun Pengguna Sistem
+* **BR-PHARM-AUTH-13 (Decoupling Entitas HR vs Akun Login IAM):**
+  Sistem secara tegas memisahkan entitas **Data Karyawan / Staf Fisik** (*Human Resource Record*) dari entitas **Akun Pengguna Sistem** (*Identity & Access Management Account*):
+  1. **Data Karyawan Fisik (Master Staff):** Mencatat identitas manusia (Nama Lengkap, NIK KTP, No. HP, Alamat, Tanggal Masuk Kerja, Jabatan Profesi, serta Legalitas STRA/SIPA/STRTTK). Entitas ini adalah data induk seluruh pekerja apotek (termasuk kurir pengantar obat, helper gudang, dan juru resep).
+  2. **Akun Pengguna Sistem (User Account):** Kredensial digital untuk mengakses sistem (Email, Kata Sandi, PIN Kasir 6 digit, dan Hak Akses Role RBAC).
+  3. **Relasi Opsional (1-to-1):** Satu data karyawan fisik dapat memiliki **maksimal 1 (satu) akun login sistem**, namun pendaftaran akun login bersifat **opsional**. Staf operasional non-sistem (seperti kurir dan tenaga umum) dapat terdata lengkap di sistem tanpa harus dibuatkan akun login.
+* **BR-PHARM-AUTH-14 (Integritas Jejak Audit & Penonaktifan Resign):**
+  * Ketika seorang staf mengundurkan diri (*resign*) atau diberhentikan:
+    1. Administrator **hanya menonaktifkan status Akun Pengguna (User Account)**, sehingga hak akses login ke POS dan ERP seketika dicabut.
+    2. Data profil karyawan fisik **tidak boleh dihapus (*hard delete*)**.
+    3. Seluruh riwayat transaksi masa lalu (nama apoteker pada etiket resep, nama kasir pada struk penjualan, dan peracik pada formulir racikan) **tetap merujuk ke identitas staf asli secara permanen (*immutable audit trail*)**.
+
 ---
 
 ## 6. Elemen Antarmuka & Input Bisnis (UI & Information Elements)
@@ -209,22 +221,29 @@ flowchart TD
   * Kolom catatan keterangan tambahan (*opsional*).
   * Tombol "Setujui Aksi" dan tombol "Tolak / Kembali".
 
-### 6.3 Formulir Pendaftaran Staf & Izin Profesi (Web Admin Backoffice)
-* **Kelompok Data Akun:**
-  * Nama Lengkap Staf (teks wajib).
-  * Nomor Induk Karyawan / NIK (angka unik wajib).
-  * Email Resmi (teks format email, digunakan untuk login Web ERP).
-  * Nomor Handphone / WhatsApp Aktif (wajib untuk notifikasi).
-  * Penugasan Cabang Utama (pilihan dropdown cabang).
-  * Peran Akun (Role: *Kasir, TTK, Apoteker APA, Gudang, Finance, Owner*).
-  * 6 Digit PIN Kasir (input numerik 6 digit, otomatis divalidasi tidak boleh angka berulang seperti `111111` atau urut `123456`).
-* **Kelompok Legalitas Khusus Apoteker & TTK (Kondisional Muncul):**
-  * Nomor STRA (wajib jika peran Apoteker).
-  * Nomor SIPA (wajib jika peran Apoteker, format resmi Kemenkes).
-  * Nomor STRTTK / SIPTTK (wajib jika peran TTK).
-  * Tanggal Terbit Izin (pemilih tanggal).
-  * Tanggal Akhir Masa Berlaku Izin (pemilih tanggal).
-  * Unggah Berkas Pindai Dokumen Surat Izin (file PDF atau Foto formulir resmi).
+### 6.3 Formulir Pendaftaran Staf & Akun Pengguna (Web Admin Backoffice)
+Formulir dirancang terstruktur dalam 3 bagian berjenjang:
+* **Bagian 1: Data Pokok Karyawan Fisik (Data HR Staf):**
+  * Nama Lengkap Staf (teks wajib beserta gelar, contoh: *apt. Siti Rahmawati, S.Farm.*).
+  * Nomor Induk Karyawan / NIK KTP (angka unik wajib).
+  * Nomor Telepon / WhatsApp Aktif (wajib untuk notifikasi izin & operasional).
+  * Penugasan Cabang Utama (*Home Branch* tempat bertugas).
+  * Jabatan / Posisi Pekerjaan (dropdown: *Apoteker, Tenaga Teknis Kefarmasian/Asisten, Kasir, Staf Gudang, Kurir Pengantar, Administrasi*).
+  * Tanggal Mulai Bekerja (pemilih tanggal).
+* **Bagian 2: Legalitas Profesi Khusus Nakes (Kondisional Muncul jika Jabatan Apoteker/TTK):**
+  * Nomor STRA (wajib untuk Apoteker).
+  * Nomor SIPA (wajib untuk Apoteker penanggung jawab).
+  * Nomor STRTTK / SIPTTK (wajib untuk TTK peracik).
+  * Tanggal Terbit & Tanggal Akhir Masa Berlaku Izin.
+  * Unggah Berkas Pindai Fisik Surat Izin (PDF atau foto jelas).
+* **Bagian 3: Akses Sistem & Kredensial Login (Toggle Aktivasi Akun):**
+  * Kotak Centang / Toggle: `[x] Berikan Hak Akses Login ke Sistem`.
+  * *Jika Toggle Diaktifkan, isian berikut wajib diisi:*
+    * Email Resmi / Username (digunakan untuk login Web ERP Backoffice).
+    * Kata Sandi Akun (minimal 8 karakter dengan kombinasi angka dan huruf).
+    * Peran Hak Akses Sistem (*Role RBAC*: *Kasir, TTK, Apoteker APA, Gudang, Finance, Owner*).
+    * 6 Digit PIN Kasir POS (hanya aktif jika peran Kasir/TTK/Apoteker; validasi otomatis anti-pola sederhana seperti `123456` atau `111111`).
+    * Status Akun Sistem (*Aktif / Ditangguhkan / Dinonaktifkan*).
 
 ---
 

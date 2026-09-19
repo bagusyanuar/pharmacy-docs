@@ -7,5 +7,7 @@
 __pycache__/
 *.pyc
 
-# Graphify temporary caches
+# Graphify temporary caches & backups
 graphify-out/cache/
+graphify-out/[0-9][0-9][0-9][0-9]-*/
+graphify-out/*.sig

@@ -38,6 +38,7 @@ Dokumen ini adalah rekam jejak resmi status pengerjaan spesifikasi teknis, arsit
 
 ### 3. Modul Spesifikasi Kebutuhan Bisnis (PRD)
 - [x] [`features/01-prd-auth-user.md`](./features/01-prd-auth-user.md) — Dual-UX Login (Fast PIN POS & Email/Password ERP), profil staf & legalitas profesi (SIPA Apoteker & STRTTK), matriks hak akses 6 persona (RBAC), pop-up otorisasi supervisor (*Manager Override* untuk void/diskon), dan isolasi sesi cabang.
+- [x] [`features/master-data/01-prd-cabang-dan-gudang.md`](./features/master-data/01-prd-cabang-dan-gudang.md) — Master Cabang, klasifikasi tipe cabang (Apotek Ritel/Klinik/Gudang Pusat), izin resmi SIA, prinsip 1 Apotek 1 APA, penugasan staf kasir, zona simpan baku & penomoran rak fisik.
 
 ---
 
@@ -45,17 +46,15 @@ Dokumen ini adalah rekam jejak resmi status pengerjaan spesifikasi teknis, arsit
 
 Berikutnya kita akan menyusun spesifikasi **Fase 1: Master Data & Arsitektur Teknis**:
 
-1. ⏳ **`features/master-data/01-prd-cabang-dan-gudang.md`**
-   - *Cakupan Bisnis:* Struktur cabang tunggal/jaringan, izin apotek (SIA), apoteker penanggung jawab (SIPA), gudang cabang vs gudang pusat.
-2. ⏳ **`features/master-data/02-prd-obat-dan-satuan-bertingkat.md`**
+1. ⏳ **`features/master-data/02-prd-obat-dan-satuan-bertingkat.md`**
    - *Cakupan Bisnis:* Katalog obat paten & generik, golongan obat (Bebas/Terbatas/Keras/Narkotika), hierarki multi-satuan bertingkat (Box $\rightarrow$ Strip $\rightarrow$ Tab), dan penentuan harga jual eceran proporsional.
-3. ⏳ **`features/master-data/03-prd-pbf-supplier-dan-dokter.md`**
+2. ⏳ **`features/master-data/03-prd-pbf-supplier-dan-dokter.md`**
    - *Cakupan Bisnis:* Master distributor PBF, kontak, izin PBF, default TOP kredit, master dokter perujuk (No SIP), dan Patient Medication Record (PMR).
-4. ⏳ **`technical/01-dra-database-erd-master-auth.md`**
+3. ⏳ **`technical/01-dra-database-erd-master-auth.md`**
    - *Cakupan Teknis:* Skema DDL PostgreSQL 15+ (tabel cabang, user, profil SIPA, obat, multi-satuan, PBF), Foreign Key `ON DELETE RESTRICT`, invarian `branch_id`, dan diagram Mermaid ERD.
-5. ⏳ **`technical/02-trd-auth-session-api.md`**
+4. ⏳ **`technical/02-trd-auth-session-api.md`**
    - *Cakupan Teknis:* Kontrak REST API Autentikasi Dual-UX (PIN & Email), JWT RS256, Refresh Token Rotation, dan validasi header `X-Branch-Id`.
-6. ⏳ **`technical/03-trd-master-data-api.md`**
+5. ⏳ **`technical/03-trd-master-data-api.md`**
    - *Cakupan Teknis:* Kontrak RESTful API CRUD untuk seluruh modul Master Data dengan envelope standar `{ success, data, meta, error }`.
 
 ---
@@ -75,4 +74,4 @@ Berikutnya kita akan menyusun spesifikasi **Fase 1: Master Data & Arsitektur Tek
 
 Saat Anda membuka sesi berikutnya, cukup ketik pesan singkat berikut:
 
-> *"Halo Tika, tolong baca `PROGRESS.md` dan kita mulai eksekusi Fase 1: `features/master-data/01-prd-cabang-dan-gudang.md`."*
+> *"Halo Tika, tolong baca `PROGRESS.md` dan kita lanjutkan pengerjaan ke Fase 1: `features/master-data/02-prd-obat-dan-satuan-bertingkat.md`."*

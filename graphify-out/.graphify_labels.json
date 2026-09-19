@@ -1,1 +1,21 @@
-{"0": "Governance Rules & Persona Tika", "1": "Multi-Branch Architecture & DB Invariants", "2": "Master PRD Pharmacy POS & ERP", "3": "Master Hub & System Architecture", "4": "Technical Architecture & DRA Standards", "5": "Issue-Driven Development Scaffolder", "6": "Feature Checklist & Implementation Matrix", "7": "Save Progress Workflow", "8": "Change Impact & Traceability", "9": "Publish Issue Workflow", "10": "Project Progress & Milestone Tracker", "11": "Business PRD Scaffolder", "12": "Frontend POS Task Template", "13": "Frontend Web Task Template", "14": "Auth & Professional License PRD"}
+{
+  "0": "Feature PRD: Autentikasi, Akun Pengguna, Legalitas Profesi Farmasi & Hak Akses (RBAC)",
+  "1": "Feature PRD: Master Cabang, Izin Operasional Apotek (SIA) & Struktur Gudang",
+  "2": "Pharmacy POS & ERP System",
+  "3": "Pharmacy POS & ERP System (Dokumentasi & Spesifikasi Arsitektur)",
+  "4": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
+  "5": "PROGRESS.md",
+  "6": "3. Template Body Tiket Standar",
+  "7": "🏷️ Rincian Fitur per Fase",
+  "8": "Langkah-Langkah Eksekusi Otomatis",
+  "9": "Pharmacy POS & ERP System (Apotek)",
+  "10": "2. Standard 4-Step Cascade Update Workflow",
+  "11": "Langkah-Langkah Eksekusi Otomatis",
+  "12": "Pharmacy Management System: POS & ERP Apotek",
+  "13": "Business-Centric PRD Scaffolder Skill (Pharmacy POS & ERP)",
+  "14": "5. Kebutuhan Fungsional & Aturan Bisnis (Business Rules)",
+  "15": "backend-task.md",
+  "16": "frontend-pos-task.md",
+  "17": "Persona: Tika — Lead System Analyst & Technical Project Manager",
+  "18": "frontend-web-task.md"
+}
