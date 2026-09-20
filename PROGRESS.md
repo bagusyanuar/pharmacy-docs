@@ -35,7 +35,7 @@ Dokumen ini adalah rekam jejak resmi status pengerjaan spesifikasi teknis, arsit
 - [x] [`00-MASTER-PRD.md`](./00-MASTER-PRD.md) — Master PRD sistem (5 pilar, arsitektur modul, NFR, roadmap).
 - [x] [`FEATURE-CHECKLIST.md`](./FEATURE-CHECKLIST.md) — Master Feature & Implementation Checklist lintas platform (Docs, BE, Web Admin, POS Kasir).
 - [x] [`technical/00-architecture-and-multibranch-guidelines.md`](./technical/00-architecture-and-multibranch-guidelines.md) — Fondasi arsitektur multi-cabang ready, FEFO indexing, audit trail universal, dan panduan migrasi.
-- [x] [`technical/database/schema.dbml`](./technical/database/schema.dbml) — Skema relasional global PostgreSQL 15+ (DBML SSOT) untuk 18 entitas tabel Fase 1 dengan `[delete: restrict]`, UUID, TableGroups, dan tabel `supervisor_override_logs`.
+- [x] [`technical/database/schema.dbml`](./technical/database/schema.dbml) — Skema relasional global PostgreSQL 15+ (DBML SSOT) untuk 19 entitas tabel Fase 1 dengan `[delete: restrict]`, UUID, TableGroups, pemisahan `staff_profiles` vs `users` (BR-PHARM-AUTH-13), dan tabel `supervisor_override_logs`.
 - [x] [`technical/diagrams/01-diagrams-auth-dan-cabang.md`](./technical/diagrams/01-diagrams-auth-dan-cabang.md) — Blueprint visual lengkap domain Autentikasi & Cabang (Usecase 6 persona, Flowchart Dual-UX & Override, Sequence Diagram POS PIN, State Lifecycle, Scoped ERD).
 - [x] [`technical/01-trd-auth-dan-cabang.md`](./technical/01-trd-auth-dan-cabang.md) — Technical Requirements Document (TRD) berprinsip Tech-Agnostic untuk Autentikasi Dual-UX (Fast PIN Kasir & Email/Password ERP), Refresh Token Rotation (RTR), Supervisor Override, isolasi header `X-Branch-Id`, RBAC 6 persona, dan scheduled worker legalitas SIPA.
 

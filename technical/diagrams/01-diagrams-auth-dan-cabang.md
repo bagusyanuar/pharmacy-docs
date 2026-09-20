@@ -321,15 +321,18 @@ erDiagram
     BRANCHES ||--o{ USER_BRANCHES : "menugaskan staf"
     BRANCHES ||--o{ PHARMACIST_PROFILES : "lokasi penugasan SIPA resmi"
 
+    STAFF_PROFILES ||--o| USERS : "memiliki akun login sistem"
+    STAFF_PROFILES ||--o| PHARMACIST_PROFILES : "memiliki profil legalitas"
+
     ROLES ||--o{ USERS : "mengelompokkan hak akses"
     USERS ||--o{ USER_BRANCHES : "ditempatkan pada"
-    USERS ||--o| PHARMACIST_PROFILES : "memiliki izin profesi"
+    USERS ||--o{ SUPERVISOR_OVERRIDE_LOGS : "mencatat otorisasi kasir"
 
     BRANCHES {
         uuid id PK
         varchar branch_code UK "Kode cabang (AP-MLW-01)"
-        varchar branch_name "Nama apotek/gudang"
-        enum branch_type "RETAIL / CLINIC / CENTRAL_WAREHOUSE"
+        varchar branch_name "Nama apotek atau gudang"
+        enum branch_type "RETAIL atau CLINIC atau CENTRAL_WAREHOUSE"
         varchar sia_number "Nomor izin SIA"
         date sia_expired_date "Masa berlaku izin SIA"
         boolean is_active "Status operasional"
@@ -344,31 +347,50 @@ erDiagram
         uuid branch_id FK "Invarian Cabang"
         varchar rack_code "Kode fisik rak (RAK-A-01)"
         varchar zone_area "Zona simpan obat"
-        boolean is_locked "Kunci lemari psiko/narko"
+        boolean is_locked "Kunci lemari psiko atau narko"
+    }
+
+    STAFF_PROFILES {
+        uuid id PK
+        varchar employee_code UK "Nomor Induk Karyawan internal"
+        varchar nik UK "Nomor Induk Kependudukan KTP 16 digit"
+        varchar full_name "Nama lengkap beserta gelar resmi"
+        varchar phone "Nomor WhatsApp aktif"
+        varchar email "Email personal"
+        date hire_date "Tanggal mulai bekerja"
+        varchar job_position "Posisi atau jabatan staf"
+        boolean is_active "Status kepegawaian aktif"
+        timestamptz created_at
+        timestamptz updated_at
+        uuid created_by
+        timestamptz deleted_at
     }
 
     ROLES {
         uuid id PK
-        varchar role_code UK "SUPER_ADMIN / APOTEKER / KASIR"
+        varchar role_code UK "SUPER_ADMIN atau APOTEKER atau KASIR"
         varchar role_name "Label tampilan role"
         boolean can_supervisor_override "Izin PIN override"
     }
 
     USERS {
         uuid id PK
-        varchar employee_code UK "Nomor induk staf"
-        varchar full_name "Nama staf"
+        uuid staff_id FK "Relasi 1-to-1 profil fisik staf"
         varchar email UK "Email login Web ERP"
         varchar password_hash "Hash kata sandi Web"
         varchar pin_hash "Hash PIN cepat POS 4-6 digit"
         varchar barcode_card UK "Barcode ID card staf"
-        uuid role_id FK
-        boolean is_active "Status aktif staf"
+        uuid role_id FK "Role utama staf"
+        boolean is_active "Status akun login aktif"
+        timestamptz created_at
+        timestamptz updated_at
+        uuid created_by
+        timestamptz deleted_at
     }
 
     USER_BRANCHES {
         uuid id PK
-        uuid user_id FK "Staf apotek"
+        uuid user_id FK "Akun login staf"
         uuid branch_id FK "Cabang penugasan"
         boolean is_default "Cabang utama"
         boolean can_operate_pos "Wewenang buka kasir"
@@ -376,12 +398,29 @@ erDiagram
 
     PHARMACIST_PROFILES {
         uuid id PK
-        uuid user_id FK "User Apoteker / TTK"
+        uuid staff_id FK "Staf Apoteker atau TTK berizin"
         varchar license_type "SIPA atau STRTTK"
         varchar license_number "Nomor izin resmi"
         date license_expired_date "Masa aktif izin"
-        boolean is_apa "Penanggung Jawab (1 Cabang = 1 APA)"
+        boolean is_apa "Penanggung Jawab 1 Cabang 1 APA"
         uuid assigned_branch_id FK "Cabang tempat SIPA terdaftar"
+        timestamptz created_at
+        timestamptz updated_at
+        uuid created_by
+        timestamptz deleted_at
+    }
+
+    SUPERVISOR_OVERRIDE_LOGS {
+        uuid id PK
+        uuid branch_id FK "Cabang terjadinya override"
+        uuid cashier_user_id FK "Kasir pemohon"
+        uuid supervisor_user_id FK "Supervisor penyetuju"
+        varchar action_type "VOID_TRANSACTION atau MANUAL_DISCOUNT"
+        varchar reason_category "Kategori alasan"
+        text reason_notes "Keterangan detail"
+        varchar target_entity_type "Entitas terkait"
+        uuid target_entity_id "ID entitas"
+        timestamptz created_at
     }
 ```
 

@@ -400,6 +400,13 @@ Seluruh payload request dan response mematuhi **Uniform JSON Envelope Standard**
 ### 4.2 Strategi Pengindeksan Database Kinerja Tinggi
 Kueri login dan otorisasi dieksekusi ratusan kali per hari, sehingga wajib didukung indeks relasional:
 ```sql
+-- Pencarian kilat Nomor Induk Karyawan & NIK KTP staf fisik
+CREATE UNIQUE INDEX uq_staff_employee_code ON staff_profiles(employee_code) 
+WHERE deleted_at IS NULL;
+
+CREATE UNIQUE INDEX uq_staff_nik ON staff_profiles(nik) 
+WHERE deleted_at IS NULL AND nik IS NOT NULL;
+
 -- Pencarian kilat barcode kartu identitas staf kasir
 CREATE UNIQUE INDEX uq_users_barcode_card ON users(barcode_card) 
 WHERE deleted_at IS NULL AND barcode_card IS NOT NULL;
@@ -652,11 +659,11 @@ Dokumen TRD ini didekomposisi menjadi **tiket tugas atomik siap eksekusi** (1 Pu
 ### A. Klaster Backend `[BE]` (5 Sub-Tasks)
 | No Tiket | Judul Tiket Rekomendasi | Deliverable Utama |
 | :--- | :--- | :--- |
-| `BE-01` | `[BE] Auth & Sesi (Part 1/5): Migrasi Skema Database Relasional, Indeks & Seeding` | File migrasi tabel `branches`, `roles`, `users`, `user_branches`, `pharmacist_profiles`, `supervisor_override_logs`, foreign keys, dan seed Super Admin. |
+| `BE-01` | `[BE] Auth & Sesi (Part 1/5): Migrasi Skema Database Relasional, Indeks & Seeding` | File migrasi tabel `branches`, `roles`, `staff_profiles`, `users`, `user_branches`, `pharmacist_profiles`, `supervisor_override_logs`, foreign keys, dan seed Super Admin. |
 | `BE-02` | `[BE] Auth & Sesi (Part 2/5): Endpoint Web Login, Fast PIN POS & Refresh Token Rotation` | Endpoint `/auth/web/login`, `/auth/pos/fast-login`, `/auth/refresh-token` (dual cookie browser & body mobile), Bcrypt, rate-limit 5x salah PIN. |
 | `BE-03` | `[BE] Auth & Sesi (Part 3/5): Middleware Isolasi X-Branch-Id & Lock/Unlock Layar POS` | Middleware validasi `X-Branch-Id`, endpoint `/auth/switch-branch`, dan endpoint `/auth/pos/lock` & `/unlock`. |
 | `BE-04` | `[BE] Auth & Sesi (Part 4/5): Supervisor Override Transaksional & Audit Logging` | Endpoint `/auth/pos/supervisor-override`, verifikasi PIN supervisor, check `can_supervisor_override = true`, dan transaksi ACID insert ke log audit. |
-| `BE-05` | `[BE] Auth & Sesi (Part 5/5): CRUD Manajemen Staf & Scheduled Worker Kedaluwarsa SIPA` | Endpoint `GET/POST/PUT /users` dengan data SIPA/STRTTK, dan scheduled cron worker harian (01:00 UTC) peringatan H-90, H-30, H-0 blokir SP. |
+| `BE-05` | `[BE] Auth & Sesi (Part 5/5): CRUD Manajemen Staf & Scheduled Worker Kedaluwarsa SIPA` | Endpoint `GET/POST/PUT /staff` & `/users` dengan profil legalitas SIPA/STRTTK, dan scheduled cron worker harian (01:00 UTC) peringatan H-90, H-30, H-0 blokir SP. |
 
 ### B. Klaster Frontend POS Kasir `[FE-POS]` (3 Sub-Tasks)
 | No Tiket | Judul Tiket Rekomendasi | Deliverable Utama |

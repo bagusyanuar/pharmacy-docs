@@ -130,17 +130,18 @@ Table roles {
   Note: 'Matriks hak akses 6 persona apotek terstandarisasi.'
 }
 
-Table users {
-  id uuid [pk, default: `gen_random_uuid()`]
+Table staff_profiles {
+  id uuid [pk, default: `gen_random_uuid()`, note: 'Unique Staff ID']
   employee_code varchar(30) [unique, not null, note: 'Nomor Induk Karyawan (NIK Internal)']
-  full_name varchar(100) [not null, note: 'Nama lengkap karyawan']
-  email varchar(100) [unique, not null, note: 'Email login Web ERP']
-  password_hash varchar(255) [not null, note: 'Hash password login Web Admin (Bcrypt cost >= 12)']
-  pin_hash varchar(255) [null, note: 'Hash PIN 4-6 digit untuk login cepat POS Kasir & Supervisor Override (Bcrypt cost 10)']
-  barcode_card varchar(50) [unique, null, note: 'Nomor barcode ID card untuk scan login kasir instan']
-  phone varchar(30) [note: 'Nomor WhatsApp staf']
-  role_id uuid [not null, note: 'Role utama staf']
-  is_active boolean [not null, default: true, note: 'Status aktif staf']
+  nik varchar(16) [unique, null, note: 'Nomor Induk Kependudukan KTP (16 Digit)']
+  full_name varchar(100) [not null, note: 'Nama lengkap staf beserta gelar resmi']
+  gender varchar(10) [null, note: 'LAKI_LAKI / PEREMPUAN']
+  phone varchar(30) [not null, note: 'Nomor WhatsApp aktif staf']
+  email varchar(100) [null, note: 'Email personal staf']
+  address text [null, note: 'Alamat domisili tempat tinggal staf']
+  hire_date date [not null, default: `current_date`, note: 'Tanggal mulai bekerja']
+  job_position varchar(50) [not null, note: 'Posisi/Jabatan: APOTEKER, ASISTEN_APOTEKER, KASIR, GUDANG, KURIR, FINANCE']
+  is_active boolean [not null, default: true, note: 'Status kepegawaian staf aktif']
 
   // Universal Audit Trail
   created_at timestamptz [not null, default: `now()`]
@@ -148,12 +149,31 @@ Table users {
   created_by uuid [null]
   deleted_at timestamptz [null]
 
-  Note: 'Akun identitas staf apotek yang mendukung Dual-UX Login (PIN Kasir & Password ERP).'
+  Note: 'Master data profil kepegawaian fisik (HR Record) apotek sesuai BR-PHARM-AUTH-13.'
+}
+
+Table users {
+  id uuid [pk, default: `gen_random_uuid()`]
+  staff_id uuid [unique, not null, note: 'Relasi 1-to-1 ke profil fisik staf pemilik akun (BR-PHARM-AUTH-13)']
+  email varchar(100) [unique, not null, note: 'Email login Web ERP']
+  password_hash varchar(255) [not null, note: 'Hash password login Web Admin (Bcrypt cost >= 12)']
+  pin_hash varchar(255) [null, note: 'Hash PIN 4-6 digit untuk login cepat POS Kasir & Supervisor Override (Bcrypt cost 10)']
+  barcode_card varchar(50) [unique, null, note: 'Nomor barcode ID card untuk scan login kasir instan']
+  role_id uuid [not null, note: 'Role utama staf']
+  is_active boolean [not null, default: true, note: 'Status aktif akun login (toggle deaktifasi saat resign)']
+
+  // Universal Audit Trail
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+  created_by uuid [null]
+  deleted_at timestamptz [null]
+
+  Note: 'Akun identitas digital IAM untuk akses login sistem apotek.'
 }
 
 Table user_branches {
   id uuid [pk, default: `gen_random_uuid()`]
-  user_id uuid [not null, note: 'Staf apotek']
+  user_id uuid [not null, note: 'Akun login staf apotek']
   branch_id uuid [not null, note: 'Cabang tempat staf ditugaskan']
   is_default boolean [not null, default: false, note: 'Cabang penugasan utama staf']
   can_operate_pos boolean [not null, default: true, note: 'Apakah staf berwenang membuka shift kasir di cabang ini']
@@ -168,7 +188,7 @@ Table user_branches {
 
 Table pharmacist_profiles {
   id uuid [pk, default: `gen_random_uuid()`]
-  user_id uuid [unique, not null, note: 'User apoteker / TTK']
+  staff_id uuid [unique, not null, note: 'Staf apoteker / TTK pemilik izin resmi']
   license_type varchar(30) [not null, note: 'SIPA (Apoteker) atau STRTTK / SIPTTK (Tenaga Teknis Kefarmasian)']
   license_number varchar(100) [not null, note: 'Nomor Surat Izin Praktik Apoteker / STRTTK resmi']
   license_expired_date date [not null, note: 'Tanggal habis masa berlaku izin resmi']
@@ -446,10 +466,11 @@ Table patient_medication_histories {
 Ref: branch_storage_racks.branch_id > branches.id [delete: restrict]
 
 // Relasi Pengguna, Role & Sesi Cabang
+Ref: users.staff_id - staff_profiles.id [delete: restrict]
 Ref: users.role_id > roles.id [delete: restrict]
 Ref: user_branches.user_id > users.id [delete: restrict]
 Ref: user_branches.branch_id > branches.id [delete: restrict]
-Ref: pharmacist_profiles.user_id - users.id [delete: restrict]
+Ref: pharmacist_profiles.staff_id - staff_profiles.id [delete: restrict]
 Ref: pharmacist_profiles.assigned_branch_id > branches.id [delete: restrict]
 Ref: supervisor_override_logs.branch_id > branches.id [delete: restrict]
 Ref: supervisor_override_logs.cashier_user_id > users.id [delete: restrict]
@@ -483,6 +504,7 @@ TableGroup Core_MultiBranch {
 }
 
 TableGroup Auth_And_Staff {
+  staff_profiles
   roles
   users
   user_branches
