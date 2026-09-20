@@ -17,24 +17,26 @@ Dokumen ini adalah rekam jejak resmi status pengerjaan spesifikasi teknis, arsit
 ## ✅ Deliverables yang Sudah Selesai (Completed)
 
 ### 1. Tata Kelola & Aturan Arsitektur (`.agents/` & `.github/`)
-- [x] [`.agents/rules/agent-persona.md`](./.agents/rules/agent-persona.md) — Persona Tika (Lead System Analyst & Technical PM Apotek).
+- [x] [`.agents/rules/agent-persona.md`](./.agents/rules/agent-persona.md) — Persona Tika (Lead System Analyst & Technical PM Apotek), aturan bahasa (Inggris untuk internal, Indonesia untuk deliverables), dan standar tanpa error Mermaid GitHub.
 - [x] [`.agents/rules/graphify.md`](./.agents/rules/graphify.md) — Aturan hemat & efisien pembaruan graf (hanya saat checkpoint/save-progress).
 - [x] [`.agents/workflows/save-progress.md`](./.agents/workflows/save-progress.md) — Workflow checkpoint otomatis akhir sesi (`/save-progress`).
 - [x] [`.agents/workflows/graphify.md`](./.agents/workflows/graphify.md) — Workflow navigasi & sinkronisasi graf pengetahuan (`/graphify`).
 - [x] [`.agents/workflows/publish-issue.md`](./.agents/workflows/publish-issue.md) — Workflow penerbitan tiket tugas GitHub Issue via `gh` CLI (`/publish-issue`).
-- [x] [`.agents/skills/business-prd-scaffolder/SKILL.md`](./.agents/skills/business-prd-scaffolder/SKILL.md) — Framework PRD murni bisnis apotek ("WHAT & WHY", no engineering leaks, mandatory `Depends On` / `Consumed By`).
-- [x] [`.agents/skills/trd-dra-scaffolder/SKILL.md`](./.agents/skills/trd-dra-scaffolder/SKILL.md) — Framework DRA PostgreSQL 15+, universal audit 5 kolom, invarian `branch_id`, presisi `DECIMAL`, dan envelope REST API.
+- [x] [`.agents/skills/business-prd-scaffolder/SKILL.md`](./.agents/skills/business-prd-scaffolder/SKILL.md) — Framework PRD murni bisnis apotek ("WHAT & WHY", no engineering leaks, mandatory `Depends On` / `Consumed By`, standar visual Mermaid GitHub).
+- [x] [`.agents/skills/trd-dra-scaffolder/SKILL.md`](./.agents/skills/trd-dra-scaffolder/SKILL.md) — Framework arsitektur 3-tier (Global DBML, Visual Blueprints, Contract-First TRD), DRA PostgreSQL 15+, universal audit 5 kolom, invarian `branch_id`, presisi `DECIMAL`, envelope REST API, dan standar ketat rendering Mermaid GitHub.
 - [x] [`.agents/skills/change-impact-synchronizer/SKILL.md`](./.agents/skills/change-impact-synchronizer/SKILL.md) — SOP 4-langkah Zero Documentation Drift saat terjadi revisi modul farmasi.
 - [x] [`.agents/skills/issue-task-scaffolder/SKILL.md`](./.agents/skills/issue-task-scaffolder/SKILL.md) — Framework perakitan tiket tugas GitHub Issue untuk tim `[BE]`, `[FE-WEB]`, dan `[FE-POS]`.
 - [x] [`.github/ISSUE_TEMPLATE/backend-task.md`](./.github/ISSUE_TEMPLATE/backend-task.md) — Template GitHub Issue untuk tugas Backend.
 - [x] [`.github/ISSUE_TEMPLATE/frontend-web-task.md`](./.github/ISSUE_TEMPLATE/frontend-web-task.md) — Template GitHub Issue untuk Web Admin/ERP (React/Next.js/Vue Desktop).
 - [x] [`.github/ISSUE_TEMPLATE/frontend-pos-task.md`](./.github/ISSUE_TEMPLATE/frontend-pos-task.md) — Template GitHub Issue untuk Kasir POS & Resep (Keyboard-first, barcode scan, thermal printer).
 
-### 2. Dokumen Induk & Fondasi Identitas
+### 2. Dokumen Induk, Database & Blueprint Visual
 - [x] [`README.md`](./README.md) — Hub dokumentasi, navigasi modul, RBAC matriks, panduan Graphify, dan status pengerjaan.
 - [x] [`00-MASTER-PRD.md`](./00-MASTER-PRD.md) — Master PRD sistem (5 pilar, arsitektur modul, NFR, roadmap).
 - [x] [`FEATURE-CHECKLIST.md`](./FEATURE-CHECKLIST.md) — Master Feature & Implementation Checklist lintas platform (Docs, BE, Web Admin, POS Kasir).
 - [x] [`technical/00-architecture-and-multibranch-guidelines.md`](./technical/00-architecture-and-multibranch-guidelines.md) — Fondasi arsitektur multi-cabang ready, FEFO indexing, audit trail universal, dan panduan migrasi.
+- [x] [`technical/database/schema.dbml`](./technical/database/schema.dbml) — Skema relasional global PostgreSQL 15+ (DBML SSOT) untuk 17 entitas tabel Fase 1 dengan `[delete: restrict]`, UUID, dan TableGroups.
+- [x] [`technical/diagrams/01-diagrams-auth-dan-cabang.md`](./technical/diagrams/01-diagrams-auth-dan-cabang.md) — Blueprint visual lengkap domain Autentikasi & Cabang (Usecase 6 persona, Flowchart Dual-UX & Override, Sequence Diagram POS PIN, State Lifecycle, Scoped ERD).
 
 ### 3. Modul Spesifikasi Kebutuhan Bisnis (PRD)
 - [x] [`features/01-prd-auth-user.md`](./features/01-prd-auth-user.md) — Dual-UX Login (Fast PIN POS & Email/Password ERP), profil staf & legalitas profesi (SIPA Apoteker & STRTTK), matriks hak akses 6 persona (RBAC), pop-up otorisasi supervisor (*Manager Override* untuk void/diskon), dan isolasi sesi cabang.

@@ -1,17 +1,17 @@
 # Graph Report - pharmacy-docs  (2026-09-20)
 
 ## Corpus Check
-- 22 files · ~29,384 words
+- 22 files · ~29,790 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 2 file(s) not represented in the graph (top: (none) 1, .dbml 1)
 
 ## Summary
-- 276 nodes · 289 edges · 21 communities
+- 276 nodes · 290 edges · 21 communities
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `ef321dc8`
+- Built from commit: `e16573bb`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -76,7 +76,7 @@ Cohesion: 0.12
 Nodes (15): 1. Core Principles of Technical Documentation, 2.1 Multi-Branch Ready from Day 1 (Absolute Invariant), 2.2 Universal Audit Trail (Mandatory on Every Entity Table), 2.3 Relational Integrity & Deletion Policy, 2.4 Strict Data Type Conventions, 2.5 Indexing Strategy for Pharmacy Performance, 2. Invariants & Standards for DRA (Database Architecture & ERD), 3.1 Standard RESTful API Envelope (+7 more)
 
 ### Community 5 - "PROGRESS.md"
-Cohesion: 0.24
+Cohesion: 0.25
 Nodes (6): Master Product Requirements Document (PRD), graphify, Workflow: graphify, Status Progres Pengerjaan Dokumentasi & Arsitektur, Fondasi Arsitektur & Panduan Multi-Branch Ready, Blueprint Visual: Diagram Usecase, Alur Proses & Scoped ERD
 
 ### Community 6 - "3. Standard Issue Body Templates"
@@ -93,7 +93,7 @@ Nodes (8): 1. Periksa Status Berkas & Perubahan Sesi Ini, 2. Perbarui Dokumen Pe
 
 ### Community 9 - "Pharmacy POS & ERP System (Apotek)"
 Cohesion: 0.22
-Nodes (9): 1. Tata Kelola & Aturan Arsitektur (`.agents/` & `.github/`), 2. Dokumen Induk & Fondasi Identitas, 3. Modul Spesifikasi Kebutuhan Bisnis (PRD), 🎯 Antrean Pengerjaan Berikutnya (Next Action Items: Fase 1), 🔑 Aturan Penting yang Wajib Dipertahankan (Invariants), 💡 Cara Memulai Kembali Sesi (Resume Prompt), ✅ Deliverables yang Sudah Selesai (Completed), Pharmacy POS & ERP System (Apotek) (+1 more)
+Nodes (9): 1. Tata Kelola & Aturan Arsitektur (`.agents/` & `.github/`), 2. Dokumen Induk, Database & Blueprint Visual, 3. Modul Spesifikasi Kebutuhan Bisnis (PRD), 🎯 Antrean Pengerjaan Berikutnya (Next Action Items: Fase 1), 🔑 Aturan Penting yang Wajib Dipertahankan (Invariants), 💡 Cara Memulai Kembali Sesi (Resume Prompt), ✅ Deliverables yang Sudah Selesai (Completed), Pharmacy POS & ERP System (Apotek) (+1 more)
 
 ### Community 10 - "2. Standard 4-Step Cascade Update Workflow"
 Cohesion: 0.25

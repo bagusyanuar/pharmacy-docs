@@ -2546,7 +2546,7 @@
       "node_kind": "heading",
       "norm_label": "2.1 multi-branch ready from day 1 (absolute invariant)",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L49"
+      "source_location": "L65"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill_2_2_universal_audit_trail_mandatory_on_every_entity_table",
@@ -2558,7 +2558,7 @@
       "node_kind": "heading",
       "norm_label": "2.2 universal audit trail (mandatory on every entity table)",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L56"
+      "source_location": "L72"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill_2_3_relational_integrity_deletion_policy",
@@ -2570,7 +2570,7 @@
       "node_kind": "heading",
       "norm_label": "2.3 relational integrity & deletion policy",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L66"
+      "source_location": "L82"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill_2_4_strict_data_type_conventions",
@@ -2582,7 +2582,7 @@
       "node_kind": "heading",
       "norm_label": "2.4 strict data type conventions",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L70"
+      "source_location": "L86"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill_2_5_indexing_strategy_for_pharmacy_performance",
@@ -2594,7 +2594,7 @@
       "node_kind": "heading",
       "norm_label": "2.5 indexing strategy for pharmacy performance",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L77"
+      "source_location": "L93"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill_2_invariants_standards_for_dra_database_architecture_erd",
@@ -2606,7 +2606,7 @@
       "node_kind": "heading",
       "norm_label": "2. invariants & standards for dra (database architecture & erd)",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L45"
+      "source_location": "L61"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill_3_1_standard_restful_api_envelope",
@@ -2618,7 +2618,7 @@
       "node_kind": "heading",
       "norm_label": "3.1 standard restful api envelope",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L98"
+      "source_location": "L114"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill_3_2_backend_be_engineering_standards",
@@ -2630,7 +2630,7 @@
       "node_kind": "heading",
       "norm_label": "3.2 backend [be] engineering standards",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L137"
+      "source_location": "L153"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill_3_3_frontend_fe_web_fe_pos_engineering_standards",
@@ -2642,7 +2642,7 @@
       "node_kind": "heading",
       "norm_label": "3.3 frontend [fe-web & fe-pos] engineering standards",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L153"
+      "source_location": "L169"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill_3_4_standard_trd_document_template",
@@ -2654,7 +2654,7 @@
       "node_kind": "heading",
       "norm_label": "3.4 standard trd document template",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L178"
+      "source_location": "L194"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_be_fe_architecture",
@@ -2666,7 +2666,7 @@
       "node_kind": "heading",
       "norm_label": "3. standards for unified contract-first trd (be & fe architecture)",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L90"
+      "source_location": "L106"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill_error_response_http_4xx_5xx",
@@ -2678,7 +2678,7 @@
       "node_kind": "heading",
       "norm_label": "error response (http 4xx / 5xx):",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L116"
+      "source_location": "L132"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill_success_response_http_200_201",
@@ -2690,7 +2690,7 @@
       "node_kind": "heading",
       "norm_label": "success response (http 200 / 201):",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L101"
+      "source_location": "L117"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill_trd_dra_scaffolder_skill_pharmacy_pos_erp",
@@ -3273,14 +3273,14 @@
       "source_location": "L19"
     },
     {
-      "id": "progress_2_dokumen_induk_fondasi_identitas",
-      "label": "2. Dokumen Induk & Fondasi Identitas",
+      "id": "progress_2_dokumen_induk_database_blueprint_visual",
+      "label": "2. Dokumen Induk, Database & Blueprint Visual",
       "_origin": "ast",
       "community": 9,
       "community_name": "Pharmacy POS & ERP System (Apotek)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "2. dokumen induk & fondasi identitas",
+      "norm_label": "2. dokumen induk, database & blueprint visual",
       "source_file": "PROGRESS.md",
       "source_location": "L33"
     },
@@ -3294,7 +3294,7 @@
       "node_kind": "heading",
       "norm_label": "3. modul spesifikasi kebutuhan bisnis (prd)",
       "source_file": "PROGRESS.md",
-      "source_location": "L39"
+      "source_location": "L41"
     },
     {
       "id": "progress_antrean_pengerjaan_berikutnya_next_action_items_fase_1",
@@ -3306,7 +3306,7 @@
       "node_kind": "heading",
       "norm_label": "\ud83c\udfaf antrean pengerjaan berikutnya (next action items: fase 1)",
       "source_file": "PROGRESS.md",
-      "source_location": "L47"
+      "source_location": "L49"
     },
     {
       "id": "progress_aturan_penting_yang_wajib_dipertahankan_invariants",
@@ -3318,7 +3318,7 @@
       "node_kind": "heading",
       "norm_label": "\ud83d\udd11 aturan penting yang wajib dipertahankan (invariants)",
       "source_file": "PROGRESS.md",
-      "source_location": "L60"
+      "source_location": "L62"
     },
     {
       "id": "progress_cara_memulai_kembali_sesi_resume_prompt",
@@ -3330,7 +3330,7 @@
       "node_kind": "heading",
       "norm_label": "\ud83d\udca1 cara memulai kembali sesi (resume prompt)",
       "source_file": "PROGRESS.md",
-      "source_location": "L71"
+      "source_location": "L73"
     },
     {
       "id": "progress_deliverables_yang_sudah_selesai_completed",
@@ -3774,7 +3774,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L49",
+      "source_location": "L65",
       "weight": 1.0
     },
     {
@@ -3785,7 +3785,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L56",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -3796,7 +3796,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L66",
+      "source_location": "L82",
       "weight": 1.0
     },
     {
@@ -3807,7 +3807,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L70",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -3818,7 +3818,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L77",
+      "source_location": "L93",
       "weight": 1.0
     },
     {
@@ -3829,7 +3829,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L101",
+      "source_location": "L117",
       "weight": 1.0
     },
     {
@@ -3840,40 +3840,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L116",
-      "weight": 1.0
-    },
-    {
-      "source": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_be_fe_architecture",
-      "target": "agents_skills_trd_dra_scaffolder_skill_3_2_backend_be_engineering_standards",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L137",
-      "weight": 1.0
-    },
-    {
-      "source": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_be_fe_architecture",
-      "target": "agents_skills_trd_dra_scaffolder_skill_3_3_frontend_fe_web_fe_pos_engineering_standards",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L153",
-      "weight": 1.0
-    },
-    {
-      "source": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_be_fe_architecture",
-      "target": "agents_skills_trd_dra_scaffolder_skill_3_4_standard_trd_document_template",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L178",
+      "source_location": "L132",
       "weight": 1.0
     },
     {
@@ -3884,7 +3851,51 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L98",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_be_fe_architecture",
+      "target": "agents_skills_trd_dra_scaffolder_skill_3_2_backend_be_engineering_standards",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
+      "source_location": "L153",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_be_fe_architecture",
+      "target": "agents_skills_trd_dra_scaffolder_skill_3_3_frontend_fe_web_fe_pos_engineering_standards",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
+      "source_location": "L169",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_be_fe_architecture",
+      "target": "agents_skills_trd_dra_scaffolder_skill_3_4_standard_trd_document_template",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_trd_dra_scaffolder_skill_trd_dra_scaffolder_skill_pharmacy_pos_erp",
+      "target": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_be_fe_architecture",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
+      "source_location": "L106",
       "weight": 1.0
     },
     {
@@ -3906,18 +3917,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L45",
-      "weight": 1.0
-    },
-    {
-      "source": "agents_skills_trd_dra_scaffolder_skill_trd_dra_scaffolder_skill_pharmacy_pos_erp",
-      "target": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_be_fe_architecture",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L90",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -5550,7 +5550,7 @@
     },
     {
       "source": "progress_deliverables_yang_sudah_selesai_completed",
-      "target": "progress_2_dokumen_induk_fondasi_identitas",
+      "target": "progress_2_dokumen_induk_database_blueprint_visual",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5567,7 +5567,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROGRESS.md",
-      "source_location": "L39",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -5589,7 +5589,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROGRESS.md",
-      "source_location": "L47",
+      "source_location": "L49",
       "weight": 1.0
     },
     {
@@ -5600,7 +5600,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROGRESS.md",
-      "source_location": "L60",
+      "source_location": "L62",
       "weight": 1.0
     },
     {
@@ -5611,7 +5611,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROGRESS.md",
-      "source_location": "L71",
+      "source_location": "L73",
       "weight": 1.0
     },
     {
@@ -6485,29 +6485,18 @@
     },
     {
       "source": "progress",
+      "target": "technical_diagrams_01_diagrams_auth_dan_cabang",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROGRESS.md",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "progress",
       "target": "features_01_prd_auth_user",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PROGRESS.md",
-      "source_location": "L40",
-      "weight": 1.0
-    },
-    {
-      "source": "progress",
-      "target": "features_master_data_01_prd_cabang_dan_gudang",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PROGRESS.md",
-      "source_location": "L41",
-      "weight": 1.0
-    },
-    {
-      "source": "progress",
-      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6518,13 +6507,35 @@
     },
     {
       "source": "progress",
-      "target": "features_master_data_03_prd_pbf_supplier_dan_dokter",
+      "target": "features_master_data_01_prd_cabang_dan_gudang",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROGRESS.md",
       "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "progress",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROGRESS.md",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "progress",
+      "target": "features_master_data_03_prd_pbf_supplier_dan_dokter",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROGRESS.md",
+      "source_location": "L45",
       "weight": 1.0
     },
     {
@@ -6551,5 +6562,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "ef321dc8d6a07313d1eb389c58630c38108798ec"
+  "built_at_commit": "e16573bb07ff412a3296e3e8d7d58f36728c69d3"
 }

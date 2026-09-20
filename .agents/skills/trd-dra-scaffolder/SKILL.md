@@ -28,9 +28,25 @@ We divide technical architecture into a **Structured 3-Tier Technical Blueprint*
      * **Sequence Diagrams:** Technical message exchange across *Client POS $\leftrightarrow$ Gateway $\leftrightarrow$ Backend $\leftrightarrow$ Database*.
      * **State Lifecycle Diagrams:** Entity state lifecycles (staff user accounts, cashier shifts, purchase invoices).
      * **Scoped Sub-ERD:** Mermaid ERD rendering only 4–6 focused tables for that specific feature (preventing "spaghetti diagrams").
-   * **Mermaid Syntax Rules:**
-     * FORBIDDEN to use angle brackets `<` or `>` inside arrow/edge labels (e.g., always use `|include|`, NEVER `|"<<include>>"|` as it triggers fatal syntax errors in Mermaid parsers).
-     * When embedding inside HTML preview files, always wrap in `<pre class="mermaid">` (instead of `<div>`) to prevent browser HTML newline compression.
+   * **Mermaid Syntax & GitHub Web Rendering Rules (Zero-Error Invariant):**
+     * **Edge Labels (`|...|`) Invariants:**
+       * **NO Parentheses `(` or `)`:** Parentheses inside `|...|` (e.g., `|Kedaluwarsa (0 Hari)|` or `|(Multi-Branch)|`) cause GitHub's Mermaid Jison lexer to tokenize `(` as `PS` (*Parenthesis Start* / node shape start), throwing fatal parse error `Expecting 'PIPE', ..., got 'PS'`. ALWAYS write clean text (e.g., `|Sudah Kedaluwarsa 0 Hari|`, `|Lebih Dari 1 Cabang|`).
+       * **NO Slashes `/`:** Slashes inside `|...|` (e.g., `|POS / Tablet|`) collide with parser operators. Write natural words (e.g., `|POS atau Tablet|`).
+       * **NO Math/Comparison Operators (`<`, `>`, `<=`, `>=`, `&`, `+`):** Comparison operators collide with flowchart arrow lexers and HTML tags. Write in words (e.g., `|Lebih dari 60 Hari|`, `|Gagal 3 Kali atau Lebih|`, `|Sudah Kedaluwarsa 0 Hari|`).
+       * **NO Quotes (Single `'` or Double `"`) inside `|...|` labels.**
+     * **Node Text & Safe Quotation:**
+       * ALWAYS wrap node text in explicit double quotes if containing colons, punctuation, Indonesian conjunctions, or spaces:
+         * Stadium nodes: `NodeId(["Label Text"])`
+         * Rectangle nodes: `NodeId["Label Text"]`
+         * Diamond nodes: `NodeId{"Condition Text?"}`
+       * Replace raw slashes `/` inside node text with `atau` (or strictly enclose within double-quoted strings).
+     * **Line Breaks & HTML Tags:**
+       * Use `<br/>` ONLY inside double-quoted node strings (e.g., `["Line 1<br/>Line 2"]`). NEVER use unclosed `<br>` or raw unquoted HTML tags.
+       * NEVER use HTML formatting tags like `<b>`, `<i>`, `<span>`, or raw `<...>` inside labels.
+     * **Dotted Arrows & Relationships:**
+       * Use simple text for dotted arrows: `-.->|include|`. NEVER use double angle brackets like `|"<<include>>"|`.
+     * **HTML Preview Wrapper:**
+       * When embedding inside HTML preview files, always wrap in `<pre class="mermaid">` (instead of `<div>`) to prevent browser HTML newline compression.
 
 3. **TRD API Contracts & Architecture (`technical/0X-trd-*.md`):**
    * **Focus:** Implementation specifications and inter-module data exchange contracts.
