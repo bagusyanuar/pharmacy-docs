@@ -388,6 +388,90 @@
       "source_location": "L52"
     },
     {
+      "id": "features_master_data_01_prd_cabang_dan_gudang_5_1_struktur_tipe_cabang",
+      "label": "5.1 Struktur & Tipe Cabang",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Feature PRD: Master Cabang, Izin Operasional Apotek (SIA) & Struktur Gudang",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5.1 struktur & tipe cabang",
+      "source_file": "features/master-data/01-prd-cabang-dan-gudang.md",
+      "source_location": "L95"
+    },
+    {
+      "id": "features_master_data_01_prd_cabang_dan_gudang_5_2_legalitas_perizinan_apotek_sia",
+      "label": "5.2 Legalitas Perizinan Apotek (SIA)",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Feature PRD: Master Cabang, Izin Operasional Apotek (SIA) & Struktur Gudang",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5.2 legalitas perizinan apotek (sia)",
+      "source_file": "features/master-data/01-prd-cabang-dan-gudang.md",
+      "source_location": "L105"
+    },
+    {
+      "id": "features_master_data_01_prd_cabang_dan_gudang_5_3_keterikatan_apoteker_pengelola_apotek_apa",
+      "label": "5.3 Keterikatan Apoteker Pengelola Apotek (APA)",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Feature PRD: Master Cabang, Izin Operasional Apotek (SIA) & Struktur Gudang",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5.3 keterikatan apoteker pengelola apotek (apa)",
+      "source_file": "features/master-data/01-prd-cabang-dan-gudang.md",
+      "source_location": "L124"
+    },
+    {
+      "id": "features_master_data_01_prd_cabang_dan_gudang_5_4_penugasan_staf_staff_branch_binding",
+      "label": "5.4 Penugasan Staf (*Staff Branch Binding*)",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Feature PRD: Master Cabang, Izin Operasional Apotek (SIA) & Struktur Gudang",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5.4 penugasan staf (*staff branch binding*)",
+      "source_file": "features/master-data/01-prd-cabang-dan-gudang.md",
+      "source_location": "L135"
+    },
+    {
+      "id": "features_master_data_01_prd_cabang_dan_gudang_5_5_struktur_ruang_simpan_rak_obat_cabang_internal_storage_zones",
+      "label": "5.5 Struktur Ruang Simpan & Rak Obat Cabang (Internal Storage Zones)",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Feature PRD: Master Cabang, Izin Operasional Apotek (SIA) & Struktur Gudang",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5.5 struktur ruang simpan & rak obat cabang (internal storage zones)",
+      "source_file": "features/master-data/01-prd-cabang-dan-gudang.md",
+      "source_location": "L144"
+    },
+    {
+      "id": "features_master_data_01_prd_cabang_dan_gudang_5_6_status_operasional_cabang",
+      "label": "5.6 Status Operasional Cabang",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Feature PRD: Master Cabang, Izin Operasional Apotek (SIA) & Struktur Gudang",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5.6 status operasional cabang",
+      "source_file": "features/master-data/01-prd-cabang-dan-gudang.md",
+      "source_location": "L154"
+    },
+    {
+      "id": "features_master_data_01_prd_cabang_dan_gudang_5_kebutuhan_fungsional_aturan_bisnis_business_rules",
+      "label": "5. Kebutuhan Fungsional & Aturan Bisnis (Business Rules)",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Feature PRD: Master Cabang, Izin Operasional Apotek (SIA) & Struktur Gudang",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5. kebutuhan fungsional & aturan bisnis (business rules)",
+      "source_file": "features/master-data/01-prd-cabang-dan-gudang.md",
+      "source_location": "L93"
+    },
+    {
       "id": "features_master_data_01_prd_cabang_dan_gudang_6_1_formulir_pendaftaran_edit_cabang_web_admin",
       "label": "6.1 Formulir Pendaftaran & Edit Cabang (Web Admin)",
       "_origin": "ast",
@@ -916,88 +1000,268 @@
       "source_location": "L17"
     },
     {
-      "id": "features_master_data_01_prd_cabang_dan_gudang_5_1_struktur_tipe_cabang",
-      "label": "5.1 Struktur & Tipe Cabang",
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_1_metadata_dokumen",
+      "label": "1. Metadata Dokumen",
       "_origin": "ast",
       "community": 14,
-      "community_name": "5. Kebutuhan Fungsional & Aturan Bisnis (Business Rules)",
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "5.1 struktur & tipe cabang",
-      "source_file": "features/master-data/01-prd-cabang-dan-gudang.md",
-      "source_location": "L95"
+      "norm_label": "1. metadata dokumen",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L5"
     },
     {
-      "id": "features_master_data_01_prd_cabang_dan_gudang_5_2_legalitas_perizinan_apotek_sia",
-      "label": "5.2 Legalitas Perizinan Apotek (SIA)",
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_2_latar_belakang_masalah_bisnis",
+      "label": "2. Latar Belakang & Masalah Bisnis",
       "_origin": "ast",
       "community": 14,
-      "community_name": "5. Kebutuhan Fungsional & Aturan Bisnis (Business Rules)",
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "5.2 legalitas perizinan apotek (sia)",
-      "source_file": "features/master-data/01-prd-cabang-dan-gudang.md",
-      "source_location": "L105"
+      "norm_label": "2. latar belakang & masalah bisnis",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L18"
     },
     {
-      "id": "features_master_data_01_prd_cabang_dan_gudang_5_3_keterikatan_apoteker_pengelola_apotek_apa",
-      "label": "5.3 Keterikatan Apoteker Pengelola Apotek (APA)",
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_3_persona_konteks_penggunaan",
+      "label": "3. Persona & Konteks Penggunaan",
       "_origin": "ast",
       "community": 14,
-      "community_name": "5. Kebutuhan Fungsional & Aturan Bisnis (Business Rules)",
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "5.3 keterikatan apoteker pengelola apotek (apa)",
-      "source_file": "features/master-data/01-prd-cabang-dan-gudang.md",
-      "source_location": "L124"
+      "norm_label": "3. persona & konteks penggunaan",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L42"
     },
     {
-      "id": "features_master_data_01_prd_cabang_dan_gudang_5_4_penugasan_staf_staff_branch_binding",
-      "label": "5.4 Penugasan Staf (*Staff Branch Binding*)",
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_4_1_alur_1_pendaftaran_master_obat_definisi_hierarki_multi_satuan",
+      "label": "4.1 Alur 1: Pendaftaran Master Obat & Definisi Hierarki Multi-Satuan",
       "_origin": "ast",
       "community": 14,
-      "community_name": "5. Kebutuhan Fungsional & Aturan Bisnis (Business Rules)",
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "5.4 penugasan staf (*staff branch binding*)",
-      "source_file": "features/master-data/01-prd-cabang-dan-gudang.md",
-      "source_location": "L135"
+      "norm_label": "4.1 alur 1: pendaftaran master obat & definisi hierarki multi-satuan",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L56"
     },
     {
-      "id": "features_master_data_01_prd_cabang_dan_gudang_5_5_struktur_ruang_simpan_rak_obat_cabang_internal_storage_zones",
-      "label": "5.5 Struktur Ruang Simpan & Rak Obat Cabang (Internal Storage Zones)",
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_4_2_alur_2_transaksi_penjualan_eceran_pos_auto_breakdown_mutasi",
+      "label": "4.2 Alur 2: Transaksi Penjualan Eceran POS & Auto-Breakdown Mutasi",
       "_origin": "ast",
       "community": 14,
-      "community_name": "5. Kebutuhan Fungsional & Aturan Bisnis (Business Rules)",
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "5.5 struktur ruang simpan & rak obat cabang (internal storage zones)",
-      "source_file": "features/master-data/01-prd-cabang-dan-gudang.md",
-      "source_location": "L144"
+      "norm_label": "4.2 alur 2: transaksi penjualan eceran pos & auto-breakdown mutasi",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L73"
     },
     {
-      "id": "features_master_data_01_prd_cabang_dan_gudang_5_6_status_operasional_cabang",
-      "label": "5.6 Status Operasional Cabang",
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_4_3_alur_3_prosedur_aman_penggantian_satuan_terkecil_unit_re_basing_wizard",
+      "label": "4.3 Alur 3: Prosedur Aman Penggantian Satuan Terkecil (Unit Re-basing Wizard)",
       "_origin": "ast",
       "community": 14,
-      "community_name": "5. Kebutuhan Fungsional & Aturan Bisnis (Business Rules)",
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "5.6 status operasional cabang",
-      "source_file": "features/master-data/01-prd-cabang-dan-gudang.md",
-      "source_location": "L154"
+      "norm_label": "4.3 alur 3: prosedur aman penggantian satuan terkecil (unit re-basing wizard)",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L98"
     },
     {
-      "id": "features_master_data_01_prd_cabang_dan_gudang_5_kebutuhan_fungsional_aturan_bisnis_business_rules",
-      "label": "5. Kebutuhan Fungsional & Aturan Bisnis (Business Rules)",
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_4_alur_kerja_utama_core_user_journey",
+      "label": "4. Alur Kerja Utama (Core User Journey)",
       "_origin": "ast",
       "community": 14,
-      "community_name": "5. Kebutuhan Fungsional & Aturan Bisnis (Business Rules)",
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "5. kebutuhan fungsional & aturan bisnis (business rules)",
-      "source_file": "features/master-data/01-prd-cabang-dan-gudang.md",
-      "source_location": "L93"
+      "norm_label": "4. alur kerja utama (core user journey)",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L54"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_6_1_antarmuka_manajemen_kamus_master_satuan_master_uom_directory",
+      "label": "6.1 Antarmuka Manajemen Kamus Master Satuan (*Master UoM Directory*)",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "6.1 antarmuka manajemen kamus master satuan (*master uom directory*)",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L257"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_6_2_formulir_pendaftaran_edit_master_obat",
+      "label": "6.2 Formulir Pendaftaran / Edit Master Obat",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "6.2 formulir pendaftaran / edit master obat",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L266"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_6_3_tampilan_kasir_pos_dual_view_display",
+      "label": "6.3 Tampilan Kasir POS (Dual-View Display)",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "6.3 tampilan kasir pos (dual-view display)",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L285"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_6_4_antarmuka_laporan_pemecahan_satuan_unit_breakdown_report",
+      "label": "6.4 Antarmuka Laporan Pemecahan Satuan (*Unit Breakdown Report*)",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "6.4 antarmuka laporan pemecahan satuan (*unit breakdown report*)",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L294"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_6_elemen_antarmuka_input_bisnis_ui_information_elements",
+      "label": "6. Elemen Antarmuka & Input Bisnis (UI & Information Elements)",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "6. elemen antarmuka & input bisnis (ui & information elements)",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L255"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_7_skenario_pengecualian_kasus_khusus_edge_cases",
+      "label": "7. Skenario Pengecualian & Kasus Khusus (Edge Cases)",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "7. skenario pengecualian & kasus khusus (edge cases)",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L307"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_8_metrik_keberhasilan_bisnis_kpi",
+      "label": "8. Metrik Keberhasilan Bisnis (KPI)",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "8. metrik keberhasilan bisnis (kpi)",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L319"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_9_kriteria_penerimaan_acceptance_criteria",
+      "label": "9. Kriteria Penerimaan (Acceptance Criteria)",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "9. kriteria penerimaan (acceptance criteria)",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L328"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_01_pendaftaran_master_obat_dengan_satuan_bertingkat_multi_barcode",
+      "label": "AC-01: Pendaftaran Master Obat dengan Satuan Bertingkat & Multi-Barcode",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-01: pendaftaran master obat dengan satuan bertingkat & multi-barcode",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L330"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_02_seamless_auto_breakdown_di_meja_kasir_pos",
+      "label": "AC-02: Seamless Auto-Breakdown di Meja Kasir POS",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-02: seamless auto-breakdown di meja kasir pos",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L335"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_03_pencatatan_ganda_lalu_lintas_stok_pada_pemecahan_otomatis",
+      "label": "AC-03: Pencatatan Ganda Lalu Lintas Stok pada Pemecahan Otomatis",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-03: pencatatan ganda lalu lintas stok pada pemecahan otomatis",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L340"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_04_kalkulasi_hpp_proporsional_termasuk_bonus_faktur_pbf",
+      "label": "AC-04: Kalkulasi HPP Proporsional Termasuk Bonus Faktur PBF",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-04: kalkulasi hpp proporsional termasuk bonus faktur pbf",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L345"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_05_perlindungan_mutlak_terhadap_pengubahan_satuan_terkecil_anti_corruption_guardrail",
+      "label": "AC-05: Perlindungan Mutlak terhadap Pengubahan Satuan Terkecil (Anti-Corruption Guardrail)",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-05: perlindungan mutlak terhadap pengubahan satuan terkecil (anti-corruption guardrail)",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L350"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_06_manajemen_kamus_master_satuan_validasi_anti_free_text",
+      "label": "AC-06: Manajemen Kamus Master Satuan & Validasi Anti-Free-Text",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-06: manajemen kamus master satuan & validasi anti-free-text",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L355"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_feature_prd_master_obat_penggolongan_regulasi_farmasi_multi_satuan_bertingkat",
+      "label": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "feature prd: master obat, penggolongan regulasi farmasi & multi-satuan bertingkat",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L1"
     },
     {
       "id": "github_issue_template_backend_task",
@@ -1285,6 +1549,90 @@
       "source_location": "L9"
     },
     {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_5_1_katalog_produk_penggolongan_regulasi_farmasi",
+      "label": "5.1 Katalog Produk & Penggolongan Regulasi Farmasi",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "5. Kebutuhan Fungsional & Aturan Bisnis (Business Rules)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5.1 katalog produk & penggolongan regulasi farmasi",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L119"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_5_2_kamus_master_satuan_baku_units_of_measurement_uom_directory",
+      "label": "5.2 Kamus Master Satuan Baku (*Units of Measurement - UoM Directory*)",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "5. Kebutuhan Fungsional & Aturan Bisnis (Business Rules)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5.2 kamus master satuan baku (*units of measurement - uom directory*)",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L140"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_5_3_hierarki_multi_satuan_bertingkat_packaging_hierarchy",
+      "label": "5.3 Hierarki Multi-Satuan Bertingkat (*Packaging Hierarchy*)",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "5. Kebutuhan Fungsional & Aturan Bisnis (Business Rules)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5.3 hierarki multi-satuan bertingkat (*packaging hierarchy*)",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L155"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_5_4_proses_pecah_satuan_de_aggregation_repackaging_lalu_lintas_stok",
+      "label": "5.4 Proses Pecah Satuan (*De-aggregation / Repackaging*) & Lalu Lintas Stok",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "5. Kebutuhan Fungsional & Aturan Bisnis (Business Rules)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5.4 proses pecah satuan (*de-aggregation / repackaging*) & lalu lintas stok",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L179"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_5_5_kebijakan_ganti_satuan_terkecil_unit_re_basing_wizard",
+      "label": "5.5 Kebijakan Ganti Satuan Terkecil (*Unit Re-basing Wizard*)",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "5. Kebutuhan Fungsional & Aturan Bisnis (Business Rules)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5.5 kebijakan ganti satuan terkecil (*unit re-basing wizard*)",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L204"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_5_6_valuasi_hpp_harga_pokok_penjualan_strategi_harga_bertingkat",
+      "label": "5.6 Valuasi HPP (Harga Pokok Penjualan) & Strategi Harga Bertingkat",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "5. Kebutuhan Fungsional & Aturan Bisnis (Business Rules)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5.6 valuasi hpp (harga pokok penjualan) & strategi harga bertingkat",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L228"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_5_kebutuhan_fungsional_aturan_bisnis_business_rules",
+      "label": "5. Kebutuhan Fungsional & Aturan Bisnis (Business Rules)",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "5. Kebutuhan Fungsional & Aturan Bisnis (Business Rules)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5. kebutuhan fungsional & aturan bisnis (business rules)",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L117"
+    },
+    {
       "id": "technical_00_architecture_and_multibranch_guidelines_1_1_masalah_klasik_migrasi_apotek",
       "label": "1.1 Masalah Klasik Migrasi Apotek",
       "_origin": "ast",
@@ -1534,7 +1882,7 @@
       "node_kind": "heading",
       "norm_label": "1. membuka graf pengetahuan interaktif",
       "source_file": "README.md",
-      "source_location": "L100"
+      "source_location": "L101"
     },
     {
       "id": "readme_2_menanyakan_relasi_arsitektur_via_ai",
@@ -1546,7 +1894,7 @@
       "node_kind": "heading",
       "norm_label": "2. menanyakan relasi arsitektur via ai",
       "source_file": "README.md",
-      "source_location": "L106"
+      "source_location": "L107"
     },
     {
       "id": "readme_3_memperbarui_graf_pengetahuan",
@@ -1558,7 +1906,7 @@
       "node_kind": "heading",
       "norm_label": "3. memperbarui graf pengetahuan",
       "source_file": "README.md",
-      "source_location": "L119"
+      "source_location": "L120"
     },
     {
       "id": "readme_arsitektur_5_pilar_sistem",
@@ -1582,7 +1930,7 @@
       "node_kind": "heading",
       "norm_label": "cara menerbitkan tiket via ai:",
       "source_file": "README.md",
-      "source_location": "L136"
+      "source_location": "L137"
     },
     {
       "id": "readme_matriks_peran_pengguna_role_based_access_control_rbac",
@@ -1606,7 +1954,7 @@
       "node_kind": "heading",
       "norm_label": "menutup tiket otomatis via pull request (cross-repo auto-close):",
       "source_file": "README.md",
-      "source_location": "L140"
+      "source_location": "L141"
     },
     {
       "id": "readme_panduan_navigasi_knowledge_graph_graphify",
@@ -1618,7 +1966,7 @@
       "node_kind": "heading",
       "norm_label": "\ud83e\udde0 panduan navigasi knowledge graph (graphify)",
       "source_file": "README.md",
-      "source_location": "L96"
+      "source_location": "L97"
     },
     {
       "id": "readme_panduan_penerbitan_tiket_tugas_issue_driven_development",
@@ -1630,7 +1978,7 @@
       "node_kind": "heading",
       "norm_label": "\ud83c\udfab panduan penerbitan tiket tugas (issue-driven development)",
       "source_file": "README.md",
-      "source_location": "L127"
+      "source_location": "L128"
     },
     {
       "id": "readme_pharmacy_pos_erp_system_dokumentasi_spesifikasi_arsitektur",
@@ -1666,7 +2014,7 @@
       "node_kind": "heading",
       "norm_label": "tiga kategori tiket resmi:",
       "source_file": "README.md",
-      "source_location": "L131"
+      "source_location": "L132"
     },
     {
       "id": "readme_titik_simpan_melanjutkan_sesi_kerja",
@@ -1678,7 +2026,7 @@
       "node_kind": "heading",
       "norm_label": "\u26a1 titik simpan & melanjutkan sesi kerja",
       "source_file": "README.md",
-      "source_location": "L151"
+      "source_location": "L152"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill",
@@ -1942,6 +2290,18 @@
       "node_kind": "page",
       "norm_label": "01-prd-cabang-dan-gudang.md",
       "source_file": "features/master-data/01-prd-cabang-dan-gudang.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat",
+      "label": "02-prd-obat-dan-satuan-bertingkat.md",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "PROGRESS.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "02-prd-obat-dan-satuan-bertingkat.md",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
       "source_location": "L1"
     },
     {
@@ -2394,7 +2754,7 @@
       "node_kind": "heading",
       "norm_label": "\ud83c\udfaf antrean pengerjaan berikutnya (next action items: fase 1)",
       "source_file": "PROGRESS.md",
-      "source_location": "L45"
+      "source_location": "L46"
     },
     {
       "id": "progress_aturan_penting_yang_wajib_dipertahankan_invariants",
@@ -2406,7 +2766,7 @@
       "node_kind": "heading",
       "norm_label": "\ud83d\udd11 aturan penting yang wajib dipertahankan (invariants)",
       "source_file": "PROGRESS.md",
-      "source_location": "L62"
+      "source_location": "L61"
     },
     {
       "id": "progress_cara_memulai_kembali_sesi_resume_prompt",
@@ -2418,17 +2778,17 @@
       "node_kind": "heading",
       "norm_label": "\ud83d\udca1 cara memulai kembali sesi (resume prompt)",
       "source_file": "PROGRESS.md",
-      "source_location": "L73"
+      "source_location": "L72"
     },
     {
-      "id": "progress_deliverables_yang_sudah_selesai_completed_100",
-      "label": "\u2705 Deliverables yang Sudah Selesai (Completed - 100%)",
+      "id": "progress_deliverables_yang_sudah_selesai_completed",
+      "label": "\u2705 Deliverables yang Sudah Selesai (Completed)",
       "_origin": "ast",
       "community": 9,
       "community_name": "Pharmacy POS & ERP System (Apotek)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "\u2705 deliverables yang sudah selesai (completed - 100%)",
+      "norm_label": "\u2705 deliverables yang sudah selesai (completed)",
       "source_file": "PROGRESS.md",
       "source_location": "L17"
     },
@@ -3823,6 +4183,325 @@
       "weight": 1.0
     },
     {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_feature_prd_master_obat_penggolongan_regulasi_farmasi_multi_satuan_bertingkat",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_4_alur_kerja_utama_core_user_journey",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_4_1_alur_1_pendaftaran_master_obat_definisi_hierarki_multi_satuan",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_4_alur_kerja_utama_core_user_journey",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_4_2_alur_2_transaksi_penjualan_eceran_pos_auto_breakdown_mutasi",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_4_alur_kerja_utama_core_user_journey",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_4_3_alur_3_prosedur_aman_penggantian_satuan_terkecil_unit_re_basing_wizard",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_5_kebutuhan_fungsional_aturan_bisnis_business_rules",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_5_1_katalog_produk_penggolongan_regulasi_farmasi",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L119",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_5_kebutuhan_fungsional_aturan_bisnis_business_rules",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_5_2_kamus_master_satuan_baku_units_of_measurement_uom_directory",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L140",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_5_kebutuhan_fungsional_aturan_bisnis_business_rules",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_5_3_hierarki_multi_satuan_bertingkat_packaging_hierarchy",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L155",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_5_kebutuhan_fungsional_aturan_bisnis_business_rules",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_5_4_proses_pecah_satuan_de_aggregation_repackaging_lalu_lintas_stok",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L179",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_5_kebutuhan_fungsional_aturan_bisnis_business_rules",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_5_5_kebijakan_ganti_satuan_terkecil_unit_re_basing_wizard",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L204",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_5_kebutuhan_fungsional_aturan_bisnis_business_rules",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_5_6_valuasi_hpp_harga_pokok_penjualan_strategi_harga_bertingkat",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L228",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_6_elemen_antarmuka_input_bisnis_ui_information_elements",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_6_1_antarmuka_manajemen_kamus_master_satuan_master_uom_directory",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L257",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_6_elemen_antarmuka_input_bisnis_ui_information_elements",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_6_2_formulir_pendaftaran_edit_master_obat",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L266",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_6_elemen_antarmuka_input_bisnis_ui_information_elements",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_6_3_tampilan_kasir_pos_dual_view_display",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L285",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_6_elemen_antarmuka_input_bisnis_ui_information_elements",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_6_4_antarmuka_laporan_pemecahan_satuan_unit_breakdown_report",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L294",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_9_kriteria_penerimaan_acceptance_criteria",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_01_pendaftaran_master_obat_dengan_satuan_bertingkat_multi_barcode",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L330",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_9_kriteria_penerimaan_acceptance_criteria",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_02_seamless_auto_breakdown_di_meja_kasir_pos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L335",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_9_kriteria_penerimaan_acceptance_criteria",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_03_pencatatan_ganda_lalu_lintas_stok_pada_pemecahan_otomatis",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L340",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_9_kriteria_penerimaan_acceptance_criteria",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_04_kalkulasi_hpp_proporsional_termasuk_bonus_faktur_pbf",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L345",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_9_kriteria_penerimaan_acceptance_criteria",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_05_perlindungan_mutlak_terhadap_pengubahan_satuan_terkecil_anti_corruption_guardrail",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L350",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_9_kriteria_penerimaan_acceptance_criteria",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_06_manajemen_kamus_master_satuan_validasi_anti_free_text",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L355",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_feature_prd_master_obat_penggolongan_regulasi_farmasi_multi_satuan_bertingkat",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_5_kebutuhan_fungsional_aturan_bisnis_business_rules",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L117",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_feature_prd_master_obat_penggolongan_regulasi_farmasi_multi_satuan_bertingkat",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_2_latar_belakang_masalah_bisnis",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_feature_prd_master_obat_penggolongan_regulasi_farmasi_multi_satuan_bertingkat",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_6_elemen_antarmuka_input_bisnis_ui_information_elements",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L255",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_feature_prd_master_obat_penggolongan_regulasi_farmasi_multi_satuan_bertingkat",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_7_skenario_pengecualian_kasus_khusus_edge_cases",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L307",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_feature_prd_master_obat_penggolongan_regulasi_farmasi_multi_satuan_bertingkat",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_8_metrik_keberhasilan_bisnis_kpi",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L319",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_feature_prd_master_obat_penggolongan_regulasi_farmasi_multi_satuan_bertingkat",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_9_kriteria_penerimaan_acceptance_criteria",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L328",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_feature_prd_master_obat_penggolongan_regulasi_farmasi_multi_satuan_bertingkat",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_3_persona_konteks_penggunaan",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_feature_prd_master_obat_penggolongan_regulasi_farmasi_multi_satuan_bertingkat",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_1_metadata_dokumen",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat_feature_prd_master_obat_penggolongan_regulasi_farmasi_multi_satuan_bertingkat",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat_4_alur_kerja_utama_core_user_journey",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
       "source": "github_issue_template_backend_task",
       "target": "github_issue_template_backend_task_dokumen_acuan_ssot",
       "relation": "contains",
@@ -3999,7 +4678,7 @@
       "weight": 1.0
     },
     {
-      "source": "progress_deliverables_yang_sudah_selesai_completed_100",
+      "source": "progress_deliverables_yang_sudah_selesai_completed",
       "target": "progress_1_tata_kelola_aturan_arsitektur_agents_github",
       "relation": "contains",
       "_origin": "ast",
@@ -4010,7 +4689,7 @@
       "weight": 1.0
     },
     {
-      "source": "progress_deliverables_yang_sudah_selesai_completed_100",
+      "source": "progress_deliverables_yang_sudah_selesai_completed",
       "target": "progress_2_dokumen_induk_fondasi_identitas",
       "relation": "contains",
       "_origin": "ast",
@@ -4021,7 +4700,7 @@
       "weight": 1.0
     },
     {
-      "source": "progress_deliverables_yang_sudah_selesai_completed_100",
+      "source": "progress_deliverables_yang_sudah_selesai_completed",
       "target": "progress_3_modul_spesifikasi_kebutuhan_bisnis_prd",
       "relation": "contains",
       "_origin": "ast",
@@ -4033,7 +4712,7 @@
     },
     {
       "source": "progress_pharmacy_pos_erp_system_apotek",
-      "target": "progress_deliverables_yang_sudah_selesai_completed_100",
+      "target": "progress_deliverables_yang_sudah_selesai_completed",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4050,7 +4729,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROGRESS.md",
-      "source_location": "L45",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -4061,7 +4740,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROGRESS.md",
-      "source_location": "L62",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -4072,7 +4751,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROGRESS.md",
-      "source_location": "L73",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -4105,7 +4784,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L100",
+      "source_location": "L101",
       "weight": 1.0
     },
     {
@@ -4116,7 +4795,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L106",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -4127,7 +4806,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L119",
+      "source_location": "L120",
       "weight": 1.0
     },
     {
@@ -4138,7 +4817,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L131",
+      "source_location": "L132",
       "weight": 1.0
     },
     {
@@ -4149,7 +4828,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L136",
+      "source_location": "L137",
       "weight": 1.0
     },
     {
@@ -4160,7 +4839,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L140",
+      "source_location": "L141",
       "weight": 1.0
     },
     {
@@ -4171,7 +4850,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L127",
+      "source_location": "L128",
       "weight": 1.0
     },
     {
@@ -4182,7 +4861,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L151",
+      "source_location": "L152",
       "weight": 1.0
     },
     {
@@ -4226,7 +4905,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L96",
+      "source_location": "L97",
       "weight": 1.0
     },
     {
@@ -4484,12 +5163,56 @@
     },
     {
       "source": "features_master_data_01_prd_cabang_dan_gudang",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/01-prd-cabang-dan-gudang.md",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_01_prd_cabang_dan_gudang",
       "target": "technical_00_architecture_and_multibranch_guidelines",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "features/master-data/01-prd-cabang-dan-gudang.md",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat",
+      "target": "00_master_prd",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat",
+      "target": "features_01_prd_auth_user",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "features_master_data_02_prd_obat_dan_satuan_bertingkat",
+      "target": "technical_00_architecture_and_multibranch_guidelines",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
       "source_location": "L13",
       "weight": 1.0
     },
@@ -4690,8 +5413,19 @@
       "source_file": "PROGRESS.md",
       "source_location": "L41",
       "weight": 1.0
+    },
+    {
+      "source": "progress",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROGRESS.md",
+      "source_location": "L42",
+      "weight": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "2a08dda5cbc6db577131dab99e5da28e98f31665"
+  "built_at_commit": "776c5b2735642110477bcefbeffe533da2770a82"
 }

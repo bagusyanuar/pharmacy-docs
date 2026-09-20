@@ -81,7 +81,8 @@ pharmacy-docs/
 ├── features/                                 # Kumpulan spesifikasi kebutuhan bisnis (PRD)
 │   ├── 01-prd-auth-user.md                   # PRD Autentikasi Dual-UX, Legalitas SIPA & Hak Akses
 │   ├── master-data/                          # PRD Master Cabang, Produk, Multi-Satuan, PBF
-│   │   └── 01-prd-cabang-dan-gudang.md       # PRD Master Cabang, Izin SIA & Struktur Gudang
+│   │   ├── 01-prd-cabang-dan-gudang.md       # PRD Master Cabang, Izin SIA & Struktur Gudang
+│   │   └── 02-prd-obat-dan-satuan-bertingkat.md # PRD Master Obat, Golongan Regulasi, Multi-Satuan & HPP
 │   ├── pos-resep/                            # PRD Kasir OTC, Resep, Racikan, Shift
 │   ├── inventory-wms/                        # PRD Batch FEFO, Kartu Stok BPOM, Transfer Cabang
 │   ├── procurement-pbf/                      # PRD Buku Defekta, Surat Pesanan, Faktur Masuk

@@ -7,14 +7,14 @@ Dokumen ini adalah rekam jejak resmi status pengerjaan spesifikasi teknis, arsit
 
 ## 📌 Ringkasan Status Proyek
 
-* **Tanggal Pembaruan Terakhir:** 2026-09-19
-* **Milestone Aktif Saat Ini:** **Fase 0 (Inisialisasi Tata Kelola, Rules AI, Master PRD & Graphify) — SELESAI (100%)**
-* **Milestone Berikutnya:** **Fase 1 (Master Data, Multi-Branch Architecture & Skema Database DRA) — ANTRIAN AKTIF**
+* **Tanggal Pembaruan Terakhir:** 2026-09-20
+* **Milestone Aktif Saat Ini:** **Fase 1 (Master Data, Multi-Branch Architecture & Skema Database DRA) — SEDANG BERJALAN**
+* **Milestone Berikutnya:** **Fase 2 (Front-Office POS, Kasir Cepat & Resep Racikan)**
 * **Integritas Knowledge Graph (Graphify):** Tersinkronisasi
 
 ---
 
-## ✅ Deliverables yang Sudah Selesai (Completed - 100%)
+## ✅ Deliverables yang Sudah Selesai (Completed)
 
 ### 1. Tata Kelola & Aturan Arsitektur (`.agents/` & `.github/`)
 - [x] [`.agents/rules/persona-tika.md`](./.agents/rules/persona-tika.md) — Persona Tika (Lead System Analyst & Technical PM Apotek).
@@ -39,6 +39,7 @@ Dokumen ini adalah rekam jejak resmi status pengerjaan spesifikasi teknis, arsit
 ### 3. Modul Spesifikasi Kebutuhan Bisnis (PRD)
 - [x] [`features/01-prd-auth-user.md`](./features/01-prd-auth-user.md) — Dual-UX Login (Fast PIN POS & Email/Password ERP), profil staf & legalitas profesi (SIPA Apoteker & STRTTK), matriks hak akses 6 persona (RBAC), pop-up otorisasi supervisor (*Manager Override* untuk void/diskon), dan isolasi sesi cabang.
 - [x] [`features/master-data/01-prd-cabang-dan-gudang.md`](./features/master-data/01-prd-cabang-dan-gudang.md) — Master Cabang, klasifikasi tipe cabang (Apotek Ritel/Klinik/Gudang Pusat), izin resmi SIA, prinsip 1 Apotek 1 APA, penugasan staf kasir, zona simpan baku & penomoran rak fisik.
+- [x] [`features/master-data/02-prd-obat-dan-satuan-bertingkat.md`](./features/master-data/02-prd-obat-dan-satuan-bertingkat.md) — Master Obat & Zat Aktif, Penggolongan Regulasi Farmasi (Bebas/Terbatas/Keras/OWA/Psiko/Narko), Hierarki Multi-Satuan Bertingkat (Base Unit, Sub, Outer), Multi-Barcode per kemasan, Seamless Auto-Breakdown di POS dengan pencatatan ganda kartu stok (`AUTO_BREAKDOWN` & `DISPENSE_SALE`), Wizard Konversi Satuan Terkecil, Valuasi HPP Bersih (termasuk bonus barang PBF & diskon bertingkat), dan Dual-View Display stok ramah manusia.
 
 ---
 
@@ -46,15 +47,13 @@ Dokumen ini adalah rekam jejak resmi status pengerjaan spesifikasi teknis, arsit
 
 Berikutnya kita akan menyusun spesifikasi **Fase 1: Master Data & Arsitektur Teknis**:
 
-1. ⏳ **`features/master-data/02-prd-obat-dan-satuan-bertingkat.md`**
-   - *Cakupan Bisnis:* Katalog obat paten & generik, golongan obat (Bebas/Terbatas/Keras/Narkotika), hierarki multi-satuan bertingkat (Box $\rightarrow$ Strip $\rightarrow$ Tab), dan penentuan harga jual eceran proporsional.
-2. ⏳ **`features/master-data/03-prd-pbf-supplier-dan-dokter.md`**
+1. ⏳ **`features/master-data/03-prd-pbf-supplier-dan-dokter.md`**
    - *Cakupan Bisnis:* Master distributor PBF, kontak, izin PBF, default TOP kredit, master dokter perujuk (No SIP), dan Patient Medication Record (PMR).
-3. ⏳ **`technical/01-dra-database-erd-master-auth.md`**
+2. ⏳ **`technical/01-dra-database-erd-master-auth.md`**
    - *Cakupan Teknis:* Skema DDL PostgreSQL 15+ (tabel cabang, user, profil SIPA, obat, multi-satuan, PBF), Foreign Key `ON DELETE RESTRICT`, invarian `branch_id`, dan diagram Mermaid ERD.
-4. ⏳ **`technical/02-trd-auth-session-api.md`**
+3. ⏳ **`technical/02-trd-auth-session-api.md`**
    - *Cakupan Teknis:* Kontrak REST API Autentikasi Dual-UX (PIN & Email), JWT RS256, Refresh Token Rotation, dan validasi header `X-Branch-Id`.
-5. ⏳ **`technical/03-trd-master-data-api.md`**
+4. ⏳ **`technical/03-trd-master-data-api.md`**
    - *Cakupan Teknis:* Kontrak RESTful API CRUD untuk seluruh modul Master Data dengan envelope standar `{ success, data, meta, error }`.
 
 ---
