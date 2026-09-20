@@ -66,7 +66,7 @@ pharmacy-docs/
 │   │   └── publish-issue.md                  # Workflow terbitkan issue GitHub (/publish-issue)
 │   └── skills/
 │       ├── business-prd-scaffolder/SKILL.md  # Template penulisan PRD murni bisnis apotek
-│       ├── trd-dra-scaffolder/SKILL.md       # Standard arsitektur DRA PostgreSQL & TRD API
+│       ├── trd-dra-scaffolder/SKILL.md       # Standar arsitektur Tech-Agnostic TRD & Relational DRA
 │       ├── change-impact-synchronizer/SKILL.md # SOP 4-langkah Zero Documentation Drift
 │       └── issue-task-scaffolder/SKILL.md    # Framework Lean Scoping tiket GitHub Issues
 ├── .github/
@@ -89,7 +89,12 @@ pharmacy-docs/
 │   ├── procurement-pbf/                      # PRD Buku Defekta, Surat Pesanan, Faktur Masuk
 │   └── finance-laporan/                      # PRD HPP, Hutang PBF, Laba Rugi, SIPNAP
 ├── technical/                                # Kumpulan spesifikasi arsitektur teknis
-│   └── 00-architecture-and-multibranch-guidelines.md # Fondasi arsitektur multi-cabang & data
+│   ├── 00-architecture-and-multibranch-guidelines.md # Fondasi arsitektur multi-cabang & data
+│   ├── database/
+│   │   └── schema.dbml                       # Master Relational DBML SSOT (PostgreSQL 15+)
+│   ├── diagrams/
+│   │   └── 01-diagrams-auth-dan-cabang.md    # Blueprint visual (Usecase, Flowchart, Sequence)
+│   └── 01-trd-auth-dan-cabang.md             # TRD Tech-Agnostic Autentikasi, PIN POS & Multi-Branch
 └── graphify-out/                             # Knowledge Graph interaktif hasil Graphify
 ```
 

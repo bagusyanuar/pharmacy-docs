@@ -1,11 +1,11 @@
 ---
 name: issue-task-scaffolder
-description: "Framework and guidelines for scaffolding lean, high-clarity GitHub Issues for Backend, Frontend Web Admin, and Frontend POS engineers from PRD, DRA, and TRD documentation."
+description: "Framework and guidelines for scaffolding lean, high-clarity, atomic GitHub Issues for Backend, Frontend Web Admin, and Frontend POS engineers from PRD, DRA, and TRD documentation. Enforces task decomposition to prevent monolithic tasks."
 ---
 
 # Issue Task Scaffolder Skill (Spec-Driven / Issue-Driven Development)
 
-Standardized framework for creating production-ready, lean **GitHub Issues** from the **Pharmacy POS & ERP System** documentation for Backend, Web Admin, and POS engineers.
+Standardized framework for creating production-ready, lean, and **atomically decomposed GitHub Issues** from the **Pharmacy POS & ERP System** documentation for Backend, Web Admin, and POS engineers.
 
 ---
 
@@ -14,83 +14,130 @@ Standardized framework for creating production-ready, lean **GitHub Issues** fro
 1. **Single Source of Truth (SSOT):**
    * Business specifications (`PRD`), database architecture (`DBML`), and API contracts (`TRD`) are the absolute sources of truth.
    * **Lean Scoping Rule:** Strictly forbidden to copy-paste 500 lines of SQL DDL or hundreds of lines of JSON payloads into the GitHub Issue body. Issue tickets contain only the task objective, an actionable checklist (*Acceptance Criteria*), and **direct clickable markdown links** to reference documents in the repository.
-2. **Official Ticket Categories:**
-   * `[BE]` — **Backend & Database:** PostgreSQL migrations, domain business logic, FEFO stock locking, and RESTful API endpoints.
-   * `[FE-WEB]` — **Frontend Web Admin/ERP:** Backoffice management dashboard, master data, central warehouse, procurement, and financial reporting.
-   * `[FE-POS]` — **Frontend POS Cashier & Prescriptions:** Rapid keyboard-first checkout, USB barcode scanner listener, compounding calculator, and thermal receipt & label printing.
-3. **Traceability:** Every issue must explicitly link the specific business rule IDs (`BR-PHARM-XX-YY`) being implemented.
-4. **Issue Output Language:** All GitHub Issue titles, task summaries, checklists, and acceptance criteria MUST be written in **Bahasa Indonesia** to ensure direct operational clarity for development and QA teams in Indonesia.
+2. **Larangan Tiket Monolitik & Prinsip Dekomposisi Atomik (*Anti-Monolithic Rule*):**
+   * **DILARANG KERAS** menggabungkan seluruh fitur modul ke dalam 1 tiket raksasa (*monolithic issue*) yang memicu *Monster PR* (> 1.000 baris kode).
+   * **Ukuran Ideal 1 Tiket:** Ditargetkan selesai dalam **1–3 hari kerja developer** (menghasilkan 1 Pull Request fokus berukuran 200–400 baris kode).
+   * **Prinsip "1 Issue = 1 PR Teruji":** Setiap tiket memiliki batas pengujian yang jelas, mempermudah *code review*, dan mencegah *merge conflict*.
+3. **Official Ticket Categories:**
+   * `[BE]` — **Backend & Database:** Migrasi database relasional, domain business logic, FEFO stock locking, middleware isolasi cabang, dan RESTful API endpoints.
+   * `[FE-WEB]` — **Frontend Web Admin/ERP:** Backoffice management dashboard, master data tables, form pendaftaran berjenjang, dan branch switcher.
+   * `[FE-POS]` — **Frontend POS Cashier & Prescriptions:** Layar kasir cepat, scanner listener, pop-up supervisor override, kalkulator racikan, dan pencetakan etiket/struk ESC/POS.
+   * `[QA]` — **Quality Assurance & Testing Matrix:** Skenario uji integrasi, validasi keamanan, simulasi lockout, dan pengujian multi-cabang.
+4. **Traceability:** Setiap issue wajib mencantumkan tautan ke Business Rule ID (`BR-PHARM-XX-YY`) dan endpoint TRD yang diimplementasikan.
+5. **Bahasa Deliverable:** Judul issue, ringkasan tugas, checklist, dan kriteria penerimaan WAJIB ditulis dalam **Bahasa Indonesia** demi kejelasan operasional tim lokal.
 
 ---
 
-## 2. Standard Naming & Labeling Conventions
+## 2. Aturan Dekomposisi Tugas (Decomposition & Sizing Invariants)
 
-### Title Format:
-```
-[<ROLE>] <Module Name>: <Specific Action / Task Scope>
-```
-*Examples:*
-* `[BE] Drug Master Data: Schema Migrations & Multi-Unit CRUD REST API`
-* `[FE-POS] OTC Cashier: Keyboard-First Checkout, Barcode Scanning & Thermal Printing`
-* `[FE-WEB] Procurement: Digital Defekta Interface & Purchase Order Generator`
+Setiap modul besar pada TRD **wajib dipecah** menjadi sub-task atomik berdasarkan peran:
 
-### Label Conventions:
-* **Role:** `backend`, `frontend-web`, `frontend-pos`
-* **Domain:** `master-data`, `pos`, `inventory`, `procurement`, `finance`, `compliance`
-* **Type:** `feature`, `enhancement`, `bug`
+### A. Panduan Pemecahan Sektor Backend `[BE]`
+Maksimal **2–4 endpoint** per tiket BE. Pisahkan dengan pembagian klaster berikut:
+1. **Pondasi Database & Migrasi:** Skema tabel relasional, foreign keys (`ON DELETE RESTRICT`), audit trail 5 kolom, unique index, dan data seeding awal.
+2. **Alur Core / Transport API:** Kelompok endpoint utama (contoh: Login Web, Fast PIN POS, Refresh Token).
+3. **Middleware & Sesi:** Interceptor multi-cabang `X-Branch-Id`, screen lock/unlock, rate limiting.
+4. **Aksi Transaksional & Concurrency:** Endpoint berisiko tinggi / atomik (contoh: Supervisor Override + log audit, pessimistic locking pemotongan stok FEFO).
+5. **Background Scheduled Workers / Crons:** Job audit berkala (contoh: cron cek masa berlaku SIPA harian, auto-flagging obat expired).
+
+### B. Panduan Pemecahan Sektor Frontend POS Kasir `[FE-POS]`
+1. **Layar Kunci & Input Cepat:** Komponen layar kunci kasir, listener keyboard numpad fisik (0-9, Enter), dan form PIN.
+2. **Integrasi Hardware & Device Stream:** Penyangga stream scanner barcode USB (< 50ms interval) dan auto-lock 3 menit.
+3. **Modal & Interceptor Transaksional:** Pop-up supervisor override, dialog pembayaran kasir, modal konfirmasi void.
+4. **State Keranjang & Transaksi:** In-memory cart store, buffer hold/recall cart, optimistic UI update.
+
+### C. Panduan Pemecahan Sektor Frontend Web Admin `[FE-WEB]`
+1. **Autentikasi & Navigasi Global:** Form login email/password, RBAC route guards, dan komponen global Topbar Branch Switcher.
+2. **Tabel Data & Manajemen:** Komponen data table, filter multi-cabang, pencarian, dan pagination server-side.
+3. **Formulir Input Berjenjang:** Modal form pendaftaran multi-tahap (Data HR $\rightarrow$ Legalitas Profesi $\rightarrow$ Kredensial IAM).
 
 ---
 
-## 3. Standard Issue Body Templates
+## 3. Format Penomoran & Judul Tiket (Standard Naming)
+
+### Format Judul:
+```
+[<ROLE>] <Nama Modul> (Part <N>/<Total>): <Spesifik Aksi / Cakupan Deliverable>
+```
+
+*Contoh Nyata (Modul Auth & Multi-Branch):*
+* `[BE] Auth & Sesi (Part 1/5): Migrasi Skema Database Relasional, Indeks & Seeding`
+* `[BE] Auth & Sesi (Part 2/5): Endpoint Web Login, Fast PIN POS & Refresh Token Rotation`
+* `[BE] Auth & Sesi (Part 3/5): Middleware Isolasi X-Branch-Id & Lock/Unlock Layar POS`
+* `[BE] Auth & Sesi (Part 4/5): Supervisor Override Transaksional & Audit Logging`
+* `[BE] Auth & Sesi (Part 5/5): CRUD Manajemen Staf & Scheduled Worker Kedaluwarsa SIPA`
+* `[FE-POS] Kasir Auth (Part 1/3): Layar Kunci (Lock Screen), Numpad Listener & Fast PIN Login`
+* `[FE-POS] Kasir Auth (Part 2/3): Penyangga Barcode Scanner ID Card & Auto-Lock Inactivity 3 Menit`
+* `[FE-POS] Kasir Auth (Part 3/3): Pop-Up Dialog Supervisor Override & Action Interceptor`
+* `[FE-WEB] Admin Auth (Part 1/2): Halaman Login ERP, RBAC Route Guards & Global Branch Switcher`
+* `[FE-WEB] Admin Auth (Part 2/2): Manajemen Pengguna & Form Pendaftaran Staf Berjenjang 3 Tahap`
+
+### Standar Label GitHub:
+* **Role:** `backend`, `frontend-web`, `frontend-pos`, `qa`
+* **Domain:** `auth`, `master-data`, `pos`, `inventory`, `procurement`, `finance`
+* **Type:** `feature`, `enhancement`, `database`, `security`
+
+---
+
+## 4. Standard Issue Body Templates
 
 ### A. Backend Format (`[BE]`)
 ```markdown
-## 📌 Task Summary
-Implement PostgreSQL database migrations and RESTful API endpoints for [Module Name].
+## 📌 Ringkasan Tugas
+Mengimplementasikan sub-fitur [Nama Sub-Fitur] untuk modul [Nama Modul].
 
-## 📚 Reference Documents (SSOT)
-- **Business PRD:** [Module PRD](URL_TO_PRD)
-- **Database Architecture:** [DBML Schema](URL_TO_DBML#anchor)
-- **API Contracts (TRD):** [TRD Specifications](URL_TO_TRD#anchor)
+## 📚 Dokumen Acuan (SSOT)
+- **Business PRD:** [Nama Dokumen PRD](URL_TO_PRD#anchor)
+- **Blueprint Arsitektur:** [Visual Diagrams](URL_TO_DIAGRAM#anchor)
+- **Spesifikasi Teknis (TRD):** [TRD Specifications](URL_TO_TRD#anchor)
+- **Skema Database:** [DBML Schema](URL_TO_DBML#anchor)
 
-## 🎯 Scope & Checklist
-- [ ] Create PostgreSQL migration files adhering to universal audit columns and `branch_id`.
-- [ ] Implement Service & Repository layers with atomic database transaction handling (`DB Transaction`).
-- [ ] Implement Controllers & DTO validation matching the standardized TRD envelope.
-- [ ] Unit tests & API integration tests (Coverage > 80%).
+## 🎯 Cakupan Tugas & Checklist Deliverable
+- [ ] Implementasi skema tabel / migration file sesuai standar universal audit 5 kolom.
+- [ ] Implementasi Domain Service & Repository layer dengan penanganan transaksi ACID.
+- [ ] Implementasi Controller / Transport endpoint dengan validasi DTO dan envelope standar.
+- [ ] Unit test & Integration test dengan target coverage > 80%.
 
-## 🛡️ Business Rules to Enforce
-- [ ] `BR-PHARM-XX-01`: ...
-- [ ] `BR-PHARM-XX-02`: ...
+## 🛡️ Business Rules & Invarian Teknis
+- [ ] `BR-PHARM-XX-YY`: ...
+- [ ] Invarian Multi-Cabang: Wajib memvalidasi header `X-Branch-Id: <uuid>`.
+- [ ] Invarian Konkurensi: Menjamin integritas data tanpa race condition.
 ```
 
 ### B. Frontend POS Cashier Format (`[FE-POS]`)
 ```markdown
-## 📌 Task Summary
-Build the front-office cashier interface for [Module Name] featuring keyboard-first navigation and thermal printer integration.
+## 📌 Ringkasan Tugas
+Membangun antarmuka kasir depan untuk [Nama Sub-Fitur] dengan navigasi keyboard-first dan integrasi hardware.
 
-## 📚 Reference Documents (SSOT)
-- **Business PRD:** [Module PRD](URL_TO_PRD)
-- **API Contracts (TRD):** [TRD Specifications](URL_TO_TRD#anchor)
+## 📚 Dokumen Acuan (SSOT)
+- **Business PRD:** [Nama Dokumen PRD](URL_TO_PRD#anchor)
+- **Spesifikasi Teknis (TRD):** [TRD Specifications](URL_TO_TRD#anchor)
 
-## 🎯 Scope & Checklist
-- [ ] High-speed search interface components (barcode & brand/generic name).
-- [ ] Keyboard shortcuts mapping (F1 - F12, Enter, Escape).
-- [ ] Thermal receipt & label printer integration (ESC/POS).
-- [ ] Cart state management (hold/recall cart buffers).
+## 🎯 Cakupan Tugas & Checklist Deliverable
+- [ ] Komponen antarmuka visual (desain responsif PC Desktop kasir & Tablet sentuh 10-12 inci).
+- [ ] Event listener keyboard / hardware buffer stream.
+- [ ] Integrasi kontrak API TRD (penanganan status loading, sukses, dan error feedback).
+- [ ] Pengujian manual alur kasir (< 100ms response feedback).
+
+## 🛡️ Business Rules & Invarian Teknis
+- [ ] `BR-PHARM-XX-YY`: ...
 ```
 
 ### C. Frontend Web Admin / ERP Format (`[FE-WEB]`)
 ```markdown
-## 📌 Task Summary
-Build the backoffice web management interface for [Module Name].
+## 📌 Ringkasan Tugas
+Membangun antarmuka manajemen backoffice untuk [Nama Sub-Fitur].
 
-## 📚 Reference Documents (SSOT)
-- **Business PRD:** [Module PRD](URL_TO_PRD)
-- **API Contracts (TRD):** [TRD Specifications](URL_TO_TRD#anchor)
+## 📚 Dokumen Acuan (SSOT)
+- **Business PRD:** [Nama Dokumen PRD](URL_TO_PRD#anchor)
+- **Spesifikasi Teknis (TRD):** [TRD Specifications](URL_TO_TRD#anchor)
 
-## 🎯 Scope & Checklist
-- [ ] Data table components (sorting, pagination, multi-branch filtering).
-- [ ] Form input & client-side validation schema.
-- [ ] Report generation and exports (PDF & Excel).
+## 🎯 Cakupan Tugas & Checklist Deliverable
+- [ ] Navigasi halaman & proteksi hak akses berbasis RBAC.
+- [ ] Komponen form input / data table dengan validasi skema.
+- [ ] Integrasi kontrak API TRD dengan penyuntikan header `X-Branch-Id`.
+- [ ] Pengujian skenario form validasi dan respon error API.
+
+## 🛡️ Business Rules & Invarian Teknis
+- [ ] `BR-PHARM-XX-YY`: ...
 ```

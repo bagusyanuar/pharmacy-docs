@@ -736,7 +736,7 @@
       "file_type": "document",
       "frontmatter": {
         "name": "publish-issue",
-        "description": "Menerbitkan tiket tugas GitHub Issue untuk tim Backend (BE), Frontend Web (Admin/ERP), dan Frontend POS (Kasir/Racikan) secara otomatis berdasarkan spesifikasi PRD, DRA, dan TRD."
+        "description": "Menerbitkan tiket tugas GitHub Issue untuk tim Backend (BE), Frontend Web (Admin/ERP), dan Frontend POS (Kasir/Racikan) secara otomatis berdasarkan spesifikasi PRD, DRA, dan TRD dengan prinsip dekomposisi tugas atomik (anti-monolitik)."
       },
       "node_kind": "page",
       "norm_label": "publish-issue.md",
@@ -756,52 +756,64 @@
       "source_location": "L14"
     },
     {
-      "id": "agents_workflows_publish_issue_2_kumpulkan_konteks_dokumen",
-      "label": "2. Kumpulkan Konteks Dokumen",
+      "id": "agents_workflows_publish_issue_2_dekomposisi_tugas_menjadi_tiket_atomik_anti_monolithic_invariant",
+      "label": "2. Dekomposisi Tugas Menjadi Tiket Atomik (Anti-Monolithic Invariant)",
       "_origin": "ast",
       "community": 11,
       "community_name": "Langkah-Langkah Eksekusi Otomatis",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "2. kumpulkan konteks dokumen",
+      "norm_label": "2. dekomposisi tugas menjadi tiket atomik (anti-monolithic invariant)",
       "source_file": ".agents/workflows/publish-issue.md",
       "source_location": "L23"
     },
     {
-      "id": "agents_workflows_publish_issue_3_susun_isi_tiket_sesuai_template",
-      "label": "3. Susun Isi Tiket Sesuai Template",
+      "id": "agents_workflows_publish_issue_3_kumpulkan_konteks_dokumen_ssot",
+      "label": "3. Kumpulkan Konteks Dokumen (SSOT)",
       "_origin": "ast",
       "community": 11,
       "community_name": "Langkah-Langkah Eksekusi Otomatis",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "3. susun isi tiket sesuai template",
+      "norm_label": "3. kumpulkan konteks dokumen (ssot)",
       "source_file": ".agents/workflows/publish-issue.md",
-      "source_location": "L29"
+      "source_location": "L39"
     },
     {
-      "id": "agents_workflows_publish_issue_4_terbitkan_tiket_via_github_cli_gh",
-      "label": "4. Terbitkan Tiket via GitHub CLI (`gh`)",
+      "id": "agents_workflows_publish_issue_4_susun_isi_tiket_sesuai_format_atomik",
+      "label": "4. Susun Isi Tiket Sesuai Format Atomik",
       "_origin": "ast",
       "community": 11,
       "community_name": "Langkah-Langkah Eksekusi Otomatis",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "4. terbitkan tiket via github cli (`gh`)",
+      "norm_label": "4. susun isi tiket sesuai format atomik",
       "source_file": ".agents/workflows/publish-issue.md",
-      "source_location": "L38"
+      "source_location": "L46"
     },
     {
-      "id": "agents_workflows_publish_issue_5_laporkan_tautan_tiket_ke_pengguna",
-      "label": "5. Laporkan Tautan Tiket ke Pengguna",
+      "id": "agents_workflows_publish_issue_5_terbitkan_tiket_via_github_cli_gh",
+      "label": "5. Terbitkan Tiket via GitHub CLI (`gh`)",
       "_origin": "ast",
       "community": 11,
       "community_name": "Langkah-Langkah Eksekusi Otomatis",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "5. laporkan tautan tiket ke pengguna",
+      "norm_label": "5. terbitkan tiket via github cli (`gh`)",
       "source_file": ".agents/workflows/publish-issue.md",
-      "source_location": "L54"
+      "source_location": "L55"
+    },
+    {
+      "id": "agents_workflows_publish_issue_6_laporkan_matriks_tiket_ke_pengguna",
+      "label": "6. Laporkan Matriks Tiket ke Pengguna",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "Langkah-Langkah Eksekusi Otomatis",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "6. laporkan matriks tiket ke pengguna",
+      "source_file": ".agents/workflows/publish-issue.md",
+      "source_location": "L71"
     },
     {
       "id": "agents_workflows_publish_issue_langkah_langkah_eksekusi_otomatis",
@@ -2341,6 +2353,414 @@
       "source_location": "L1"
     },
     {
+      "id": "technical_01_trd_auth_dan_cabang_1_metadata_traceability",
+      "label": "1. Metadata & Traceability",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1. metadata & traceability",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L5"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_2_architectural_layers_component_interactions",
+      "label": "2. Architectural Layers & Component Interactions",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "2. architectural layers & component interactions",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L19"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_3_1_post_api_v1_auth_pos_fast_login",
+      "label": "3.1 `POST /api/v1/auth/pos/fast-login`",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3.1 `post /api/v1/auth/pos/fast-login`",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L67"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_3_2_post_api_v1_auth_web_login",
+      "label": "3.2 `POST /api/v1/auth/web/login`",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3.2 `post /api/v1/auth/web/login`",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L138"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_3_3_post_api_v1_auth_refresh_token",
+      "label": "3.3 `POST /api/v1/auth/refresh-token`",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3.3 `post /api/v1/auth/refresh-token`",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L206"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_3_4_post_api_v1_auth_pos_supervisor_override",
+      "label": "3.4 `POST /api/v1/auth/pos/supervisor-override`",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3.4 `post /api/v1/auth/pos/supervisor-override`",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L232"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_3_5_post_api_v1_auth_pos_lock_post_api_v1_auth_pos_unlock",
+      "label": "3.5 `POST /api/v1/auth/pos/lock` & `POST /api/v1/auth/pos/unlock`",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3.5 `post /api/v1/auth/pos/lock` & `post /api/v1/auth/pos/unlock`",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L283"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_3_6_post_api_v1_auth_switch_branch",
+      "label": "3.6 `POST /api/v1/auth/switch-branch`",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3.6 `post /api/v1/auth/switch-branch`",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L304"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_3_7_get_api_v1_users_post_api_v1_users",
+      "label": "3.7 `GET /api/v1/users` & `POST /api/v1/users`",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3.7 `get /api/v1/users` & `post /api/v1/users`",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L328"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_3_restful_api_contracts_the_single_source_of_truth",
+      "label": "3. RESTful API Contracts (The Single Source of Truth)",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. restful api contracts (the single source of truth)",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L59"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_4_1_standar_keamanan_kredensial_kriptografi_tech_agnostic",
+      "label": "4.1 Standar Keamanan Kredensial & Kriptografi (Tech-Agnostic)",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4.1 standar keamanan kredensial & kriptografi (tech-agnostic)",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L362"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_4_2_strategi_pengindeksan_database_kinerja_tinggi",
+      "label": "4.2 Strategi Pengindeksan Database Kinerja Tinggi",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4.2 strategi pengindeksan database kinerja tinggi",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L400"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_4_3_transaksi_atomik_persetujuan_supervisor_override",
+      "label": "4.3 Transaksi Atomik Persetujuan Supervisor Override",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4.3 transaksi atomik persetujuan supervisor override",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L422"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_4_4_scheduled_worker_pemantauan_kedaluwarsa_izin_sipa_strttk",
+      "label": "4.4 Scheduled Worker: Pemantauan Kedaluwarsa Izin SIPA & STRTTK",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4.4 scheduled worker: pemantauan kedaluwarsa izin sipa & strttk",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L450"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_4_concurrency_transactional_database_logic",
+      "label": "4. Concurrency, Transactional & Database Logic",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4. concurrency, transactional & database logic",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L360"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_5_1_route_guards_navigasi_berbasis_rbac",
+      "label": "5.1 Route Guards & Navigasi Berbasis RBAC",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5.1 route guards & navigasi berbasis rbac",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L462"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_5_2_komponen_global_context_branch_switcher",
+      "label": "5.2 Komponen Global Context: Branch Switcher",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5.2 komponen global context: branch switcher",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L469"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_5_3_validasi_form_pendaftaran_staf_berjenjang",
+      "label": "5.3 Validasi Form Pendaftaran Staf Berjenjang",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5.3 validasi form pendaftaran staf berjenjang",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L477"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_5_frontend_web_admin_fe_web_architecture",
+      "label": "5. Frontend Web Admin [FE-WEB] Architecture",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5. frontend web admin [fe-web] architecture",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L460"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_6_1_layar_kunci_kasir_mode_input_cepat_pos_lock_screen",
+      "label": "6.1 Layar Kunci Kasir & Mode Input Cepat (POS Lock Screen)",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "6.1 layar kunci kasir & mode input cepat (pos lock screen)",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L487"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_6_2_mekanisme_auto_lock_layar_kasir",
+      "label": "6.2 Mekanisme Auto-Lock Layar Kasir",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "6.2 mekanisme auto-lock layar kasir",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L496"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_6_3_interceptor_pop_up_supervisor_override",
+      "label": "6.3 Interceptor Pop-Up Supervisor Override",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "6.3 interceptor pop-up supervisor override",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L504"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_6_frontend_pos_cashier_fe_pos_architecture",
+      "label": "6. Frontend POS Cashier [FE-POS] Architecture",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "6. frontend pos cashier [fe-pos] architecture",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L485"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_7_1_siklus_status_akun_pengguna_user_account_lifecycle",
+      "label": "7.1 Siklus Status Akun Pengguna (User Account Lifecycle)",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "7.1 siklus status akun pengguna (user account lifecycle)",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L518"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_7_2_siklus_status_sesi_kasir_pos_cashier_session_lifecycle",
+      "label": "7.2 Siklus Status Sesi Kasir POS (Cashier Session Lifecycle)",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "7.2 siklus status sesi kasir pos (cashier session lifecycle)",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L533"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_7_3_pseudocode_algoritma_verifikasi_pin_kasir_rate_limiting",
+      "label": "7.3 Pseudocode Algoritma Verifikasi PIN Kasir & Rate Limiting",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "7.3 pseudocode algoritma verifikasi pin kasir & rate limiting",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L555"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_7_4_pseudocode_algoritma_supervisor_override",
+      "label": "7.4 Pseudocode Algoritma Supervisor Override",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "7.4 pseudocode algoritma supervisor override",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L606"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_7_domain_algorithms_state_lifecycles",
+      "label": "7. Domain Algorithms & State Lifecycles",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "7. domain algorithms & state lifecycles",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L516"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_8_github_issue_ticket_mapping_atomic_task_decomposition",
+      "label": "8. GitHub Issue Ticket Mapping (Atomic Task Decomposition)",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "8. github issue ticket mapping (atomic task decomposition)",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L648"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_a_klaster_backend_be_5_sub_tasks",
+      "label": "A. Klaster Backend `[BE]` (5 Sub-Tasks)",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "a. klaster backend `[be]` (5 sub-tasks)",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L652"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_b_klaster_frontend_pos_kasir_fe_pos_3_sub_tasks",
+      "label": "B. Klaster Frontend POS Kasir `[FE-POS]` (3 Sub-Tasks)",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "b. klaster frontend pos kasir `[fe-pos]` (3 sub-tasks)",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L661"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_c_klaster_frontend_web_admin_fe_web_2_sub_tasks",
+      "label": "C. Klaster Frontend Web Admin `[FE-WEB]` (2 Sub-Tasks)",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "c. klaster frontend web admin `[fe-web]` (2 sub-tasks)",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L668"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_d_klaster_quality_assurance_testing_qa_1_sub_task",
+      "label": "D. Klaster Quality Assurance & Testing `[QA]` (1 Sub-Task)",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "d. klaster quality assurance & testing `[qa]` (1 sub-task)",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L674"
+    },
+    {
+      "id": "technical_01_trd_auth_dan_cabang_technical_requirements_document_trd_autentikasi_dual_ux_sesi_kasir_pos_multi_branch_hak_akses_rbac",
+      "label": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "Technical Requirements Document (TRD): Autentikasi Dual-UX, Sesi Kasir POS, Multi-Branch & Hak Akses (RBAC)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "technical requirements document (trd): autentikasi dual-ux, sesi kasir pos, multi-branch & hak akses (rbac)",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L1"
+    },
+    {
       "id": "readme",
       "label": "README.md",
       "_origin": "ast",
@@ -2362,7 +2782,7 @@
       "node_kind": "heading",
       "norm_label": "1. membuka graf pengetahuan interaktif",
       "source_file": "README.md",
-      "source_location": "L102"
+      "source_location": "L107"
     },
     {
       "id": "readme_2_menanyakan_relasi_arsitektur_via_ai",
@@ -2374,7 +2794,7 @@
       "node_kind": "heading",
       "norm_label": "2. menanyakan relasi arsitektur via ai",
       "source_file": "README.md",
-      "source_location": "L108"
+      "source_location": "L113"
     },
     {
       "id": "readme_3_memperbarui_graf_pengetahuan",
@@ -2386,7 +2806,7 @@
       "node_kind": "heading",
       "norm_label": "3. memperbarui graf pengetahuan",
       "source_file": "README.md",
-      "source_location": "L121"
+      "source_location": "L126"
     },
     {
       "id": "readme_arsitektur_5_pilar_sistem",
@@ -2410,7 +2830,7 @@
       "node_kind": "heading",
       "norm_label": "cara menerbitkan tiket via ai:",
       "source_file": "README.md",
-      "source_location": "L138"
+      "source_location": "L143"
     },
     {
       "id": "readme_matriks_peran_pengguna_role_based_access_control_rbac",
@@ -2434,7 +2854,7 @@
       "node_kind": "heading",
       "norm_label": "menutup tiket otomatis via pull request (cross-repo auto-close):",
       "source_file": "README.md",
-      "source_location": "L142"
+      "source_location": "L147"
     },
     {
       "id": "readme_panduan_navigasi_knowledge_graph_graphify",
@@ -2446,7 +2866,7 @@
       "node_kind": "heading",
       "norm_label": "\ud83e\udde0 panduan navigasi knowledge graph (graphify)",
       "source_file": "README.md",
-      "source_location": "L98"
+      "source_location": "L103"
     },
     {
       "id": "readme_panduan_penerbitan_tiket_tugas_issue_driven_development",
@@ -2458,7 +2878,7 @@
       "node_kind": "heading",
       "norm_label": "\ud83c\udfab panduan penerbitan tiket tugas (issue-driven development)",
       "source_file": "README.md",
-      "source_location": "L129"
+      "source_location": "L134"
     },
     {
       "id": "readme_pharmacy_pos_erp_system_dokumentasi_spesifikasi_arsitektur",
@@ -2494,7 +2914,7 @@
       "node_kind": "heading",
       "norm_label": "tiga kategori tiket resmi:",
       "source_file": "README.md",
-      "source_location": "L133"
+      "source_location": "L138"
     },
     {
       "id": "readme_titik_simpan_melanjutkan_sesi_kerja",
@@ -2506,7 +2926,7 @@
       "node_kind": "heading",
       "norm_label": "\u26a1 titik simpan & melanjutkan sesi kerja",
       "source_file": "README.md",
-      "source_location": "L153"
+      "source_location": "L158"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill",
@@ -2517,7 +2937,7 @@
       "file_type": "document",
       "frontmatter": {
         "name": "trd-dra-scaffolder",
-        "description": "Framework and architectural standards for scaffolding Technical Requirements Documents (TRD) and Data Requirements Architecture (DRA) specifications for Pharmacy POS &amp; ERP. Enforces PostgreSQL best practices, strict multi-branch isolation (branch_id), universal audit trails, precise decimal types, FEFO index strategies, RESTful API envelope standardization, and bidirectional traceability to PRD business rules."
+        "description": "Framework and architectural standards for scaffolding Tech-Agnostic Technical Requirements Documents (TRD) and Data Requirements Architecture (DRA) specifications for Pharmacy POS &amp; ERP. Enforces platform-independent engineering blueprints, ANSI SQL / PostgreSQL relational modeling, strict multi-branch isolation (branch_id), universal audit trails, precise decimal types, FEFO index strategies, standardized RESTful API contracts, and bidirectional traceability to PRD business rules."
       },
       "node_kind": "page",
       "norm_label": "trd-dra-scaffolder/skill.md",
@@ -2525,76 +2945,112 @@
       "source_location": "L1"
     },
     {
-      "id": "agents_skills_trd_dra_scaffolder_skill_1_core_principles_of_technical_documentation",
-      "label": "1. Core Principles of Technical Documentation",
+      "id": "agents_skills_trd_dra_scaffolder_skill_1_1_platform_independent_tech_agnostic_principle",
+      "label": "1.1 Platform-Independent & Tech-Agnostic Principle",
       "_origin": "ast",
       "community": 4,
       "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "1. core principles of technical documentation",
+      "norm_label": "1.1 platform-independent & tech-agnostic principle",
+      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
+      "source_location": "L16"
+    },
+    {
+      "id": "agents_skills_trd_dra_scaffolder_skill_1_2_structured_3_tier_technical_blueprint",
+      "label": "1.2 Structured 3-Tier Technical Blueprint",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1.2 structured 3-tier technical blueprint",
+      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
+      "source_location": "L36"
+    },
+    {
+      "id": "agents_skills_trd_dra_scaffolder_skill_1_3_mermaid_syntax_github_web_rendering_rules_zero_error_invariant",
+      "label": "1.3 Mermaid Syntax & GitHub Web Rendering Rules (Zero-Error Invariant)",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1.3 mermaid syntax & github web rendering rules (zero-error invariant)",
+      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
+      "source_location": "L60"
+    },
+    {
+      "id": "agents_skills_trd_dra_scaffolder_skill_1_core_principles_of_tech_agnostic_technical_documentation",
+      "label": "1. Core Principles of Tech-Agnostic Technical Documentation",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "1. core principles of tech-agnostic technical documentation",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
       "source_location": "L12"
     },
     {
-      "id": "agents_skills_trd_dra_scaffolder_skill_2_1_multi_branch_ready_from_day_1_absolute_invariant",
-      "label": "2.1 Multi-Branch Ready from Day 1 (Absolute Invariant)",
+      "id": "agents_skills_trd_dra_scaffolder_skill_2_1_multi_branch_ready_sejak_hari_pertama_absolute_invariant",
+      "label": "2.1 Multi-Branch Ready Sejak Hari Pertama (Absolute Invariant)",
       "_origin": "ast",
       "community": 4,
       "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "2.1 multi-branch ready from day 1 (absolute invariant)",
+      "norm_label": "2.1 multi-branch ready sejak hari pertama (absolute invariant)",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L65"
+      "source_location": "L80"
     },
     {
-      "id": "agents_skills_trd_dra_scaffolder_skill_2_2_universal_audit_trail_mandatory_on_every_entity_table",
-      "label": "2.2 Universal Audit Trail (Mandatory on Every Entity Table)",
+      "id": "agents_skills_trd_dra_scaffolder_skill_2_2_universal_audit_trail_5_kolom_standar_di_setiap_tabel_entitas",
+      "label": "2.2 Universal Audit Trail (5 Kolom Standar di Setiap Tabel Entitas)",
       "_origin": "ast",
       "community": 4,
       "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "2.2 universal audit trail (mandatory on every entity table)",
+      "norm_label": "2.2 universal audit trail (5 kolom standar di setiap tabel entitas)",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L72"
+      "source_location": "L87"
     },
     {
-      "id": "agents_skills_trd_dra_scaffolder_skill_2_3_relational_integrity_deletion_policy",
-      "label": "2.3 Relational Integrity & Deletion Policy",
+      "id": "agents_skills_trd_dra_scaffolder_skill_2_3_integritas_relasional_kebijakan_penghapusan_data",
+      "label": "2.3 Integritas Relasional & Kebijakan Penghapusan Data",
       "_origin": "ast",
       "community": 4,
       "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "2.3 relational integrity & deletion policy",
+      "norm_label": "2.3 integritas relasional & kebijakan penghapusan data",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L82"
+      "source_location": "L96"
     },
     {
-      "id": "agents_skills_trd_dra_scaffolder_skill_2_4_strict_data_type_conventions",
-      "label": "2.4 Strict Data Type Conventions",
+      "id": "agents_skills_trd_dra_scaffolder_skill_2_4_konvensi_tipe_data_presisi_anti_floating_point",
+      "label": "2.4 Konvensi Tipe Data Presisi Anti-Floating Point",
       "_origin": "ast",
       "community": 4,
       "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "2.4 strict data type conventions",
+      "norm_label": "2.4 konvensi tipe data presisi anti-floating point",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L86"
+      "source_location": "L100"
     },
     {
-      "id": "agents_skills_trd_dra_scaffolder_skill_2_5_indexing_strategy_for_pharmacy_performance",
-      "label": "2.5 Indexing Strategy for Pharmacy Performance",
+      "id": "agents_skills_trd_dra_scaffolder_skill_2_5_strategi_pengindeksan_berbasis_kinerja_index_intent",
+      "label": "2.5 Strategi Pengindeksan Berbasis Kinerja (Index Intent)",
       "_origin": "ast",
       "community": 4,
       "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "2.5 indexing strategy for pharmacy performance",
+      "norm_label": "2.5 strategi pengindeksan berbasis kinerja (index intent)",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L93"
+      "source_location": "L107"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill_2_invariants_standards_for_dra_database_architecture_erd",
@@ -2606,7 +3062,7 @@
       "node_kind": "heading",
       "norm_label": "2. invariants & standards for dra (database architecture & erd)",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L61"
+      "source_location": "L76"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill_3_1_standard_restful_api_envelope",
@@ -2618,79 +3074,91 @@
       "node_kind": "heading",
       "norm_label": "3.1 standard restful api envelope",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L114"
+      "source_location": "L126"
     },
     {
-      "id": "agents_skills_trd_dra_scaffolder_skill_3_2_backend_be_engineering_standards",
-      "label": "3.2 Backend [BE] Engineering Standards",
+      "id": "agents_skills_trd_dra_scaffolder_skill_3_2_spesifikasi_arsitektur_backend_be_tech_agnostic",
+      "label": "3.2 Spesifikasi Arsitektur Backend [BE] (Tech-Agnostic)",
       "_origin": "ast",
       "community": 4,
       "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "3.2 backend [be] engineering standards",
+      "norm_label": "3.2 spesifikasi arsitektur backend [be] (tech-agnostic)",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L153"
+      "source_location": "L166"
     },
     {
-      "id": "agents_skills_trd_dra_scaffolder_skill_3_3_frontend_fe_web_fe_pos_engineering_standards",
-      "label": "3.3 Frontend [FE-WEB & FE-POS] Engineering Standards",
+      "id": "agents_skills_trd_dra_scaffolder_skill_3_3_spesifikasi_arsitektur_frontend_fe_web_fe_pos_tech_agnostic",
+      "label": "3.3 Spesifikasi Arsitektur Frontend [FE-WEB & FE-POS] (Tech-Agnostic)",
       "_origin": "ast",
       "community": 4,
       "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "3.3 frontend [fe-web & fe-pos] engineering standards",
+      "norm_label": "3.3 spesifikasi arsitektur frontend [fe-web & fe-pos] (tech-agnostic)",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L169"
+      "source_location": "L183"
     },
     {
-      "id": "agents_skills_trd_dra_scaffolder_skill_3_4_standard_trd_document_template",
-      "label": "3.4 Standard TRD Document Template",
+      "id": "agents_skills_trd_dra_scaffolder_skill_3_4_template_standar_dokumen_trd",
+      "label": "3.4 Template Standar Dokumen TRD",
       "_origin": "ast",
       "community": 4,
       "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "3.4 standard trd document template",
+      "norm_label": "3.4 template standar dokumen trd",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L194"
+      "source_location": "L208"
     },
     {
-      "id": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_be_fe_architecture",
-      "label": "3. Standards for Unified Contract-First TRD (BE & FE Architecture)",
+      "id": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_tech_agnostic_blueprint",
+      "label": "3. Standards for Unified Contract-First TRD (Tech-Agnostic Blueprint)",
       "_origin": "ast",
       "community": 4,
       "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "3. standards for unified contract-first trd (be & fe architecture)",
+      "norm_label": "3. standards for unified contract-first trd (tech-agnostic blueprint)",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L106"
+      "source_location": "L120"
     },
     {
-      "id": "agents_skills_trd_dra_scaffolder_skill_error_response_http_4xx_5xx",
-      "label": "Error Response (HTTP 4xx / 5xx):",
+      "id": "agents_skills_trd_dra_scaffolder_skill_aturan_abstraksi_arsitektur_tech_agnostic_mapping",
+      "label": "Aturan Abstraksi Arsitektur (Tech-Agnostic Mapping):",
       "_origin": "ast",
       "community": 4,
       "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "error response (http 4xx / 5xx):",
+      "norm_label": "aturan abstraksi arsitektur (tech-agnostic mapping):",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L132"
+      "source_location": "L19"
     },
     {
-      "id": "agents_skills_trd_dra_scaffolder_skill_success_response_http_200_201",
-      "label": "Success Response (HTTP 200 / 201):",
+      "id": "agents_skills_trd_dra_scaffolder_skill_format_respons_error_http_4xx_5xx",
+      "label": "Format Respons Error (HTTP 4xx / 5xx):",
       "_origin": "ast",
       "community": 4,
       "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "success response (http 200 / 201):",
+      "norm_label": "format respons error (http 4xx / 5xx):",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L117"
+      "source_location": "L145"
+    },
+    {
+      "id": "agents_skills_trd_dra_scaffolder_skill_format_respons_sukses_http_200_201",
+      "label": "Format Respons Sukses (HTTP 200 / 201):",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "format respons sukses (http 200 / 201):",
+      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
+      "source_location": "L130"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill_trd_dra_scaffolder_skill_pharmacy_pos_erp",
@@ -2881,6 +3349,18 @@
       "source_location": "L1"
     },
     {
+      "id": "technical_01_trd_auth_dan_cabang",
+      "label": "01-trd-auth-dan-cabang.md",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "PROGRESS.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "01-trd-auth-dan-cabang.md",
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L1"
+    },
+    {
       "id": "technical_diagrams_01_diagrams_auth_dan_cabang",
       "label": "01-diagrams-auth-dan-cabang.md",
       "_origin": "ast",
@@ -2909,11 +3389,11 @@
       "label": "issue-task-scaffolder/SKILL.md",
       "_origin": "ast",
       "community": 6,
-      "community_name": "3. Standard Issue Body Templates",
+      "community_name": "Issue Task Scaffolder Skill (Spec-Driven / Issue-Driven Development)",
       "file_type": "document",
       "frontmatter": {
         "name": "issue-task-scaffolder",
-        "description": "Framework and guidelines for scaffolding lean, high-clarity GitHub Issues for Backend, Frontend Web Admin, and Frontend POS engineers from PRD, DRA, and TRD documentation."
+        "description": "Framework and guidelines for scaffolding lean, high-clarity, atomic GitHub Issues for Backend, Frontend Web Admin, and Frontend POS engineers from PRD, DRA, and TRD documentation. Enforces task decomposition to prevent monolithic tasks."
       },
       "node_kind": "page",
       "norm_label": "issue-task-scaffolder/skill.md",
@@ -2925,7 +3405,7 @@
       "label": "1. Core Principles of Issue-Driven Development (IDD)",
       "_origin": "ast",
       "community": 6,
-      "community_name": "3. Standard Issue Body Templates",
+      "community_name": "Issue Task Scaffolder Skill (Spec-Driven / Issue-Driven Development)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "1. core principles of issue-driven development (idd)",
@@ -2933,71 +3413,131 @@
       "source_location": "L12"
     },
     {
-      "id": "agents_skills_issue_task_scaffolder_skill_2_standard_naming_labeling_conventions",
-      "label": "2. Standard Naming & Labeling Conventions",
+      "id": "agents_skills_issue_task_scaffolder_skill_2_aturan_dekomposisi_tugas_decomposition_sizing_invariants",
+      "label": "2. Aturan Dekomposisi Tugas (Decomposition & Sizing Invariants)",
       "_origin": "ast",
       "community": 6,
-      "community_name": "3. Standard Issue Body Templates",
+      "community_name": "Issue Task Scaffolder Skill (Spec-Driven / Issue-Driven Development)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "2. standard naming & labeling conventions",
+      "norm_label": "2. aturan dekomposisi tugas (decomposition & sizing invariants)",
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L26"
+      "source_location": "L31"
     },
     {
-      "id": "agents_skills_issue_task_scaffolder_skill_3_standard_issue_body_templates",
-      "label": "3. Standard Issue Body Templates",
+      "id": "agents_skills_issue_task_scaffolder_skill_3_format_penomoran_judul_tiket_standard_naming",
+      "label": "3. Format Penomoran & Judul Tiket (Standard Naming)",
       "_origin": "ast",
       "community": 6,
-      "community_name": "3. Standard Issue Body Templates",
+      "community_name": "Issue Task Scaffolder Skill (Spec-Driven / Issue-Driven Development)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "3. standard issue body templates",
+      "norm_label": "3. format penomoran & judul tiket (standard naming)",
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L44"
+      "source_location": "L56"
+    },
+    {
+      "id": "agents_skills_issue_task_scaffolder_skill_4_standard_issue_body_templates",
+      "label": "4. Standard Issue Body Templates",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Issue Task Scaffolder Skill (Spec-Driven / Issue-Driven Development)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4. standard issue body templates",
+      "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
+      "source_location": "L82"
     },
     {
       "id": "agents_skills_issue_task_scaffolder_skill_a_backend_format_be",
       "label": "A. Backend Format (`[BE]`)",
       "_origin": "ast",
       "community": 6,
-      "community_name": "3. Standard Issue Body Templates",
+      "community_name": "Issue Task Scaffolder Skill (Spec-Driven / Issue-Driven Development)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "a. backend format (`[be]`)",
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L46"
+      "source_location": "L84"
+    },
+    {
+      "id": "agents_skills_issue_task_scaffolder_skill_a_panduan_pemecahan_sektor_backend_be",
+      "label": "A. Panduan Pemecahan Sektor Backend `[BE]`",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Issue Task Scaffolder Skill (Spec-Driven / Issue-Driven Development)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "a. panduan pemecahan sektor backend `[be]`",
+      "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
+      "source_location": "L35"
     },
     {
       "id": "agents_skills_issue_task_scaffolder_skill_b_frontend_pos_cashier_format_fe_pos",
       "label": "B. Frontend POS Cashier Format (`[FE-POS]`)",
       "_origin": "ast",
       "community": 6,
-      "community_name": "3. Standard Issue Body Templates",
+      "community_name": "Issue Task Scaffolder Skill (Spec-Driven / Issue-Driven Development)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "b. frontend pos cashier format (`[fe-pos]`)",
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L67"
+      "source_location": "L107"
+    },
+    {
+      "id": "agents_skills_issue_task_scaffolder_skill_b_panduan_pemecahan_sektor_frontend_pos_kasir_fe_pos",
+      "label": "B. Panduan Pemecahan Sektor Frontend POS Kasir `[FE-POS]`",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Issue Task Scaffolder Skill (Spec-Driven / Issue-Driven Development)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "b. panduan pemecahan sektor frontend pos kasir `[fe-pos]`",
+      "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
+      "source_location": "L43"
     },
     {
       "id": "agents_skills_issue_task_scaffolder_skill_c_frontend_web_admin_erp_format_fe_web",
       "label": "C. Frontend Web Admin / ERP Format (`[FE-WEB]`)",
       "_origin": "ast",
       "community": 6,
-      "community_name": "3. Standard Issue Body Templates",
+      "community_name": "Issue Task Scaffolder Skill (Spec-Driven / Issue-Driven Development)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "c. frontend web admin / erp format (`[fe-web]`)",
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L83"
+      "source_location": "L126"
+    },
+    {
+      "id": "agents_skills_issue_task_scaffolder_skill_c_panduan_pemecahan_sektor_frontend_web_admin_fe_web",
+      "label": "C. Panduan Pemecahan Sektor Frontend Web Admin `[FE-WEB]`",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Issue Task Scaffolder Skill (Spec-Driven / Issue-Driven Development)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "c. panduan pemecahan sektor frontend web admin `[fe-web]`",
+      "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
+      "source_location": "L49"
+    },
+    {
+      "id": "agents_skills_issue_task_scaffolder_skill_format_judul",
+      "label": "Format Judul:",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Issue Task Scaffolder Skill (Spec-Driven / Issue-Driven Development)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "format judul:",
+      "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
+      "source_location": "L58"
     },
     {
       "id": "agents_skills_issue_task_scaffolder_skill_issue_task_scaffolder_skill_spec_driven_issue_driven_development",
       "label": "Issue Task Scaffolder Skill (Spec-Driven / Issue-Driven Development)",
       "_origin": "ast",
       "community": 6,
-      "community_name": "3. Standard Issue Body Templates",
+      "community_name": "Issue Task Scaffolder Skill (Spec-Driven / Issue-Driven Development)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "issue task scaffolder skill (spec-driven / issue-driven development)",
@@ -3005,28 +3545,16 @@
       "source_location": "L6"
     },
     {
-      "id": "agents_skills_issue_task_scaffolder_skill_label_conventions",
-      "label": "Label Conventions:",
+      "id": "agents_skills_issue_task_scaffolder_skill_standar_label_github",
+      "label": "Standar Label GitHub:",
       "_origin": "ast",
       "community": 6,
-      "community_name": "3. Standard Issue Body Templates",
+      "community_name": "Issue Task Scaffolder Skill (Spec-Driven / Issue-Driven Development)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "label conventions:",
+      "norm_label": "standar label github:",
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L37"
-    },
-    {
-      "id": "agents_skills_issue_task_scaffolder_skill_title_format",
-      "label": "Title Format:",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "3. Standard Issue Body Templates",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "title format:",
-      "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L28"
+      "source_location": "L75"
     },
     {
       "id": "feature_checklist",
@@ -3294,7 +3822,7 @@
       "node_kind": "heading",
       "norm_label": "3. modul spesifikasi kebutuhan bisnis (prd)",
       "source_file": "PROGRESS.md",
-      "source_location": "L41"
+      "source_location": "L42"
     },
     {
       "id": "progress_antrean_pengerjaan_berikutnya_next_action_items_fase_1",
@@ -3306,7 +3834,7 @@
       "node_kind": "heading",
       "norm_label": "\ud83c\udfaf antrean pengerjaan berikutnya (next action items: fase 1)",
       "source_file": "PROGRESS.md",
-      "source_location": "L49"
+      "source_location": "L50"
     },
     {
       "id": "progress_aturan_penting_yang_wajib_dipertahankan_invariants",
@@ -3318,7 +3846,7 @@
       "node_kind": "heading",
       "norm_label": "\ud83d\udd11 aturan penting yang wajib dipertahankan (invariants)",
       "source_file": "PROGRESS.md",
-      "source_location": "L62"
+      "source_location": "L61"
     },
     {
       "id": "progress_cara_memulai_kembali_sesi_resume_prompt",
@@ -3330,7 +3858,7 @@
       "node_kind": "heading",
       "norm_label": "\ud83d\udca1 cara memulai kembali sesi (resume prompt)",
       "source_file": "PROGRESS.md",
-      "source_location": "L73"
+      "source_location": "L72"
     },
     {
       "id": "progress_deliverables_yang_sudah_selesai_completed",
@@ -3668,58 +4196,91 @@
       "weight": 1.0
     },
     {
-      "source": "agents_skills_issue_task_scaffolder_skill_2_standard_naming_labeling_conventions",
-      "target": "agents_skills_issue_task_scaffolder_skill_title_format",
+      "source": "agents_skills_issue_task_scaffolder_skill_2_aturan_dekomposisi_tugas_decomposition_sizing_invariants",
+      "target": "agents_skills_issue_task_scaffolder_skill_a_panduan_pemecahan_sektor_backend_be",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L28",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
-      "source": "agents_skills_issue_task_scaffolder_skill_2_standard_naming_labeling_conventions",
-      "target": "agents_skills_issue_task_scaffolder_skill_label_conventions",
+      "source": "agents_skills_issue_task_scaffolder_skill_2_aturan_dekomposisi_tugas_decomposition_sizing_invariants",
+      "target": "agents_skills_issue_task_scaffolder_skill_b_panduan_pemecahan_sektor_frontend_pos_kasir_fe_pos",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L37",
+      "source_location": "L43",
       "weight": 1.0
     },
     {
-      "source": "agents_skills_issue_task_scaffolder_skill_3_standard_issue_body_templates",
-      "target": "agents_skills_issue_task_scaffolder_skill_a_backend_format_be",
+      "source": "agents_skills_issue_task_scaffolder_skill_2_aturan_dekomposisi_tugas_decomposition_sizing_invariants",
+      "target": "agents_skills_issue_task_scaffolder_skill_c_panduan_pemecahan_sektor_frontend_web_admin_fe_web",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L46",
+      "source_location": "L49",
       "weight": 1.0
     },
     {
-      "source": "agents_skills_issue_task_scaffolder_skill_3_standard_issue_body_templates",
+      "source": "agents_skills_issue_task_scaffolder_skill_3_format_penomoran_judul_tiket_standard_naming",
+      "target": "agents_skills_issue_task_scaffolder_skill_format_judul",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_issue_task_scaffolder_skill_3_format_penomoran_judul_tiket_standard_naming",
+      "target": "agents_skills_issue_task_scaffolder_skill_standar_label_github",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_issue_task_scaffolder_skill_4_standard_issue_body_templates",
       "target": "agents_skills_issue_task_scaffolder_skill_b_frontend_pos_cashier_format_fe_pos",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L67",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
-      "source": "agents_skills_issue_task_scaffolder_skill_3_standard_issue_body_templates",
+      "source": "agents_skills_issue_task_scaffolder_skill_4_standard_issue_body_templates",
       "target": "agents_skills_issue_task_scaffolder_skill_c_frontend_web_admin_erp_format_fe_web",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L83",
+      "source_location": "L126",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_issue_task_scaffolder_skill_4_standard_issue_body_templates",
+      "target": "agents_skills_issue_task_scaffolder_skill_a_backend_format_be",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
+      "source_location": "L84",
       "weight": 1.0
     },
     {
@@ -3735,24 +4296,35 @@
     },
     {
       "source": "agents_skills_issue_task_scaffolder_skill_issue_task_scaffolder_skill_spec_driven_issue_driven_development",
-      "target": "agents_skills_issue_task_scaffolder_skill_2_standard_naming_labeling_conventions",
+      "target": "agents_skills_issue_task_scaffolder_skill_2_aturan_dekomposisi_tugas_decomposition_sizing_invariants",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L26",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
       "source": "agents_skills_issue_task_scaffolder_skill_issue_task_scaffolder_skill_spec_driven_issue_driven_development",
-      "target": "agents_skills_issue_task_scaffolder_skill_3_standard_issue_body_templates",
+      "target": "agents_skills_issue_task_scaffolder_skill_3_format_penomoran_judul_tiket_standard_naming",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L44",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_issue_task_scaffolder_skill_issue_task_scaffolder_skill_spec_driven_issue_driven_development",
+      "target": "agents_skills_issue_task_scaffolder_skill_4_standard_issue_body_templates",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
+      "source_location": "L82",
       "weight": 1.0
     },
     {
@@ -3767,140 +4339,173 @@
       "weight": 1.0
     },
     {
-      "source": "agents_skills_trd_dra_scaffolder_skill_2_invariants_standards_for_dra_database_architecture_erd",
-      "target": "agents_skills_trd_dra_scaffolder_skill_2_1_multi_branch_ready_from_day_1_absolute_invariant",
+      "source": "agents_skills_trd_dra_scaffolder_skill_1_1_platform_independent_tech_agnostic_principle",
+      "target": "agents_skills_trd_dra_scaffolder_skill_aturan_abstraksi_arsitektur_tech_agnostic_mapping",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L65",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_trd_dra_scaffolder_skill_1_core_principles_of_tech_agnostic_technical_documentation",
+      "target": "agents_skills_trd_dra_scaffolder_skill_1_1_platform_independent_tech_agnostic_principle",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_trd_dra_scaffolder_skill_1_core_principles_of_tech_agnostic_technical_documentation",
+      "target": "agents_skills_trd_dra_scaffolder_skill_1_2_structured_3_tier_technical_blueprint",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_trd_dra_scaffolder_skill_1_core_principles_of_tech_agnostic_technical_documentation",
+      "target": "agents_skills_trd_dra_scaffolder_skill_1_3_mermaid_syntax_github_web_rendering_rules_zero_error_invariant",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
+      "source_location": "L60",
       "weight": 1.0
     },
     {
       "source": "agents_skills_trd_dra_scaffolder_skill_2_invariants_standards_for_dra_database_architecture_erd",
-      "target": "agents_skills_trd_dra_scaffolder_skill_2_2_universal_audit_trail_mandatory_on_every_entity_table",
+      "target": "agents_skills_trd_dra_scaffolder_skill_2_4_konvensi_tipe_data_presisi_anti_floating_point",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L72",
+      "source_location": "L100",
       "weight": 1.0
     },
     {
       "source": "agents_skills_trd_dra_scaffolder_skill_2_invariants_standards_for_dra_database_architecture_erd",
-      "target": "agents_skills_trd_dra_scaffolder_skill_2_3_relational_integrity_deletion_policy",
+      "target": "agents_skills_trd_dra_scaffolder_skill_2_5_strategi_pengindeksan_berbasis_kinerja_index_intent",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L82",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
       "source": "agents_skills_trd_dra_scaffolder_skill_2_invariants_standards_for_dra_database_architecture_erd",
-      "target": "agents_skills_trd_dra_scaffolder_skill_2_4_strict_data_type_conventions",
+      "target": "agents_skills_trd_dra_scaffolder_skill_2_1_multi_branch_ready_sejak_hari_pertama_absolute_invariant",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L86",
+      "source_location": "L80",
       "weight": 1.0
     },
     {
       "source": "agents_skills_trd_dra_scaffolder_skill_2_invariants_standards_for_dra_database_architecture_erd",
-      "target": "agents_skills_trd_dra_scaffolder_skill_2_5_indexing_strategy_for_pharmacy_performance",
+      "target": "agents_skills_trd_dra_scaffolder_skill_2_2_universal_audit_trail_5_kolom_standar_di_setiap_tabel_entitas",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L93",
+      "source_location": "L87",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_trd_dra_scaffolder_skill_2_invariants_standards_for_dra_database_architecture_erd",
+      "target": "agents_skills_trd_dra_scaffolder_skill_2_3_integritas_relasional_kebijakan_penghapusan_data",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
+      "source_location": "L96",
       "weight": 1.0
     },
     {
       "source": "agents_skills_trd_dra_scaffolder_skill_3_1_standard_restful_api_envelope",
-      "target": "agents_skills_trd_dra_scaffolder_skill_success_response_http_200_201",
+      "target": "agents_skills_trd_dra_scaffolder_skill_format_respons_sukses_http_200_201",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L117",
+      "source_location": "L130",
       "weight": 1.0
     },
     {
       "source": "agents_skills_trd_dra_scaffolder_skill_3_1_standard_restful_api_envelope",
-      "target": "agents_skills_trd_dra_scaffolder_skill_error_response_http_4xx_5xx",
+      "target": "agents_skills_trd_dra_scaffolder_skill_format_respons_error_http_4xx_5xx",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L132",
+      "source_location": "L145",
       "weight": 1.0
     },
     {
-      "source": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_be_fe_architecture",
+      "source": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_tech_agnostic_blueprint",
       "target": "agents_skills_trd_dra_scaffolder_skill_3_1_standard_restful_api_envelope",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L114",
+      "source_location": "L126",
       "weight": 1.0
     },
     {
-      "source": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_be_fe_architecture",
-      "target": "agents_skills_trd_dra_scaffolder_skill_3_2_backend_be_engineering_standards",
+      "source": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_tech_agnostic_blueprint",
+      "target": "agents_skills_trd_dra_scaffolder_skill_3_2_spesifikasi_arsitektur_backend_be_tech_agnostic",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L153",
+      "source_location": "L166",
       "weight": 1.0
     },
     {
-      "source": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_be_fe_architecture",
-      "target": "agents_skills_trd_dra_scaffolder_skill_3_3_frontend_fe_web_fe_pos_engineering_standards",
+      "source": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_tech_agnostic_blueprint",
+      "target": "agents_skills_trd_dra_scaffolder_skill_3_3_spesifikasi_arsitektur_frontend_fe_web_fe_pos_tech_agnostic",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L169",
+      "source_location": "L183",
       "weight": 1.0
     },
     {
-      "source": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_be_fe_architecture",
-      "target": "agents_skills_trd_dra_scaffolder_skill_3_4_standard_trd_document_template",
+      "source": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_tech_agnostic_blueprint",
+      "target": "agents_skills_trd_dra_scaffolder_skill_3_4_template_standar_dokumen_trd",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L194",
+      "source_location": "L208",
       "weight": 1.0
     },
     {
       "source": "agents_skills_trd_dra_scaffolder_skill_trd_dra_scaffolder_skill_pharmacy_pos_erp",
-      "target": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_be_fe_architecture",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L106",
-      "weight": 1.0
-    },
-    {
-      "source": "agents_skills_trd_dra_scaffolder_skill_trd_dra_scaffolder_skill_pharmacy_pos_erp",
-      "target": "agents_skills_trd_dra_scaffolder_skill_1_core_principles_of_technical_documentation",
+      "target": "agents_skills_trd_dra_scaffolder_skill_1_core_principles_of_tech_agnostic_technical_documentation",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3911,13 +4516,24 @@
     },
     {
       "source": "agents_skills_trd_dra_scaffolder_skill_trd_dra_scaffolder_skill_pharmacy_pos_erp",
+      "target": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_tech_agnostic_blueprint",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
+      "source_location": "L120",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_trd_dra_scaffolder_skill_trd_dra_scaffolder_skill_pharmacy_pos_erp",
       "target": "agents_skills_trd_dra_scaffolder_skill_2_invariants_standards_for_dra_database_architecture_erd",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L61",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -3955,7 +4571,7 @@
     },
     {
       "source": "agents_workflows_publish_issue_langkah_langkah_eksekusi_otomatis",
-      "target": "agents_workflows_publish_issue_2_kumpulkan_konteks_dokumen",
+      "target": "agents_workflows_publish_issue_2_dekomposisi_tugas_menjadi_tiket_atomik_anti_monolithic_invariant",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3966,35 +4582,46 @@
     },
     {
       "source": "agents_workflows_publish_issue_langkah_langkah_eksekusi_otomatis",
-      "target": "agents_workflows_publish_issue_3_susun_isi_tiket_sesuai_template",
+      "target": "agents_workflows_publish_issue_3_kumpulkan_konteks_dokumen_ssot",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/workflows/publish-issue.md",
-      "source_location": "L29",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
       "source": "agents_workflows_publish_issue_langkah_langkah_eksekusi_otomatis",
-      "target": "agents_workflows_publish_issue_4_terbitkan_tiket_via_github_cli_gh",
+      "target": "agents_workflows_publish_issue_4_susun_isi_tiket_sesuai_format_atomik",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/workflows/publish-issue.md",
-      "source_location": "L38",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
       "source": "agents_workflows_publish_issue_langkah_langkah_eksekusi_otomatis",
-      "target": "agents_workflows_publish_issue_5_laporkan_tautan_tiket_ke_pengguna",
+      "target": "agents_workflows_publish_issue_5_terbitkan_tiket_via_github_cli_gh",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/workflows/publish-issue.md",
-      "source_location": "L54",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_workflows_publish_issue_langkah_langkah_eksekusi_otomatis",
+      "target": "agents_workflows_publish_issue_6_laporkan_matriks_tiket_ke_pengguna",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/workflows/publish-issue.md",
+      "source_location": "L71",
       "weight": 1.0
     },
     {
@@ -5567,7 +6194,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROGRESS.md",
-      "source_location": "L41",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -5589,7 +6216,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROGRESS.md",
-      "source_location": "L49",
+      "source_location": "L50",
       "weight": 1.0
     },
     {
@@ -5600,7 +6227,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROGRESS.md",
-      "source_location": "L62",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -5611,7 +6238,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROGRESS.md",
-      "source_location": "L73",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -5644,7 +6271,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L102",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -5655,7 +6282,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L108",
+      "source_location": "L113",
       "weight": 1.0
     },
     {
@@ -5666,7 +6293,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L121",
+      "source_location": "L126",
       "weight": 1.0
     },
     {
@@ -5677,7 +6304,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L133",
+      "source_location": "L138",
       "weight": 1.0
     },
     {
@@ -5688,7 +6315,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L138",
+      "source_location": "L143",
       "weight": 1.0
     },
     {
@@ -5699,7 +6326,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L142",
+      "source_location": "L147",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_pharmacy_pos_erp_system_dokumentasi_spesifikasi_arsitektur",
+      "target": "readme_panduan_navigasi_knowledge_graph_graphify",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L103",
       "weight": 1.0
     },
     {
@@ -5710,7 +6348,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L129",
+      "source_location": "L134",
       "weight": 1.0
     },
     {
@@ -5721,7 +6359,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L153",
+      "source_location": "L158",
       "weight": 1.0
     },
     {
@@ -5755,17 +6393,6 @@
       "confidence_score": 1.0,
       "source_file": "README.md",
       "source_location": "L9",
-      "weight": 1.0
-    },
-    {
-      "source": "readme_pharmacy_pos_erp_system_dokumentasi_spesifikasi_arsitektur",
-      "target": "readme_panduan_navigasi_knowledge_graph_graphify",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": "L98",
       "weight": 1.0
     },
     {
@@ -5989,6 +6616,380 @@
       "weight": 1.0
     },
     {
+      "source": "technical_01_trd_auth_dan_cabang",
+      "target": "technical_01_trd_auth_dan_cabang_technical_requirements_document_trd_autentikasi_dual_ux_sesi_kasir_pos_multi_branch_hak_akses_rbac",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_3_restful_api_contracts_the_single_source_of_truth",
+      "target": "technical_01_trd_auth_dan_cabang_3_2_post_api_v1_auth_web_login",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L138",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_3_restful_api_contracts_the_single_source_of_truth",
+      "target": "technical_01_trd_auth_dan_cabang_3_3_post_api_v1_auth_refresh_token",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L206",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_3_restful_api_contracts_the_single_source_of_truth",
+      "target": "technical_01_trd_auth_dan_cabang_3_4_post_api_v1_auth_pos_supervisor_override",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L232",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_3_restful_api_contracts_the_single_source_of_truth",
+      "target": "technical_01_trd_auth_dan_cabang_3_5_post_api_v1_auth_pos_lock_post_api_v1_auth_pos_unlock",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L283",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_3_restful_api_contracts_the_single_source_of_truth",
+      "target": "technical_01_trd_auth_dan_cabang_3_6_post_api_v1_auth_switch_branch",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L304",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_3_restful_api_contracts_the_single_source_of_truth",
+      "target": "technical_01_trd_auth_dan_cabang_3_7_get_api_v1_users_post_api_v1_users",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L328",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_3_restful_api_contracts_the_single_source_of_truth",
+      "target": "technical_01_trd_auth_dan_cabang_3_1_post_api_v1_auth_pos_fast_login",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_4_concurrency_transactional_database_logic",
+      "target": "technical_01_trd_auth_dan_cabang_4_1_standar_keamanan_kredensial_kriptografi_tech_agnostic",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L362",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_4_concurrency_transactional_database_logic",
+      "target": "technical_01_trd_auth_dan_cabang_4_2_strategi_pengindeksan_database_kinerja_tinggi",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L400",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_4_concurrency_transactional_database_logic",
+      "target": "technical_01_trd_auth_dan_cabang_4_3_transaksi_atomik_persetujuan_supervisor_override",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L422",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_4_concurrency_transactional_database_logic",
+      "target": "technical_01_trd_auth_dan_cabang_4_4_scheduled_worker_pemantauan_kedaluwarsa_izin_sipa_strttk",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L450",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_5_frontend_web_admin_fe_web_architecture",
+      "target": "technical_01_trd_auth_dan_cabang_5_1_route_guards_navigasi_berbasis_rbac",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L462",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_5_frontend_web_admin_fe_web_architecture",
+      "target": "technical_01_trd_auth_dan_cabang_5_2_komponen_global_context_branch_switcher",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L469",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_5_frontend_web_admin_fe_web_architecture",
+      "target": "technical_01_trd_auth_dan_cabang_5_3_validasi_form_pendaftaran_staf_berjenjang",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L477",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_6_frontend_pos_cashier_fe_pos_architecture",
+      "target": "technical_01_trd_auth_dan_cabang_6_1_layar_kunci_kasir_mode_input_cepat_pos_lock_screen",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L487",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_6_frontend_pos_cashier_fe_pos_architecture",
+      "target": "technical_01_trd_auth_dan_cabang_6_2_mekanisme_auto_lock_layar_kasir",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L496",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_6_frontend_pos_cashier_fe_pos_architecture",
+      "target": "technical_01_trd_auth_dan_cabang_6_3_interceptor_pop_up_supervisor_override",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L504",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_7_domain_algorithms_state_lifecycles",
+      "target": "technical_01_trd_auth_dan_cabang_7_1_siklus_status_akun_pengguna_user_account_lifecycle",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L518",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_7_domain_algorithms_state_lifecycles",
+      "target": "technical_01_trd_auth_dan_cabang_7_2_siklus_status_sesi_kasir_pos_cashier_session_lifecycle",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L533",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_7_domain_algorithms_state_lifecycles",
+      "target": "technical_01_trd_auth_dan_cabang_7_3_pseudocode_algoritma_verifikasi_pin_kasir_rate_limiting",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L555",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_7_domain_algorithms_state_lifecycles",
+      "target": "technical_01_trd_auth_dan_cabang_7_4_pseudocode_algoritma_supervisor_override",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L606",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_8_github_issue_ticket_mapping_atomic_task_decomposition",
+      "target": "technical_01_trd_auth_dan_cabang_a_klaster_backend_be_5_sub_tasks",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L652",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_8_github_issue_ticket_mapping_atomic_task_decomposition",
+      "target": "technical_01_trd_auth_dan_cabang_b_klaster_frontend_pos_kasir_fe_pos_3_sub_tasks",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L661",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_8_github_issue_ticket_mapping_atomic_task_decomposition",
+      "target": "technical_01_trd_auth_dan_cabang_c_klaster_frontend_web_admin_fe_web_2_sub_tasks",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L668",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_8_github_issue_ticket_mapping_atomic_task_decomposition",
+      "target": "technical_01_trd_auth_dan_cabang_d_klaster_quality_assurance_testing_qa_1_sub_task",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L674",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_technical_requirements_document_trd_autentikasi_dual_ux_sesi_kasir_pos_multi_branch_hak_akses_rbac",
+      "target": "technical_01_trd_auth_dan_cabang_2_architectural_layers_component_interactions",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_technical_requirements_document_trd_autentikasi_dual_ux_sesi_kasir_pos_multi_branch_hak_akses_rbac",
+      "target": "technical_01_trd_auth_dan_cabang_4_concurrency_transactional_database_logic",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L360",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_technical_requirements_document_trd_autentikasi_dual_ux_sesi_kasir_pos_multi_branch_hak_akses_rbac",
+      "target": "technical_01_trd_auth_dan_cabang_5_frontend_web_admin_fe_web_architecture",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L460",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_technical_requirements_document_trd_autentikasi_dual_ux_sesi_kasir_pos_multi_branch_hak_akses_rbac",
+      "target": "technical_01_trd_auth_dan_cabang_6_frontend_pos_cashier_fe_pos_architecture",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L485",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_technical_requirements_document_trd_autentikasi_dual_ux_sesi_kasir_pos_multi_branch_hak_akses_rbac",
+      "target": "technical_01_trd_auth_dan_cabang_1_metadata_traceability",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_technical_requirements_document_trd_autentikasi_dual_ux_sesi_kasir_pos_multi_branch_hak_akses_rbac",
+      "target": "technical_01_trd_auth_dan_cabang_7_domain_algorithms_state_lifecycles",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L516",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_technical_requirements_document_trd_autentikasi_dual_ux_sesi_kasir_pos_multi_branch_hak_akses_rbac",
+      "target": "technical_01_trd_auth_dan_cabang_3_restful_api_contracts_the_single_source_of_truth",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang_technical_requirements_document_trd_autentikasi_dual_ux_sesi_kasir_pos_multi_branch_hak_akses_rbac",
+      "target": "technical_01_trd_auth_dan_cabang_8_github_issue_ticket_mapping_atomic_task_decomposition",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L648",
+      "weight": 1.0
+    },
+    {
       "source": "technical_diagrams_01_diagrams_auth_dan_cabang",
       "target": "technical_diagrams_01_diagrams_auth_dan_cabang_blueprint_visual_diagram_usecase_alur_proses_scoped_erd",
       "relation": "contains",
@@ -6178,6 +7179,28 @@
     {
       "source": "features_01_prd_auth_user",
       "target": "features_master_data_01_prd_cabang_dan_gudang",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/01-prd-auth-user.md",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "features_01_prd_auth_user",
+      "target": "technical_01_trd_auth_dan_cabang",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "features/01-prd-auth-user.md",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "features_01_prd_auth_user",
+      "target": "technical_diagrams_01_diagrams_auth_dan_cabang",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6496,18 +7519,18 @@
     },
     {
       "source": "progress",
-      "target": "features_01_prd_auth_user",
+      "target": "technical_01_trd_auth_dan_cabang",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "PROGRESS.md",
-      "source_location": "L42",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
       "source": "progress",
-      "target": "features_master_data_01_prd_cabang_dan_gudang",
+      "target": "features_01_prd_auth_user",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6518,7 +7541,7 @@
     },
     {
       "source": "progress",
-      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat",
+      "target": "features_master_data_01_prd_cabang_dan_gudang",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6529,7 +7552,7 @@
     },
     {
       "source": "progress",
-      "target": "features_master_data_03_prd_pbf_supplier_dan_dokter",
+      "target": "features_master_data_02_prd_obat_dan_satuan_bertingkat",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6539,13 +7562,35 @@
       "weight": 1.0
     },
     {
-      "source": "technical_diagrams_01_diagrams_auth_dan_cabang",
-      "target": "features_01_prd_auth_user",
+      "source": "progress",
+      "target": "features_master_data_03_prd_pbf_supplier_dan_dokter",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_file": "PROGRESS.md",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang",
+      "target": "features_master_data_01_prd_cabang_dan_gudang",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_01_trd_auth_dan_cabang",
+      "target": "technical_diagrams_01_diagrams_auth_dan_cabang",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/01-trd-auth-dan-cabang.md",
       "source_location": "L12",
       "weight": 1.0
     },
@@ -6562,5 +7607,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e16573bb07ff412a3296e3e8d7d58f36728c69d3"
+  "built_at_commit": "9341d0b8d4683ccdbcb2ad0d4c19e6c5e49ca96b"
 }

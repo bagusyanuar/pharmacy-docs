@@ -10,7 +10,7 @@
 | **Nama Modul** | Autentikasi Dual-UX, Akun Pengguna, Legalitas Profesi (SIPA/STRTTK) & Hak Akses (RBAC) |
 | **Dokumen Induk** | [`00-MASTER-PRD.md`](../00-MASTER-PRD.md) |
 | **Depends On (Prasyarat)** | *Tidak ada (Fondasi Awal Sistem)* |
-| **Consumed By (Dampak)** | • [`features/master-data/01-prd-cabang-dan-gudang.md`](./master-data/01-prd-cabang-dan-gudang.md)<br>• [`features/pos-resep/01-prd-kasir-otc-dan-shift.md`](./pos-resep/01-prd-kasir-otc-dan-shift.md)<br>• [`features/pos-resep/02-prd-pelayanan-resep-dokter.md`](./pos-resep/02-prd-pelayanan-resep-dokter.md)<br>• [`features/procurement-pbf/01-prd-defekta-rop-dan-surat-pesanan-sp.md`](./procurement-pbf/01-prd-defekta-rop-dan-surat-pesanan-sp.md)<br>• [`technical/01-dra-database-erd-master-auth.md`](../technical/01-dra-database-erd-master-auth.md)<br>• [`technical/02-trd-auth-session-api.md`](../technical/02-trd-auth-session-api.md) |
+| **Consumed By (Dampak)** | • [`features/master-data/01-prd-cabang-dan-gudang.md`](./master-data/01-prd-cabang-dan-gudang.md)<br>• [`features/pos-resep/01-prd-kasir-otc-dan-shift.md`](./pos-resep/01-prd-kasir-otc-dan-shift.md)<br>• [`features/pos-resep/02-prd-pelayanan-resep-dokter.md`](./pos-resep/02-prd-pelayanan-resep-dokter.md)<br>• [`features/procurement-pbf/01-prd-defekta-rop-dan-surat-pesanan-sp.md`](./procurement-pbf/01-prd-defekta-rop-dan-surat-pesanan-sp.md)<br>• [`technical/diagrams/01-diagrams-auth-dan-cabang.md`](../technical/diagrams/01-diagrams-auth-dan-cabang.md)<br>• [`technical/01-trd-auth-dan-cabang.md`](../technical/01-trd-auth-dan-cabang.md) |
 | **Target Pengguna** | Kasir Apotek, Tenaga Teknis Kefarmasian (TTK), Apoteker Pengelola Apotek (APA), Staf Gudang & Pengadaan, Bagian Keuangan, Owner / Manajemen Apotek |
 
 ---

@@ -135,8 +135,8 @@ Table users {
   employee_code varchar(30) [unique, not null, note: 'Nomor Induk Karyawan (NIK Internal)']
   full_name varchar(100) [not null, note: 'Nama lengkap karyawan']
   email varchar(100) [unique, not null, note: 'Email login Web ERP']
-  password_hash varchar(255) [not null, note: 'Hash password login Web Admin (Argon2id/Bcrypt)']
-  pin_hash varchar(255) [null, note: 'Hash PIN 4-6 digit untuk login cepat POS Kasir & Supervisor Override']
+  password_hash varchar(255) [not null, note: 'Hash password login Web Admin (Bcrypt cost >= 12)']
+  pin_hash varchar(255) [null, note: 'Hash PIN 4-6 digit untuk login cepat POS Kasir & Supervisor Override (Bcrypt cost 10)']
   barcode_card varchar(50) [unique, null, note: 'Nomor barcode ID card untuk scan login kasir instan']
   phone varchar(30) [note: 'Nomor WhatsApp staf']
   role_id uuid [not null, note: 'Role utama staf']
@@ -181,6 +181,26 @@ Table pharmacist_profiles {
   deleted_at timestamptz [null]
 
   Note: 'Profil legalitas profesi kefarmasian untuk keabsahan Surat Pesanan (SP) dan penanggung jawab etiket obat.'
+}
+
+Table supervisor_override_logs {
+  id uuid [pk, default: `gen_random_uuid()`]
+  branch_id uuid [not null, note: 'Cabang terjadinya aksi override kasir']
+  cashier_user_id uuid [not null, note: 'Kasir pemohon otorisasi']
+  supervisor_user_id uuid [not null, note: 'Supervisor / Apoteker penyetuju']
+  action_type varchar(50) [not null, note: 'VOID_TRANSACTION, DELETE_ITEM, MANUAL_DISCOUNT, OPEN_DRAWER, PETTY_CASH']
+  reason_category varchar(50) [not null, note: 'PATIENT_CANCEL, WRONG_INPUT, INSUFFICIENT_FUNDS, EMPLOYEE_DISCOUNT, OTHER']
+  reason_notes text [null, note: 'Keterangan atau alasan detail persetujuan']
+  target_entity_type varchar(50) [null, note: 'SALE_ORDER, SALE_ITEM, CASH_DRAWER']
+  target_entity_id uuid [null, note: 'ID entitas atau transaksi terkait']
+
+  // Universal Audit Trail
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+  created_by uuid [null]
+  deleted_at timestamptz [null]
+
+  Note: 'Log audit permanen persetujuan Supervisor Override di kasir (BR-PHARM-AUTH-11 & BR-PHARM-AUTH-12).'
 }
 
 // ----------------------------------------------------------------------------
@@ -431,6 +451,9 @@ Ref: user_branches.user_id > users.id [delete: restrict]
 Ref: user_branches.branch_id > branches.id [delete: restrict]
 Ref: pharmacist_profiles.user_id - users.id [delete: restrict]
 Ref: pharmacist_profiles.assigned_branch_id > branches.id [delete: restrict]
+Ref: supervisor_override_logs.branch_id > branches.id [delete: restrict]
+Ref: supervisor_override_logs.cashier_user_id > users.id [delete: restrict]
+Ref: supervisor_override_logs.supervisor_user_id > users.id [delete: restrict]
 
 // Relasi Katalog Obat & Multi-Satuan
 Ref: product_units.product_id > products.id [delete: restrict]
@@ -464,6 +487,7 @@ TableGroup Auth_And_Staff {
   users
   user_branches
   pharmacist_profiles
+  supervisor_override_logs
 }
 
 TableGroup Drug_Catalog_And_Packaging {

@@ -25,9 +25,9 @@ Fokus: Akses pengguna, legalitas SIPA/STRTTK, isolasi sesi cabang, fondasi multi
 
 | Kode | Nama Fitur Bisnis | Docs PRD | Docs DRA/TRD | Backend [BE] | Frontend Web/POS |
 | :--- | :--- | :---: | :---: | :---: | :---: |
-| **F0-01** | **Dual-UX Autentikasi & Sesi Cabang:** Fast PIN/Barcode login POS kasir & Email/Password Web ERP terikat `X-Branch-Id`. | [x] | [ ] | [ ] | [ ] |
-| **F0-02** | **Profil Karyawan & Legalitas Profesi:** Pencatatan izin SIPA Apoteker (masa berlaku) dan STRTTK/SIPTTK untuk SP & etiket. | [x] | [ ] | [ ] | [ ] |
-| **F0-03** | **Matriks Hak Akses (RBAC) & Supervisor Override:** Hak akses 6 persona dan pop-up PIN otorisasi (void, diskon khusus, approval resep). | [x] | [ ] | [ ] | [ ] |
+| **F0-01** | **Dual-UX Autentikasi & Sesi Cabang:** Fast PIN/Barcode login POS kasir & Email/Password Web ERP terikat `X-Branch-Id`. | [x] | [x] | [ ] | [ ] |
+| **F0-02** | **Profil Karyawan & Legalitas Profesi:** Pencatatan izin SIPA Apoteker (masa berlaku) dan STRTTK/SIPTTK untuk SP & etiket. | [x] | [x] | [ ] | [ ] |
+| **F0-03** | **Matriks Hak Akses (RBAC) & Supervisor Override:** Hak akses 6 persona dan pop-up PIN otorisasi (void, diskon khusus, approval resep). | [x] | [x] | [ ] | [ ] |
 | **F1-01** | **Master Cabang & Gudang:** Struktur cabang tunggal/jaringan, izin apotek (SIA), APA penanggung jawab, gudang cabang vs pusat. | [x] | [ ] | [ ] | [ ] |
 | **F1-02** | **Master Obat, Zat Aktif & Golongan:** Nama obat, nama generik, pabrik, barcode EAN-13, golongan (Bebas/Terbatas/Keras/Narko). | [x] | [ ] | [ ] | [ ] |
 | **F1-03** | **Hierarki Multi-Satuan Bertingkat:** Relasi satuan (Box $\rightarrow$ Strip $\rightarrow$ Tablet) & aturan margin harga jual eceran. | [x] | [ ] | [ ] | [ ] |
