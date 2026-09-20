@@ -25,19 +25,19 @@ flowchart LR
         Kasir[Kasir Front-Office]
         TTK[Asisten Apoteker TTK]
         APA[Apoteker Pengelola APA]
-        Gudang[Staf Gudang / Logistik]
-        Owner[Owner / Keuangan]
-        SuperAdmin[Super Admin IT]
+        Gudang["Staf Gudang atau Logistik"]
+        Owner["Owner atau Keuangan"]
+        SuperAdmin["Super Admin IT"]
     end
 
     subgraph SYSTEM [Sistem Autentikasi dan Sesi Cabang]
-        UC_FastLogin([UC-01: Fast PIN / Barcode Login POS])
-        UC_WebLogin([UC-02: Email dan Password Login ERP])
-        UC_BranchSelect([UC-03: Memilih Cabang Aktif])
-        UC_SupervisorOverride([UC-04: Persetujuan Supervisor Override])
-        UC_ManageLicense([UC-05: Kelola Izin SIPA / STRTTK])
-        UC_ManageStaff([UC-06: Kelola Staf dan Penugasan Cabang])
-        UC_AuditAuth([UC-07: Audit Log dan Aktivitas Override])
+        UC_FastLogin(["UC-01: Fast PIN atau Barcode Login POS"])
+        UC_WebLogin(["UC-02: Email dan Password Login ERP"])
+        UC_BranchSelect(["UC-03: Memilih Cabang Aktif"])
+        UC_SupervisorOverride(["UC-04: Persetujuan Supervisor Override"])
+        UC_ManageLicense(["UC-05: Kelola Izin SIPA atau STRTTK"])
+        UC_ManageStaff(["UC-06: Kelola Staf dan Penugasan Cabang"])
+        UC_AuditAuth(["UC-07: Audit Log dan Aktivitas Override"])
     end
 
     Kasir --> UC_FastLogin
@@ -79,44 +79,44 @@ Menerjemahkan aturan login cepat di meja kasir (*Zero Lag*) vs login aman dengan
 
 ```mermaid
 flowchart TD
-    Start([Pengguna Mengakses Sistem]) --> DetectClient{Deteksi Perangkat / Antarmuka?}
+    Start([Pengguna Mengakses Sistem]) --> DetectClient{Deteksi Perangkat atau Antarmuka?}
     
     %% Cabang 1: Terminal POS Kasir
-    DetectClient -->|Layar Kasir POS / Tablet| POS_Mode["Mode Layar Sentuh / Kasir Cepat"]
+    DetectClient -->|Layar Kasir POS atau Tablet| POS_Mode["Mode Layar Sentuh atau Kasir Cepat"]
     POS_Mode --> ChooseInput{Metode Input Staf?}
     ChooseInput -->|Scan Kartu Barcode| ReadBarcode["Barcode Scanner Membaca ID Card"]
-    ChooseInput -->|Numpad Layar / Keyboard| InputPIN["Staf Mengetik 4-6 Digit PIN Cepat"]
-    ReadBarcode --> VerifyPOSAuth["Backend Mencocokkan Hash Barcode / PIN"]
+    ChooseInput -->|Numpad Layar atau Keyboard| InputPIN["Staf Mengetik 4-6 Digit PIN Cepat"]
+    ReadBarcode --> VerifyPOSAuth["Backend Mencocokkan Hash Barcode atau PIN"]
     InputPIN --> VerifyPOSAuth
     
-    VerifyPOSAuth --> CheckPOSValid{Kredensial Valid & User Aktif?}
-    CheckPOSValid -->|Tidak| ShowPOSErr["Tampilkan Error: 'PIN / Barcode Salah'"]
+    VerifyPOSAuth --> CheckPOSValid{Kredensial Valid dan User Aktif?}
+    CheckPOSValid -->|Tidak Valid| ShowPOSErr["Tampilkan Error: PIN atau Barcode Salah"]
     ShowPOSErr --> POS_Mode
     
-    CheckPOSValid -->|Ya| CheckPOSBranch{"Apakah Staf Ditugaskan di Cabang Ini?"}
-    CheckPOSBranch -->|Tidak Ditugaskan| RejectBranch["Tolak Login: 'Anda tidak memiliki penugasan aktif di cabang ini'"]
+    CheckPOSValid -->|Valid| CheckPOSBranch{"Apakah Staf Ditugaskan di Cabang Ini?"}
+    CheckPOSBranch -->|Tidak Ditugaskan| RejectBranch["Tolak Login: Anda tidak memiliki penugasan aktif di cabang ini"]
     RejectBranch --> POS_Mode
     CheckPOSBranch -->|Ditugaskan| IssuePOSToken["Terbitkan Token Sesi Kasir Terikat X-Branch-Id"]
     IssuePOSToken --> OpenDrawerCheck{Apakah Kasir Membuka Shift Baru?}
-    OpenDrawerCheck -->|Ya| InputFloat["Input Modal Awal Kasir (Cash Float)"]
-    OpenDrawerCheck -->|Tidak| GoToPOSCart["Buka Layar Transaksi Penjualan"]
+    OpenDrawerCheck -->|Buka Shift Baru| InputFloat["Input Modal Awal Kasir Cash Float"]
+    OpenDrawerCheck -->|Lanjut Shift Aktif| GoToPOSCart["Buka Layar Transaksi Penjualan"]
     InputFloat --> GoToPOSCart
     GoToPOSCart --> EndPOS([Kasir Siap Melayani Transaksi])
 
     %% Cabang 2: Web Admin ERP Backoffice
-    DetectClient -->|Peramban Web Browser / ERP| Web_Mode["Halaman Login Web ERP"]
-    Web_Mode --> InputCreds["Input Alamat Email & Kata Sandi"]
-    InputCreds --> VerifyWebAuth["Backend Memvalidasi Email & Hash Argon2id"]
-    VerifyWebAuth --> CheckWebValid{Email & Password Cocok?}
-    CheckWebValid -->|Tidak| WebError["Tampilkan Error: 'Kredensial Tidak Valid'"]
+    DetectClient -->|Web Browser ERP| Web_Mode["Halaman Login Web ERP"]
+    Web_Mode --> InputCreds["Input Alamat Email dan Kata Sandi"]
+    InputCreds --> VerifyWebAuth["Backend Memvalidasi Email dan Hash Argon2id"]
+    VerifyWebAuth --> CheckWebValid{Email dan Password Cocok?}
+    CheckWebValid -->|Tidak Valid| WebError["Tampilkan Error: Kredensial Tidak Valid"]
     WebError --> Web_Mode
     
-    CheckWebValid -->|Ya| FetchBranches["Ambil Daftar Cabang yang Berhak Diakses Staf"]
+    CheckWebValid -->|Valid| FetchBranches["Ambil Daftar Cabang yang Berhak Diakses Staf"]
     FetchBranches --> BranchCountCheck{Jumlah Cabang Terdaftar?}
-    BranchCountCheck -->|1 Cabang Saja| AutoSelectBranch["Otomatis Pilih Cabang Tunggal"]
-    BranchCountCheck -->|Multi-Cabang (Lebih dari 1 Cabang)| ModalSelectBranch["Munculkan Dialog Pemilihan Cabang Kerja"]
+    BranchCountCheck -->|Hanya 1 Cabang| AutoSelectBranch["Otomatis Pilih Cabang Tunggal"]
+    BranchCountCheck -->|Lebih Dari 1 Cabang| ModalSelectBranch["Munculkan Dialog Pemilihan Cabang Kerja"]
     ModalSelectBranch --> UserSelectBranch["Pengguna Memilih Cabang yang Akan Dioperasikan"]
-    UserSelectBranch --> IssueWebToken["Terbitkan JWT RS256 + Refresh Token"]
+    UserSelectBranch --> IssueWebToken["Terbitkan JWT RS256 dan Refresh Token"]
     AutoSelectBranch --> IssueWebToken
     IssueWebToken --> LoadDashboard["Buka Dashboard ERP Sesuai Hak Akses RBAC"]
     LoadDashboard --> EndWeb([Staf Siap Bekerja di Web ERP])
@@ -130,25 +130,25 @@ Mekanisme otorisasi instan saat kasir melakukan tindakan sensitif (membatalkan/v
 
 ```mermaid
 flowchart TD
-    TriggerAction([Kasir Menekan Tombol Void Item / Diskon Khusus]) --> CheckLimit{Apakah Tindakan Memerlukan Wewenang Supervisor?}
+    TriggerAction(["Kasir Menekan Tombol Void Item atau Diskon Khusus"]) --> CheckLimit{"Apakah Tindakan Memerlukan Wewenang Supervisor?"}
     
-    CheckLimit -->|Tidak| ExecuteAction["Sistem Langsung Mengeksekusi Perubahan"]
+    CheckLimit -->|Tidak Perlu| ExecuteAction["Sistem Langsung Mengeksekusi Perubahan"]
     ExecuteAction --> ResumeSale([Lanjutkan Penjualan])
     
-    CheckLimit -->|Ya, Butuh Otorisasi| LockCart["Kunci Layar Kasir Sementara & Tampilkan Modal Pop-up Override"]
-    LockCart --> SupervisorInput["Supervisor / Apoteker Mengetik PIN Otorisasi Khusus"]
-    SupervisorInput --> VerifySupervisor["Sistem Memvalidasi PIN Terhadap Akun Ber-role Supervisor/Apoteker"]
+    CheckLimit -->|Perlu Otorisasi| LockCart["Kunci Layar Kasir Sementara dan Tampilkan Modal Pop-up Override"]
+    LockCart --> SupervisorInput["Supervisor atau Apoteker Mengetik PIN Otorisasi Khusus"]
+    SupervisorInput --> VerifySupervisor["Sistem Memvalidasi PIN Terhadap Akun Ber-role Supervisor atau Apoteker"]
     
-    VerifySupervisor --> IsSupervisorValid{PIN Valid & Memiliki Hak can_supervisor_override?}
-    IsSupervisorValid -->|Tidak Valid / Bukan Supervisor| ShowOverrideFail["Tampilkan Peringatan: 'PIN Otorisasi Ditolak / Tidak Berwenang'"]
+    VerifySupervisor --> IsSupervisorValid{PIN Valid dan Memiliki Hak Supervisor?}
+    IsSupervisorValid -->|Tidak Berwenang| ShowOverrideFail["Tampilkan Peringatan: PIN Otorisasi Ditolak atau Tidak Berwenang"]
     ShowOverrideFail --> RetryCountCheck{Percobaan Gagal 3 Kali atau Lebih?}
-    RetryCountCheck -->|Ya| CancelOverrideAction["Batalkan Tindakan Sensitif & Kirim Notifikasi Peringatan ke Owner"]
-    CancelOverrideAction --> UnlockCartFail["Buka Kunci Layar Kasir (Item Tetap Ada)"]
+    RetryCountCheck -->|Gagal 3 Kali| CancelOverrideAction["Batalkan Tindakan Sensitif dan Kirim Notifikasi Peringatan ke Owner"]
+    CancelOverrideAction --> UnlockCartFail["Buka Kunci Layar Kasir dengan Item Tetap Ada"]
     UnlockCartFail --> ResumeSale
-    RetryCountCheck -->|Tidak| SupervisorInput
+    RetryCountCheck -->|Coba Lagi| SupervisorInput
     
-    IsSupervisorValid -->|Valid| LogAudit["Catat Jejak Audit Universal:<br/>• ID Kasir yang meminta<br/>• ID Supervisor yang mengizinkan<br/>• Waktu & Alasan Tindakan"]
-    LogAudit --> ApplyChange["Terapkan Void Item / Terapkan Diskon Khusus"]
+    IsSupervisorValid -->|Otorisasi Sah| LogAudit["Catat Jejak Audit Universal: ID Kasir, ID Supervisor, Waktu dan Alasan Tindakan"]
+    LogAudit --> ApplyChange["Terapkan Void Item atau Terapkan Diskon Khusus"]
     ApplyChange --> UnlockCartSuccess["Buka Kunci Layar Kasir dengan Status Disetujui"]
     UnlockCartSuccess --> ResumeSale
 ```
@@ -161,24 +161,24 @@ Memastikan apotek selalu terlindungi dari sanksi Dinkes/BPOM terkait legalitas i
 
 ```mermaid
 flowchart TD
-    CheckCron([Pengecekan Harian Otomatis Masa Berlaku SIPA/STRTTK]) --> CalcDays["Hitung Selisih Hari: Tanggal Habis Izin - Hari Ini"]
+    CheckCron([Pengecekan Harian Otomatis Masa Berlaku SIPA atau STRTTK]) --> CalcDays["Hitung Selisih Hari: Tanggal Habis Izin - Hari Ini"]
     
     CalcDays --> EvaluateStatus{Kategori Sisa Hari?}
     
-    EvaluateStatus -->|Lebih dari 60 Hari| StatusGreen["Status: HIJAU (Valid & Aman)"]
+    EvaluateStatus -->|Lebih dari 60 Hari| StatusGreen["Status: HIJAU - Valid dan Aman"]
     StatusGreen --> EndCheck([Tidak Ada Tindakan])
     
-    EvaluateStatus -->|Antara 30 sampai 60 Hari| StatusYellow["Status: KUNING (Peringatan Awal)"]
-    StatusYellow --> NotifyAPA["Tampilkan Notifikasi Peringatan di Dashboard Admin:<br/>Masa Berlaku Izin SIPA Akan Berakhir dalam X Hari"]
+    EvaluateStatus -->|Antara 30 sampai 60 Hari| StatusYellow["Status: KUNING - Peringatan Awal"]
+    StatusYellow --> NotifyAPA["Tampilkan Notifikasi Peringatan di Dashboard Admin: Masa Berlaku Izin SIPA Akan Berakhir dalam X Hari"]
     NotifyAPA --> EndCheck
     
-    EvaluateStatus -->|Antara 1 sampai 30 Hari| StatusOrange["Status: ORANYE (Mendesak / Perpanjangan)"]
+    EvaluateStatus -->|Antara 1 sampai 30 Hari| StatusOrange["Status: ORANYE - Mendesak atau Perpanjangan"]
     StatusOrange --> AlertUrgent["Tampilkan Alert Oranye Banner di Seluruh Sesi Apoteker"]
     AlertUrgent --> EndCheck
     
-    EvaluateStatus -->|Kedaluwarsa (0 Hari atau Kurang)| StatusRed["Status: MERAH (Kedaluwarsa / Expired)"]
-    StatusRed --> LockSP["KUNCI OTOMATIS: Dilarang Menerbitkan Surat Pesanan (SP) Obat Keras/Narkotika"]
-    LockSP --> RequireExtension["Wajib Unggah Nomor & Masa Berlaku SIPA Baru untuk Membuka Kunci"]
+    EvaluateStatus -->|Sudah Kedaluwarsa 0 Hari| StatusRed["Status: MERAH - Kedaluwarsa"]
+    StatusRed --> LockSP["KUNCI OTOMATIS: Dilarang Menerbitkan Surat Pesanan SP Obat Keras atau Narkotika"]
+    LockSP --> RequireExtension["Wajib Unggah Nomor dan Masa Berlaku SIPA Baru untuk Membuka Kunci"]
     RequireExtension --> EndCheck
 ```
 
