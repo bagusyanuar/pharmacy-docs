@@ -114,7 +114,7 @@ flowchart TD
     CheckWebValid -->|Ya| FetchBranches["Ambil Daftar Cabang yang Berhak Diakses Staf"]
     FetchBranches --> BranchCountCheck{Jumlah Cabang Terdaftar?}
     BranchCountCheck -->|1 Cabang Saja| AutoSelectBranch["Otomatis Pilih Cabang Tunggal"]
-    BranchCountCheck -->|> 1 Cabang / Multi-Branch| ModalSelectBranch["Munculkan Dialog Pemilihan Cabang Kerja"]
+    BranchCountCheck -->|Multi-Cabang (Lebih dari 1 Cabang)| ModalSelectBranch["Munculkan Dialog Pemilihan Cabang Kerja"]
     ModalSelectBranch --> UserSelectBranch["Pengguna Memilih Cabang yang Akan Dioperasikan"]
     UserSelectBranch --> IssueWebToken["Terbitkan JWT RS256 + Refresh Token"]
     AutoSelectBranch --> IssueWebToken
@@ -141,13 +141,13 @@ flowchart TD
     
     VerifySupervisor --> IsSupervisorValid{PIN Valid & Memiliki Hak can_supervisor_override?}
     IsSupervisorValid -->|Tidak Valid / Bukan Supervisor| ShowOverrideFail["Tampilkan Peringatan: 'PIN Otorisasi Ditolak / Tidak Berwenang'"]
-    ShowOverrideFail --> RetryCountCheck{Percobaan Gagal >= 3 Kali?}
+    ShowOverrideFail --> RetryCountCheck{Percobaan Gagal 3 Kali atau Lebih?}
     RetryCountCheck -->|Ya| CancelOverrideAction["Batalkan Tindakan Sensitif & Kirim Notifikasi Peringatan ke Owner"]
     CancelOverrideAction --> UnlockCartFail["Buka Kunci Layar Kasir (Item Tetap Ada)"]
     UnlockCartFail --> ResumeSale
     RetryCountCheck -->|Tidak| SupervisorInput
     
-    IsSupervisorValid -->|Valid| LogAudit["Catat Jejak Audit Universal:<br>• ID Kasir yang meminta<br>• ID Supervisor yang mengizinkan<br>• Waktu & Alasan Tindakan"]
+    IsSupervisorValid -->|Valid| LogAudit["Catat Jejak Audit Universal:<br/>• ID Kasir yang meminta<br/>• ID Supervisor yang mengizinkan<br/>• Waktu & Alasan Tindakan"]
     LogAudit --> ApplyChange["Terapkan Void Item / Terapkan Diskon Khusus"]
     ApplyChange --> UnlockCartSuccess["Buka Kunci Layar Kasir dengan Status Disetujui"]
     UnlockCartSuccess --> ResumeSale
@@ -165,18 +165,18 @@ flowchart TD
     
     CalcDays --> EvaluateStatus{Kategori Sisa Hari?}
     
-    EvaluateStatus -->|> 60 Hari| StatusGreen["Status: HIJAU (Valid & Aman)"]
+    EvaluateStatus -->|Lebih dari 60 Hari| StatusGreen["Status: HIJAU (Valid & Aman)"]
     StatusGreen --> EndCheck([Tidak Ada Tindakan])
     
-    EvaluateStatus -->|Antara 30 - 60 Hari| StatusYellow["Status: KUNING (Peringatan Awal)"]
-    StatusYellow --> NotifyAPA["Tampilkan Notifikasi Peringatan di Dashboard Admin:<br>'Masa Berlaku Izin SIPA Akan Berakhir dalam X Hari'"]
+    EvaluateStatus -->|Antara 30 sampai 60 Hari| StatusYellow["Status: KUNING (Peringatan Awal)"]
+    StatusYellow --> NotifyAPA["Tampilkan Notifikasi Peringatan di Dashboard Admin:<br/>Masa Berlaku Izin SIPA Akan Berakhir dalam X Hari"]
     NotifyAPA --> EndCheck
     
-    EvaluateStatus -->|Antara 1 - 30 Hari| StatusOrange["Status: ORANYE (Mendesak / Perpanjangan)"]
+    EvaluateStatus -->|Antara 1 sampai 30 Hari| StatusOrange["Status: ORANYE (Mendesak / Perpanjangan)"]
     StatusOrange --> AlertUrgent["Tampilkan Alert Oranye Banner di Seluruh Sesi Apoteker"]
     AlertUrgent --> EndCheck
     
-    EvaluateStatus -->|<= 0 Hari (Kedaluwarsa)| StatusRed["Status: MERAH (Kedaluwarsa / Expired)"]
+    EvaluateStatus -->|Kedaluwarsa (0 Hari atau Kurang)| StatusRed["Status: MERAH (Kedaluwarsa / Expired)"]
     StatusRed --> LockSP["KUNCI OTOMATIS: Dilarang Menerbitkan Surat Pesanan (SP) Obat Keras/Narkotika"]
     LockSP --> RequireExtension["Wajib Unggah Nomor & Masa Berlaku SIPA Baru untuk Membuka Kunci"]
     RequireExtension --> EndCheck
@@ -199,7 +199,7 @@ sequenceDiagram
 
     Cashier->>POS: Ketik 6-Digit PIN & Tekan Enter
     POS->>POS: Ambil Nilai Header `X-Branch-Id` Lokal
-    POS->>Gateway: POST /api/v1/auth/pos/login-pin<br>Payload: { pin, branch_id }
+    POS->>Gateway: POST /api/v1/auth/pos/login-pin (Payload: pin, branch_id)
     Gateway->>AuthService: Forward Request + Validasi Header
     AuthService->>DB: SELECT * FROM users WHERE pin_hash = crypt(pin, ...) AND is_active = true
     DB-->>AuthService: Return Data Staf (id, role, full_name)
@@ -238,11 +238,11 @@ sequenceDiagram
     participant AuditDB as Database Audit Log
 
     Cashier->>POS: Klik Tombol "Hapus Item (Void)"
-    POS->>POS: Evaluasi Rule Lokal: "Item > Rp 50.000 Wajib Otorisasi"
+    POS->>POS: Evaluasi Rule Lokal: Item di atas batas nominal Wajib Otorisasi
     POS-->>Cashier: Munculkan Modal Pop-Up "PIN Otorisasi Supervisor Diperlukan"
     
     Supervisor->>POS: Ketik PIN Otorisasi Supervisor
-    POS->>AuthService: POST /api/v1/pos/supervisor-override<br>Payload: { supervisor_pin, action_type: "VOID_ITEM", branch_id }
+    POS->>AuthService: POST /api/v1/pos/supervisor-override (Payload: supervisor_pin, action_type, branch_id)
     
     AuthService->>AuthService: Verifikasi PIN & Cek Role (can_supervisor_override = true)
     
