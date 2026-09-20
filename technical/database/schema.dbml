@@ -132,6 +132,7 @@ Table roles {
 
 Table staff_profiles {
   id uuid [pk, default: `gen_random_uuid()`, note: 'Unique Staff ID']
+  user_id uuid [unique, null, note: 'Akun login IAM jika staf berwenang mengakses sistem POS/ERP (BR-PHARM-AUTH-13)']
   employee_code varchar(30) [unique, not null, note: 'Nomor Induk Karyawan (NIK Internal)']
   nik varchar(16) [unique, null, note: 'Nomor Induk Kependudukan KTP (16 Digit)']
   full_name varchar(100) [not null, note: 'Nama lengkap staf beserta gelar resmi']
@@ -154,7 +155,6 @@ Table staff_profiles {
 
 Table users {
   id uuid [pk, default: `gen_random_uuid()`]
-  staff_id uuid [unique, not null, note: 'Relasi 1-to-1 ke profil fisik staf pemilik akun (BR-PHARM-AUTH-13)']
   email varchar(100) [unique, not null, note: 'Email login Web ERP']
   password_hash varchar(255) [not null, note: 'Hash password login Web Admin (Bcrypt cost >= 12)']
   pin_hash varchar(255) [null, note: 'Hash PIN 4-6 digit untuk login cepat POS Kasir & Supervisor Override (Bcrypt cost 10)']
@@ -466,7 +466,7 @@ Table patient_medication_histories {
 Ref: branch_storage_racks.branch_id > branches.id [delete: restrict]
 
 // Relasi Pengguna, Role & Sesi Cabang
-Ref: users.staff_id - staff_profiles.id [delete: restrict]
+Ref: staff_profiles.user_id - users.id [delete: set null]
 Ref: users.role_id > roles.id [delete: restrict]
 Ref: user_branches.user_id > users.id [delete: restrict]
 Ref: user_branches.branch_id > branches.id [delete: restrict]

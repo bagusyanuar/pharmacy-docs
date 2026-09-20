@@ -352,6 +352,7 @@ erDiagram
 
     STAFF_PROFILES {
         uuid id PK
+        uuid user_id FK "Akun login IAM jika staf punya akses"
         varchar employee_code UK "Nomor Induk Karyawan internal"
         varchar nik UK "Nomor Induk Kependudukan KTP 16 digit"
         varchar full_name "Nama lengkap beserta gelar resmi"
@@ -375,7 +376,6 @@ erDiagram
 
     USERS {
         uuid id PK
-        uuid staff_id FK "Relasi 1-to-1 profil fisik staf"
         varchar email UK "Email login Web ERP"
         varchar password_hash "Hash kata sandi Web"
         varchar pin_hash "Hash PIN cepat POS 4-6 digit"

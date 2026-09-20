@@ -407,6 +407,10 @@ WHERE deleted_at IS NULL;
 CREATE UNIQUE INDEX uq_staff_nik ON staff_profiles(nik) 
 WHERE deleted_at IS NULL AND nik IS NOT NULL;
 
+-- Relasi 1-to-1 unik staf ke akun login IAM
+CREATE UNIQUE INDEX uq_staff_user_id ON staff_profiles(user_id) 
+WHERE deleted_at IS NULL AND user_id IS NOT NULL;
+
 -- Pencarian kilat barcode kartu identitas staf kasir
 CREATE UNIQUE INDEX uq_users_barcode_card ON users(barcode_card) 
 WHERE deleted_at IS NULL AND barcode_card IS NOT NULL;
