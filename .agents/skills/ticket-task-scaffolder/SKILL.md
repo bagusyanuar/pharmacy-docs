@@ -1,30 +1,30 @@
 ---
-name: issue-task-scaffolder
-description: "Framework and guidelines for scaffolding lean, high-clarity, atomic GitHub Issues for Backend, Frontend Web Admin, and Frontend POS engineers from PRD, DRA, and TRD documentation. Enforces task decomposition to prevent monolithic tasks."
+name: ticket-task-scaffolder
+description: "Framework and guidelines for scaffolding lean, high-clarity, atomic task tickets (GitHub Issues) for Backend, Frontend Web Admin, and Frontend POS engineers from PRD, DRA, and TRD documentation. Enforces task decomposition to prevent monolithic tasks."
 ---
 
-# Issue Task Scaffolder Skill (Spec-Driven / Issue-Driven Development)
+# Ticket Task Scaffolder Skill (Spec-Driven / Ticket-Driven Development)
 
-Standardized framework for creating production-ready, lean, and **atomically decomposed GitHub Issues** from the **Pharmacy POS & ERP System** documentation for Backend, Web Admin, and POS engineers.
+Standardized framework for creating production-ready, lean, and **atomically decomposed task tickets (GitHub Issues)** from the **Pharmacy POS & ERP System** documentation for Backend, Web Admin, and POS engineers.
 
 ---
 
-## 1. Core Principles of Issue-Driven Development (IDD)
+## 1. Core Principles of Ticket-Driven Development (TDD / IDD)
 
 1. **Single Source of Truth (SSOT):**
    * Business specifications (`PRD`), database architecture (`DBML`), and API contracts (`TRD`) are the absolute sources of truth.
-   * **Lean Scoping Rule:** Strictly forbidden to copy-paste 500 lines of SQL DDL or hundreds of lines of JSON payloads into the GitHub Issue body. Issue tickets contain only the task objective, an actionable checklist (*Acceptance Criteria*), and **direct clickable markdown links** to reference documents in the repository.
+   * **Lean Scoping Rule:** Strictly forbidden to copy-paste 500 lines of SQL DDL or hundreds of lines of JSON payloads into the GitHub Issue body. Task tickets contain only the task objective, an actionable checklist (*Acceptance Criteria*), and **direct clickable markdown links** to reference documents in the repository.
 2. **Larangan Tiket Monolitik & Prinsip Dekomposisi Atomik (*Anti-Monolithic Rule*):**
-   * **DILARANG KERAS** menggabungkan seluruh fitur modul ke dalam 1 tiket raksasa (*monolithic issue*) yang memicu *Monster PR* (> 1.000 baris kode).
+   * **DILARANG KERAS** menggabungkan seluruh fitur modul ke dalam 1 tiket raksasa (*monolithic ticket*) yang memicu *Monster PR* (> 1.000 baris kode).
    * **Ukuran Ideal 1 Tiket:** Ditargetkan selesai dalam **1–3 hari kerja developer** (menghasilkan 1 Pull Request fokus berukuran 200–400 baris kode).
-   * **Prinsip "1 Issue = 1 PR Teruji":** Setiap tiket memiliki batas pengujian yang jelas, mempermudah *code review*, dan mencegah *merge conflict*.
+   * **Prinsip "1 Tiket = 1 PR Teruji":** Setiap tiket memiliki batas pengujian yang jelas, mempermudah *code review*, dan mencegah *merge conflict*.
 3. **Official Ticket Categories:**
    * `[BE]` — **Backend & Database:** Migrasi database relasional, domain business logic, FEFO stock locking, middleware isolasi cabang, dan RESTful API endpoints.
    * `[FE-WEB]` — **Frontend Web Admin/ERP:** Backoffice management dashboard, master data tables, form pendaftaran berjenjang, dan branch switcher.
    * `[FE-POS]` — **Frontend POS Cashier & Prescriptions:** Layar kasir cepat, scanner listener, pop-up supervisor override, kalkulator racikan, dan pencetakan etiket/struk ESC/POS.
    * `[QA]` — **Quality Assurance & Testing Matrix:** Skenario uji integrasi, validasi keamanan, simulasi lockout, dan pengujian multi-cabang.
-4. **Traceability:** Setiap issue wajib mencantumkan tautan ke Business Rule ID (`BR-PHARM-XX-YY`) dan endpoint TRD yang diimplementasikan.
-5. **Bahasa Deliverable:** Judul issue, ringkasan tugas, checklist, dan kriteria penerimaan WAJIB ditulis dalam **Bahasa Indonesia** demi kejelasan operasional tim lokal.
+4. **Traceability:** Setiap tiket tugas wajib mencantumkan tautan ke Business Rule ID (`BR-PHARM-XX-YY`) dan endpoint TRD yang diimplementasikan.
+5. **Bahasa Deliverable:** Judul tiket, ringkasan tugas, checklist, dan kriteria penerimaan WAJIB ditulis dalam **Bahasa Indonesia** demi kejelasan operasional tim lokal.
 6. **Standar Penamaan Database:** Seluruh nama tabel dan kolom database relasional WAJIB berbahasa **Inggris** (`snake_case`) untuk struktur teknis & atribut umum (`created_at`, `is_active`, `quantity`, `unit_price`, dll.). Khusus istilah regulasi, perizinan, dan domain khas farmasi Indonesia (seperti `sipa_number`, `strttk_number`, `sia_number`, `is_apa`, `bpjs_card_number`, `sipnap_reported_at`, `satusehat_ihs_id`, `nik`, `tuslah_amount` / `tuslah_fee`, `embalase_fee`, dan kode enum golongan BPOM), diwajibkan mempertahankan istilah baku Indonesia (prinsip *Ubiquitous Language*).
 
 ---
@@ -80,7 +80,7 @@ Maksimal **2–4 endpoint** per tiket BE. Pisahkan dengan pembagian klaster beri
 
 ---
 
-## 4. Standard Issue Body Templates
+## 4. Standard Task Ticket Body Templates
 
 ### A. Backend Format (`[BE]`)
 ```markdown

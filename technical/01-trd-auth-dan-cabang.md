@@ -656,7 +656,7 @@ END ALGORITHM
 
 ---
 
-## 8. GitHub Issue Ticket Mapping (Atomic Task Decomposition)
+## 8. Task Ticket Mapping (Atomic Task Decomposition)
 
 Dokumen TRD ini didekomposisi menjadi **tiket tugas atomik siap eksekusi** (1 Pull Request fokus berukuran 1–3 hari kerja) untuk mencegah *monolithic task* dan *monster PR*:
 

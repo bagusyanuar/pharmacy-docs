@@ -1,5 +1,5 @@
 ---
-name: "Backend Task (BE)"
+name: "Task Ticket: Backend (BE)"
 description: "Tiket implementasi Backend: Migration Database PostgreSQL & REST API Controller"
 title: "[BE] <Nama Modul>: <Ringkasan Tugas>"
 labels: ["backend"]

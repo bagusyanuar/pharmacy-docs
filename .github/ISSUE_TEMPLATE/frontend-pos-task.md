@@ -1,5 +1,5 @@
 ---
-name: "Frontend POS Kasir (FE-POS)"
+name: "Task Ticket: Frontend POS Kasir (FE-POS)"
 description: "Tiket implementasi Frontend POS Kasir & Resep: Keyboard-First, Scan Barcode, Racikan & Printer Thermal"
 title: "[FE-POS] <Nama Modul>: <Ringkasan Tugas>"
 labels: ["frontend-pos"]

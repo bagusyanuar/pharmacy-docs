@@ -1,11 +1,11 @@
 ---
-name: publish-issue
-description: Menerbitkan tiket tugas GitHub Issue untuk tim Backend (BE), Frontend Web (Admin/ERP), dan Frontend POS (Kasir/Racikan) secara otomatis berdasarkan spesifikasi PRD, DRA, dan TRD dengan prinsip dekomposisi tugas atomik (anti-monolitik).
+name: publish-ticket
+description: Menerbitkan tiket tugas (Task Ticket) untuk tim Backend (BE), Frontend Web (Admin/ERP), dan Frontend POS (Kasir/Racikan) secara otomatis berdasarkan spesifikasi PRD, DRA, dan TRD dengan prinsip dekomposisi tugas atomik (anti-monolitik).
 ---
 
-# Workflow: /publish-issue
+# Workflow: /publish-ticket
 
-Gunakan workflow ini untuk mengonversi spesifikasi PRD, DRA, dan TRD menjadi tiket **GitHub Issues atomik** siap eksekusi bagi developer Backend atau Frontend tanpa risiko tiket raksasa (*anti-monolithic*).
+Gunakan workflow ini untuk mengonversi spesifikasi PRD, DRA, dan TRD menjadi **tiket tugas (Task Ticket) atomik** siap eksekusi bagi developer Backend atau Frontend tanpa risiko tiket raksasa (*anti-monolithic*).
 
 ---
 

@@ -58,17 +58,17 @@ Dirancang dengan arsitektur **Multi-Branch Ready from Day 1** untuk mendukung pe
 pharmacy-docs/
 ├── .agents/                                  # Konfigurasi AI Persona, Workflows & Skills
 │   ├── rules/
-│   │   ├── agent-persona.md                  # Persona Tika (Lead System Analyst & Technical PM)
+│   │   ├── agent-persona.md                  # Agent Persona (Lead System Analyst & Technical PM)
 │   │   └── graphify.md                       # Aturan navigasi Knowledge Graph hemat token
 │   ├── workflows/
 │   │   ├── save-progress.md                  # Workflow simpan progres sesi (/save-progress)
 │   │   ├── graphify.md                       # Workflow perbarui graphify (/graphify)
-│   │   └── publish-issue.md                  # Workflow terbitkan issue GitHub (/publish-issue)
+│   │   └── publish-ticket.md                 # Workflow terbitkan tiket tugas (/publish-ticket)
 │   └── skills/
 │       ├── business-prd-scaffolder/SKILL.md  # Template penulisan PRD murni bisnis apotek
 │       ├── trd-dra-scaffolder/SKILL.md       # Standar arsitektur Tech-Agnostic TRD & Relational DRA
 │       ├── change-impact-synchronizer/SKILL.md # SOP 4-langkah Zero Documentation Drift
-│       └── issue-task-scaffolder/SKILL.md    # Framework Lean Scoping tiket GitHub Issues
+│       └── ticket-task-scaffolder/SKILL.md   # Framework Lean Scoping tiket tugas developer
 ├── .github/
 │   └── ISSUE_TEMPLATE/
 │       ├── backend-task.md                   # Template tiket Backend [BE]
@@ -131,9 +131,9 @@ graphify update .
 
 ---
 
-## 🎫 Panduan Penerbitan Tiket Tugas (Issue-Driven Development)
+## 🎫 Panduan Penerbitan Tiket Tugas (Ticket-Driven Development)
 
-Repositori ini mendukung metodologi **Spec-Driven Development / Issue-Driven Development (IDD)**. Seluruh dokumen spesifikasi dapat langsung diterbitkan menjadi tiket **GitHub Issues** bagi tim developer.
+Repositori ini mendukung metodologi **Spec-Driven Development / Ticket-Driven Development (TDD / IDD)**. Seluruh dokumen spesifikasi dapat langsung diterbitkan menjadi **tiket tugas atomik (Task Tickets)** yang ditampung via GitHub Issues bagi tim developer.
 
 ### Tiga Kategori Tiket Resmi:
 * `[BE]` — **Backend & Database:** Migrasi PostgreSQL, domain service, locking stok FEFO, REST API controller.
@@ -141,8 +141,8 @@ Repositori ini mendukung metodologi **Spec-Driven Development / Issue-Driven Dev
 * `[FE-POS]` — **Frontend POS Kasir & Resep:** Antarmuka kasir cepat keyboard-first, scan barcode, peracikan obat, dan printer thermal.
 
 ### Cara Menerbitkan Tiket via AI:
-Gunakan perintah slash command `/publish-issue` atau minta asisten AI:
-> *"Tika, tolong terbitkan tiket GitHub Issues untuk modul [Nama Modul] bagi tim BE, FE-WEB, dan FE-POS."*
+Gunakan perintah slash command `/publish-ticket` atau minta asisten AI:
+> *"Tolong terbitkan tiket tugas untuk modul [Nama Modul] bagi tim BE, FE-WEB, dan FE-POS."*
 
 ### Menutup Tiket Otomatis via Pull Request (Cross-Repo Auto-Close):
 Di repositori kode implementasi (misal di repo backend atau frontend), sertakan referensi tiket pada deskripsi PR:
@@ -157,7 +157,7 @@ Closes bagusyanuar/pharmacy-docs#1
 
 ## ⚡ Titik Simpan & Melanjutkan Sesi Kerja
 
-* **Menyimpan Progres:** Ketik `/save-progress` atau perintahkan *"save progress Jon"* untuk memperbarui `PROGRESS.md`, menyinkronkan graf Graphify, dan membuat commit git.
+* **Menyimpan Progres:** Ketik `/save-progress` atau perintahkan *"save progress"* untuk memperbarui `PROGRESS.md`, menyinkronkan graf Graphify, dan membuat commit git.
 * **Status Proyek Terkini:** Pantau daftar penyelesaian deliverable di [`PROGRESS.md`](./PROGRESS.md).
 * **Melanjutkan Sesi:** Cukup ketik:
-  > *"Halo Tika, tolong baca `PROGRESS.md` dan kita lanjutkan pengerjaan ke [Nama Modul]."*
+  > *"Halo, tolong baca `PROGRESS.md` dan kita lanjutkan pengerjaan ke [Nama Modul]."*

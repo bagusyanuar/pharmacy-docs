@@ -17,18 +17,18 @@ Dokumen ini adalah rekam jejak resmi status pengerjaan spesifikasi teknis, arsit
 ## ✅ Deliverables yang Sudah Selesai (Completed)
 
 ### 1. Tata Kelola & Aturan Arsitektur (`.agents/` & `.github/`)
-- [x] [`.agents/rules/agent-persona.md`](./.agents/rules/agent-persona.md) — Persona Tika (Lead System Analyst & Technical PM Apotek), aturan bahasa (Inggris untuk internal, Indonesia untuk deliverables), dan standar tanpa error Mermaid GitHub.
+- [x] [`.agents/rules/agent-persona.md`](./.agents/rules/agent-persona.md) — Agent Persona (Lead System Analyst & Technical PM Apotek), aturan bahasa (Inggris untuk internal, Indonesia untuk deliverables), dan standar tanpa error Mermaid GitHub.
 - [x] [`.agents/rules/graphify.md`](./.agents/rules/graphify.md) — Aturan hemat & efisien pembaruan graf (hanya saat checkpoint/save-progress).
 - [x] [`.agents/workflows/save-progress.md`](./.agents/workflows/save-progress.md) — Workflow checkpoint otomatis akhir sesi (`/save-progress`).
 - [x] [`.agents/workflows/graphify.md`](./.agents/workflows/graphify.md) — Workflow navigasi & sinkronisasi graf pengetahuan (`/graphify`).
-- [x] [`.agents/workflows/publish-issue.md`](./.agents/workflows/publish-issue.md) — Workflow penerbitan tiket tugas GitHub Issue via `gh` CLI (`/publish-issue`).
+- [x] [`.agents/workflows/publish-ticket.md`](./.agents/workflows/publish-ticket.md) — Workflow penerbitan tiket tugas (Task Ticket) via `gh` CLI (`/publish-ticket`).
 - [x] [`.agents/skills/business-prd-scaffolder/SKILL.md`](./.agents/skills/business-prd-scaffolder/SKILL.md) — Framework PRD murni bisnis apotek ("WHAT & WHY", no engineering leaks, mandatory `Depends On` / `Consumed By`, standar visual Mermaid GitHub).
 - [x] [`.agents/skills/trd-dra-scaffolder/SKILL.md`](./.agents/skills/trd-dra-scaffolder/SKILL.md) — Framework arsitektur 3-tier (Global DBML, Visual Blueprints, Contract-First TRD) berprinsip Tech-Agnostic / Platform-Independent, DRA ANSI SQL/PostgreSQL 15+, universal audit 5 kolom, invarian `branch_id`, presisi `DECIMAL`, envelope REST API, dan standar ketat rendering Mermaid GitHub.
 - [x] [`.agents/skills/change-impact-synchronizer/SKILL.md`](./.agents/skills/change-impact-synchronizer/SKILL.md) — SOP 4-langkah Zero Documentation Drift saat terjadi revisi modul farmasi.
-- [x] [`.agents/skills/issue-task-scaffolder/SKILL.md`](./.agents/skills/issue-task-scaffolder/SKILL.md) — Framework perakitan tiket tugas GitHub Issue untuk tim `[BE]`, `[FE-WEB]`, dan `[FE-POS]` dengan prinsip dekomposisi tugas atomik (anti-monolitik, 1–3 hari kerja per tiket).
-- [x] [`.github/ISSUE_TEMPLATE/backend-task.md`](./.github/ISSUE_TEMPLATE/backend-task.md) — Template GitHub Issue untuk tugas Backend.
-- [x] [`.github/ISSUE_TEMPLATE/frontend-web-task.md`](./.github/ISSUE_TEMPLATE/frontend-web-task.md) — Template GitHub Issue untuk Web Admin/ERP (React/Next.js/Vue Desktop).
-- [x] [`.github/ISSUE_TEMPLATE/frontend-pos-task.md`](./.github/ISSUE_TEMPLATE/frontend-pos-task.md) — Template GitHub Issue untuk Kasir POS & Resep (Keyboard-first, barcode scan, thermal printer).
+- [x] [`.agents/skills/ticket-task-scaffolder/SKILL.md`](./.agents/skills/ticket-task-scaffolder/SKILL.md) — Framework perakitan tiket tugas (Task Ticket) untuk tim `[BE]`, `[FE-WEB]`, dan `[FE-POS]` dengan prinsip dekomposisi tugas atomik (anti-monolitik, 1–3 hari kerja per tiket).
+- [x] [`.github/ISSUE_TEMPLATE/backend-task.md`](./.github/ISSUE_TEMPLATE/backend-task.md) — Template Task Ticket untuk tugas Backend (`[BE]`).
+- [x] [`.github/ISSUE_TEMPLATE/frontend-web-task.md`](./.github/ISSUE_TEMPLATE/frontend-web-task.md) — Template Task Ticket untuk Web Admin/ERP (`[FE-WEB]`).
+- [x] [`.github/ISSUE_TEMPLATE/frontend-pos-task.md`](./.github/ISSUE_TEMPLATE/frontend-pos-task.md) — Template Task Ticket untuk Kasir POS & Resep (`[FE-POS]`).
 
 ### 2. Dokumen Induk, Database & Blueprint Visual
 - [x] [`README.md`](./README.md) — Hub dokumentasi, navigasi modul, RBAC matriks, panduan Graphify, dan status pengerjaan.
@@ -64,7 +64,7 @@ Berikutnya kita akan menyusun kelanjutan **Spesifikasi Arsitektur Teknis (TRD Ma
 3. **Standar Multi-Branch Ready:** Semua tabel data transaksi, stok fisik, dan mutasi WAJIB menyertakan kolom `branch_id UUID NOT NULL REFERENCES branches(id)`.
 4. **Standar DRA Database:** PostgreSQL 15+, UUID v4, 5 kolom audit universal (`id`, `created_at`, `updated_at`, `created_by`, `deleted_at`), `ON DELETE RESTRICT`, `DECIMAL(12,2)` untuk finansial dan `DECIMAL(10,3)` untuk dosis racikan.
 5. **Scoping Pemisahan:** DRA diglobalkan per milestone, TRD di-split modular per klaster domain API.
-6. **Lean Scoping GitHub Issues:** Tiket issue murni memuat checklist tugas dan tautan acuan dokumen SSOT, DILARANG menduplikasi DDL SQL atau payload JSON di body issue.
+6. **Lean Scoping Tiket Tugas (Task Ticket):** Tiket tugas murni memuat checklist tugas dan tautan acuan dokumen SSOT, DILARANG menduplikasi DDL SQL atau payload JSON di body tiket.
 
 ---
 
@@ -72,4 +72,4 @@ Berikutnya kita akan menyusun kelanjutan **Spesifikasi Arsitektur Teknis (TRD Ma
 
 Saat Anda membuka sesi berikutnya, cukup ketik pesan singkat berikut:
 
-> *"Halo Tika, tolong baca `PROGRESS.md` dan kita lanjutkan pengerjaan ke Fase 1: `technical/01-dra-database-erd-master-auth.md`."*
+> *"Halo, tolong baca `PROGRESS.md` dan kita lanjutkan pengerjaan ke Fase 1: `technical/02-trd-master-data-api.md`."*

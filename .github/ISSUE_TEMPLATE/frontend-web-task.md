@@ -1,5 +1,5 @@
 ---
-name: "Frontend Web Admin (FE-WEB)"
+name: "Task Ticket: Frontend Web Admin (FE-WEB)"
 description: "Tiket implementasi Frontend Web Desktop: Dashboard, Master Data, Gudang & Laporan"
 title: "[FE-WEB] <Nama Modul>: <Ringkasan Tugas>"
 labels: ["frontend-web"]
