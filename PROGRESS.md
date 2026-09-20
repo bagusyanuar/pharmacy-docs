@@ -38,6 +38,7 @@ Dokumen ini adalah rekam jejak resmi status pengerjaan spesifikasi teknis, arsit
 - [x] [`technical/database/schema.dbml`](./technical/database/schema.dbml) — Skema relasional global PostgreSQL 15+ (DBML SSOT) untuk 19 entitas tabel Fase 1 dengan `[delete: restrict]`, UUID, TableGroups, pemisahan `staff_profiles` vs `users` (BR-PHARM-AUTH-13), dan tabel `supervisor_override_logs`.
 - [x] [`technical/diagrams/01-diagrams-auth-dan-cabang.md`](./technical/diagrams/01-diagrams-auth-dan-cabang.md) — Blueprint visual lengkap domain Autentikasi & Cabang (Usecase 6 persona, Flowchart Dual-UX & Override, Sequence Diagram POS PIN, State Lifecycle, Scoped ERD).
 - [x] [`technical/01-trd-auth-dan-cabang.md`](./technical/01-trd-auth-dan-cabang.md) — Technical Requirements Document (TRD) berprinsip Tech-Agnostic untuk Autentikasi Dual-UX (Fast PIN Kasir & Email/Password ERP), Refresh Token Rotation (RTR), Supervisor Override, isolasi header `X-Branch-Id`, RBAC 6 persona, dan scheduled worker legalitas SIPA.
+- [x] [`technical/01-dra-database-erd-master-auth.md`](./technical/01-dra-database-erd-master-auth.md) — Data Requirements Architecture (DRA) komprehensif 20 entitas tabel PostgreSQL 15+ / ANSI SQL, GitHub-compliant Mermaid ERD, strategi pengindeksan performa tinggi (FEFO & Barcode), audit trail 5 kolom, decoupling staff vs user (`BR-PHARM-AUTH-13`), dan bootstrap seed script.
 
 ### 3. Modul Spesifikasi Kebutuhan Bisnis (PRD)
 - [x] [`features/01-prd-auth-user.md`](./features/01-prd-auth-user.md) — Dual-UX Login (Fast PIN POS & Email/Password ERP), profil staf & legalitas profesi (SIPA Apoteker & STRTTK), matriks hak akses 6 persona (RBAC), pop-up otorisasi supervisor (*Manager Override* untuk void/diskon), dan isolasi sesi cabang.
@@ -49,12 +50,10 @@ Dokumen ini adalah rekam jejak resmi status pengerjaan spesifikasi teknis, arsit
 
 ## 🎯 Antrean Pengerjaan Berikutnya (Next Action Items: Fase 1)
 
-Berikutnya kita akan menyusun kelanjutan **Spesifikasi Arsitektur Teknis (DRA & TRD)** untuk mengunci seluruh fondasi Master Data:
+Berikutnya kita akan menyusun kelanjutan **Spesifikasi Arsitektur Teknis (TRD Master Data)** untuk mengunci seluruh fondasi API Master Data:
 
-1. ⏳ **`technical/01-dra-database-erd-master-auth.md`**
-   * *Cakupan Teknis:* Skema DDL komprehensif PostgreSQL 15+ / ANSI SQL (tabel cabang, user, profil SIPA, obat, multi-satuan, PBF, dokter, pasien/PMR, supervisor_override_logs), Foreign Key `ON DELETE RESTRICT`, invarian `branch_id`, indeks performa FEFO, dan diagram Mermaid ERD komprehensif.
-2. ⏳ **`technical/02-trd-master-data-api.md`**
-   * *Cakupan Teknis:* Kontrak RESTful API CRUD untuk seluruh klaster Master Data (Cabang, Obat/Multi-Satuan, PBF, Dokter & PMR Pasien) dengan envelope standar `{ success, data, meta, error }`.
+1. ⏳ **`technical/02-trd-master-data-api.md`**
+   * *Cakupan Teknis:* Kontrak RESTful API CRUD untuk seluruh klaster Master Data (Cabang & Rak, Obat/Multi-Satuan & Harga, PBF & Kontak Sales, Dokter Perujuk & Pasien/PMR) dengan envelope standar `{ success, data, meta, error }`, validasi DTO, dan integrasi header `X-Branch-Id`.
 
 ---
 
