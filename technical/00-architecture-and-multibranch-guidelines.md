@@ -82,6 +82,10 @@ branch_id UUID NOT NULL REFERENCES branches(id) ON DELETE RESTRICT
 * **Harga & Nilai Finansial:** `DECIMAL(12,2)` (contoh: Rp 1.500.000,50).
 * **Kuantitas & Formulasi Racikan:** `DECIMAL(10,3)` (contoh: 0.125 gram serbuk paracetamol, 15.500 ml sirup obat batuk).
 
+### 3.5 Standar Penamaan Database (English Fields & Indonesian Regulatory Domain)
+* **Struktur Teknis & Atribut Umum:** Wajib menggunakan bahasa **Inggris** dengan format `snake_case` (contoh: `branches`, `products`, `created_at`, `is_active`, `quantity`, `unit_price`, `unit_cost_price`).
+* **Domain Regulasi & Istilah Khas Farmasi Indonesia:** Diwajibkan mempertahankan istilah baku lokal / akronim resmi (*Ubiquitous Language*) agar tidak bias hukum (contoh: `sipa_number`, `sipa_expired_date`, `strttk_number`, `sia_number`, `is_apa`, `bpjs_card_number`, `sipnap_reported_at`, `satusehat_ihs_id`, `nik`, `tuslah_amount` / `tuslah_fee`, `embalase_fee`, dan enum golongan BPOM).
+
 ---
 
 ## 4. Alur Manajemen Stok Berbasis Batch & FEFO
@@ -97,7 +101,7 @@ CREATE TABLE product_stocks (
     batch_number VARCHAR(100) NOT NULL,
     expired_date DATE NOT NULL,
     quantity DECIMAL(10,3) NOT NULL DEFAULT 0,
-    hpp DECIMAL(12,2) NOT NULL, -- Harga Pokok Pembelian untuk batch ini
+    unit_cost_price DECIMAL(12,2) NOT NULL, -- HPP acuan per unit batch ini
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     created_by UUID NULL REFERENCES users(id) ON DELETE RESTRICT,

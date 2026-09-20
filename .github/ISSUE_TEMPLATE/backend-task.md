@@ -28,3 +28,4 @@ assignees: []
 ## ⚠️ Perhatian Khusus & Edge Cases
 - Pastikan isolasi multi-cabang `branch_id` divalidasi dari context session/header.
 - Tidak ada hard delete pada data audit/transaksi (`ON DELETE RESTRICT`).
+- **Standar Penamaan Database:** Kolom & tabel database wajib berbahasa Inggris (`snake_case`) untuk atribut teknis/umum (`created_at`, `is_active`, `unit_price`, dll.). Khusus istilah regulasi & domain khas Indonesia (seperti `sipa_number`, `strttk_number`, `sia_number`, `is_apa`, `bpjs_card_number`, `sipnap_reported_at`, `satusehat_ihs_id`, `nik`, `tuslah_amount` / `tuslah_fee`, `embalase_fee`, dan enum golongan obat BPOM), pertahankan istilah baku Indonesia.

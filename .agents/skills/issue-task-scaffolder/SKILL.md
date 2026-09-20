@@ -25,6 +25,7 @@ Standardized framework for creating production-ready, lean, and **atomically dec
    * `[QA]` — **Quality Assurance & Testing Matrix:** Skenario uji integrasi, validasi keamanan, simulasi lockout, dan pengujian multi-cabang.
 4. **Traceability:** Setiap issue wajib mencantumkan tautan ke Business Rule ID (`BR-PHARM-XX-YY`) dan endpoint TRD yang diimplementasikan.
 5. **Bahasa Deliverable:** Judul issue, ringkasan tugas, checklist, dan kriteria penerimaan WAJIB ditulis dalam **Bahasa Indonesia** demi kejelasan operasional tim lokal.
+6. **Standar Penamaan Database:** Seluruh nama tabel dan kolom database relasional WAJIB berbahasa **Inggris** (`snake_case`) untuk struktur teknis & atribut umum (`created_at`, `is_active`, `quantity`, `unit_price`, dll.). Khusus istilah regulasi, perizinan, dan domain khas farmasi Indonesia (seperti `sipa_number`, `strttk_number`, `sia_number`, `is_apa`, `bpjs_card_number`, `sipnap_reported_at`, `satusehat_ihs_id`, `nik`, `tuslah_amount` / `tuslah_fee`, `embalase_fee`, dan kode enum golongan BPOM), diwajibkan mempertahankan istilah baku Indonesia (prinsip *Ubiquitous Language*).
 
 ---
 

@@ -104,7 +104,19 @@ deleted_at  TIMESTAMPTZ NULL -- Soft delete untuk menjaga integritas audit hukum
 * **Waktu / Timestamp:** `TIMESTAMPTZ` (disimpan dalam UTC, standar ISO 8601).
 * **Tanggal Kedaluwarsa:** `DATE` (untuk pelacakan batch obat).
 
-### 2.5 Strategi Pengindeksan Berbasis Kinerja (Index Intent)
+### 2.5 Standar Penamaan Database: English Fields & Domain Khusus Indonesia (Ubiquitous Language)
+Untuk menjaga keselarasan dengan ekosistem ORM/SQL tools modern sekaligus mematuhi prinsip **Ubiquitous Language (Domain-Driven Design)**:
+* **Struktur Teknis & Atribut Umum Wajib Bahasa Inggris (`snake_case`):**
+  * Seluruh nama tabel, kolom relasi, audit trail, kuantitas, dan atribut umum WAJIB ditulis dalam bahasa Inggris (contoh: `branches`, `products`, `users`, `created_at`, `is_active`, `quantity`, `unit_price`, `subtotal`, `discount_amount`).
+* **Istilah Regulasi, Legalitas & Domain Farmasi Indonesia Wajib Mempertahankan Istilah Baku:**
+  * Istilah hukum, perizinan farmasi, dan platform regulasi Indonesia **DILARANG dipaksakan terjemahannya ke bahasa Inggris** agar tidak menghilangkan makna hukum dan membingungkan auditor farmasi / pengguna lokal.
+  * Gunakan pola: **`[istilah_lokal]_[atribut_inggris]`** atau akronim resmi:
+    * **Perizinan & Legalitas:** `sipa_number`, `sipa_expired_date`, `strttk_number`, `strttk_expired_date`, `sia_number`, `sia_expired_date`, `is_apa` (Apoteker Pengelola Apotek).
+    * **Integrasi Regulasi & Eksternal:** `bpjs_card_number`, `bpjs_faskes_code`, `sipnap_reported_at`, `satusehat_ihs_id`, `nik` (Nomor Induk Kependudukan).
+    * **Biaya & Operasional Khas Farmasi:** `tuslah_amount` / `tuslah_fee` (jasa dispensing), `embalase_fee` (biaya wadah/kapsul racikan).
+    * **Enum Golongan Obat (BPOM):** `BEBAS`, `BEBAS_TERBATAS`, `KERAS`, `OWA`, `PREKURSOR`, `OOT`, `PSIKOTROPIKA`, `NARKOTIKA`.
+
+### 2.6 Strategi Pengindeksan Berbasis Kinerja (Index Intent)
 * Indeks komposit untuk alokasi cepat batch obat FEFO:
   ```sql
   CREATE INDEX idx_stocks_fefo ON product_stocks(branch_id, product_id, expired_date ASC) 
