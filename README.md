@@ -58,7 +58,7 @@ Dirancang dengan arsitektur **Multi-Branch Ready from Day 1** untuk mendukung pe
 pharmacy-docs/
 ├── .agents/                                  # Konfigurasi AI Persona, Workflows & Skills
 │   ├── rules/
-│   │   ├── persona-tika.md                   # Persona Tika (Lead System Analyst & Technical PM)
+│   │   ├── agent-persona.md                  # Persona Tika (Lead System Analyst & Technical PM)
 │   │   └── graphify.md                       # Aturan navigasi Knowledge Graph hemat token
 │   ├── workflows/
 │   │   ├── save-progress.md                  # Workflow simpan progres sesi (/save-progress)

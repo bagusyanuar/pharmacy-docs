@@ -11,83 +11,84 @@ Standardized framework for creating high-impact, business-centric Product Requir
 
 ## 1. Core Philosophy: "WHAT & WHY", Not "HOW"
 
-A **Product Requirements Document (PRD)** is written for business stakeholders, pharmacy owners, Apoteker Pengelola Apotek (APA), Tenaga Teknis Kefarmasian (TTK), kasir, product managers, and UI/UX designers.
-Technical implementation details belong exclusively in a **Technical Requirements Document (TRD)** or **Data Requirements Architecture (DRA)** inside `technical/`.
+A **Product Requirements Document (PRD)** is written for business stakeholders, pharmacy owners, Apoteker Pengelola Apotek (APA), Tenaga Teknis Kefarmasian (TTK), cashiers, product managers, and UI/UX designers.
+Technical implementation details belong exclusively in technical documents (`technical/database/schema.dbml`, `technical/diagrams/`, and `technical/0X-trd-*.md`).
 
-### 🚫 Strictly Prohibited in PRDs (Dilarang Masuk ke PRD):
-* ❌ **API Endpoints & HTTP Methods:** Dilarang mencantumkan tabel endpoint (misal: `POST /api/v1/pos/checkout`, `GET /branches`).
-* ❌ **JSON Payloads & DTOs:** Dilarang mencantumkan request/response JSON payload.
-* ❌ **Database Tables, DDL & Foreign Keys:** Dilarang menyebutkan nama tabel SQL (`sales`, `product_stocks`), tipe data SQL (`UUID`, `VARCHAR`, `DECIMAL`), primary key, atau constraint database.
-* ❌ **Cryptographic / Technical Algorithms:** Dilarang menyebut algoritma enkripsi (misal: `Argon2id`, `bcrypt`, `JWT RS256`).
-* ❌ **Code Snippets & Libraries:** Dilarang menuliskan bahasa pemrograman, ORM, atau library teknis.
+### 🚫 Strictly Prohibited in PRDs:
+* ❌ **API Endpoints & HTTP Methods:** Forbidden to include endpoint tables (e.g., `POST /api/v1/pos/checkout`, `GET /branches`).
+* ❌ **JSON Payloads & DTOs:** Forbidden to include request/response JSON payload schemas.
+* ❌ **Database Tables, DDL & Foreign Keys:** Forbidden to name SQL tables (`sales`, `product_stocks`), SQL data types (`UUID`, `VARCHAR`, `DECIMAL`), primary keys, or database constraints.
+* ❌ **Cryptographic / Technical Algorithms:** Forbidden to specify low-level algorithms (e.g., `Argon2id`, `bcrypt`, `JWT RS256`).
+* ❌ **Code Snippets & Libraries:** Forbidden to write programming language code, ORMs, or technical libraries.
 
-### ✅ Mandatory Focus in PRDs (Wajib Ada di PRD):
-* ✅ **Latar Belakang & Nilai Bisnis (Business Value):** Mengapa fitur ini penting bagi efisiensi apotek, perlindungan margin kas, pencegahan obat expired, dan kepatuhan regulasi BPOM/Kemenkes?
-* ✅ **Konteks & Lingkungan Kerja Pengguna (User Context):** Kasir di meja depan dengan antrean pasien, asisten apoteker di meja racik menghitung dosis, staf gudang mengecek batch faktur PBF, atau apoteker memvalidasi resep.
-* ✅ **Alur Pengguna & Interaksi (User Journey & Experience):** Langkah demi langkah dari sudut pandang apa yang dilihat dan dilakukan staf apotek di antarmuka.
-* ✅ **Aturan Bisnis Tegas (Business Rules - `BR-PHARM-XX-YY`):** Kebijakan operasional (misal: aturan FEFO, batas minimum reorder point, validasi obat keras harus ada nomor SIP dokter, batas diskon kasir, mekanisme PIN otorisasi supervisor).
-* ✅ **Skenario Khusus / Pengecualian (Edge Cases):** Apa yang terjadi jika stok obat racikan kurang di tengah jalan, nomor batch fisik berbeda dengan faktur PBF, atau kasir mendapati uang fisik selisih saat tutup shift?
-* ✅ **Kriteria Penerimaan (Acceptance Criteria):** Checklist fungsional dari kacamata pengguna/QA untuk validasi hasil bisnis.
+### ✅ Mandatory Focus in PRDs:
+* ✅ **Background & Business Value:** Why is this feature necessary for pharmacy operational efficiency, margin protection, prevention of expired drugs, and compliance with MoH/BPOM regulations?
+* ✅ **User Context & Working Environment:** Cashier at the front counter facing queue pressure, assistant pharmacist at the compounding desk calculating dosages, warehouse staff verifying PBF invoices, or pharmacist screening prescriptions.
+* ✅ **User Journey & Experience:** Step-by-step narrative and visual Mermaid user journeys from the perspective of what pharmacy staff observe and execute on the screen.
+* ✅ **Strict Business Rules (`BR-PHARM-XX-YY`):** Concrete operational policies (e.g., FEFO allocation, minimum reorder point thresholds, prescription verification requiring valid doctor SIP, cashier discount limits, supervisor override PIN mechanism).
+* ✅ **Edge Cases & Exception Handling:** What happens when raw ingredients run out midway through compounding, a physical batch differs from a PBF invoice, or a cashier discovers a cash shortage at shift closure?
+* ✅ **Strict Document Output Language:** All generated PRD documents inside `features/` MUST be written in **Bahasa Indonesia** to ensure seamless comprehension by local pharmacy practitioners, apoteker, cashiers, and compliance auditors (following Permenkes No. 73/2016 & BPOM terminology).
+* ✅ **Acceptance Criteria (Gherkin):** Functional verification checklist from the user/QA perspective using Given-When-Then syntax.
 
 ---
 
-## 2. Tabel Komparasi: PRD (Bisnis) vs TRD/DRA (Teknis)
+## 2. Comparison Table: PRD (Business) vs TRD / DRA (Technical)
 
-| Aspek | Penulisan yang Benar di PRD (Murni Bisnis) | Penulisan di TRD / DRA (Teknis) |
+| Aspect | Proper Phrasing in PRD (Pure Business) | Phrasing in TRD / DRA (Technical) |
 | :--- | :--- | :--- |
-| **Identitas Cabang** | "Sistem mengikat sesi kasir ke Cabang Utama dan memastikan seluruh transaksi memotong stok fisik di cabang tersebut." | `branch_id UUID NOT NULL REFERENCES branches(id)`, Header: `X-Branch-Id: <uuid>` |
-| **Pengambilan Stok** | "Obat yang keluar kasir selalu otomatis mengambil nomor batch yang tanggal kedaluwarsanya paling dekat (FEFO)." | `CREATE INDEX idx_stocks_fefo ON product_stocks (branch_id, product_id, expired_date ASC)` |
-| **Login Kasir** | "Kasir dapat login instan menggunakan PIN 6 digit atau scan barcode pada kartu identitas staf untuk mempercepat antrean." | Dual-UX endpoint `POST /api/v1/auth/login-pin`, hashing Argon2id, JWT claim `branch_id` |
-| **Persetujuan Void** | "Pembatalan item transaksi yang sudah ter-scan wajib memasukkan PIN otorisasi Apoteker / Supervisor yang bertugas." | Endpoint `POST /api/v1/pos/override-approval` dengan validasi role `SUPERVISOR` atau `APOTEKER` |
-| **Spesifikasi Input Form** | "Nomor SIPA Apoteker: Kolom teks wajib diisi, memuat nomor izin resmi apoteker beserta tanggal masa berlaku izin." | `sipa_number VARCHAR(100) NOT NULL`, `sipa_expired_date DATE NOT NULL` |
+| **Branch Context** | "The system binds the cashier session to the Main Branch and ensures all sales deduct physical inventory from that branch." | `branch_id UUID NOT NULL REFERENCES branches(id)`, Header: `X-Branch-Id: <uuid>` |
+| **Stock Deduction** | "Items dispensed at checkout automatically pick the batch with the nearest expiration date (FEFO)." | `CREATE INDEX idx_stocks_fefo ON product_stocks (branch_id, product_id, expired_date ASC)` |
+| **Cashier Login** | "Cashiers can log in instantly using a 6-digit PIN or barcode card scan to eliminate queue bottlenecks." | Dual-UX endpoint `POST /api/v1/auth/login-pin`, Argon2id hashing, JWT claim `branch_id` |
+| **Void Approval** | "Cancelling a scanned item requires the approval PIN of the on-duty Pharmacist or Supervisor." | Endpoint `POST /api/v1/pos/override-approval` with role validation `SUPERVISOR` or `APOTEKER` |
+| **Form Input Spec** | "Pharmacist SIPA Number: Mandatory text field storing the official license number and its expiration date." | `sipa_number VARCHAR(100) NOT NULL`, `sipa_expired_date DATE NOT NULL` |
 
 ---
 
 ## 3. Standard Template Structure for Feature PRDs
 
-Every feature PRD inside `features/` MUST adhere strictly to this structure:
+Every feature PRD inside `features/` MUST strictly adhere to this structure:
 
 ```markdown
-# Feature PRD: [Nama Fitur / Modul Apotek]
+# Feature PRD: [Feature Name / Pharmacy Module]
 
-## 1. Metadata Dokumen
-- **Kode Dokumen:** PRD-PHARM-XX
-- **Nama Modul:** [Nama Modul]
-- **Dokumen Induk:** 00-MASTER-PRD.md
-- **Depends On (Prasyarat):** [Daftar PRD/Modul yang menjadi dependensi modul ini]
-- **Consumed By (Dampak):** [Daftar PRD/Modul yang memanfaatkan/terdampak oleh modul ini]
-- **Target Pengguna:** [Kasir, Asisten Apoteker / TTK, Apoteker Pengelola Apotek (APA), Bagian Pengadaan, Owner]
+## 1. Document Metadata
+- **Document Code:** PRD-PHARM-XX
+- **Module Name:** [Module Name]
+- **Master PRD:** 00-MASTER-PRD.md
+- **Depends On (Prerequisites):** [List of PRDs/modules that this feature depends on]
+- **Consumed By (Downstream):** [List of PRDs/modules impacted by this feature]
+- **Target Users:** [Cashier, Assistant Pharmacist / TTK, Pharmacist In Charge (APA), Procurement Staff, Owner]
 
-## 2. Latar Belakang & Masalah Bisnis
-- Mengapa fitur ini dibutuhkan?
-- Masalah nyata apa yang diselesaikan di apotek (misal: antrean lambat, salah ambil obat beda batch, kerugian obat expired)?
-- Manfaat bagi keuangan apotek dan kepatuhan regulasi kefarmasian.
+## 2. Background & Business Problem
+- Why is this feature needed?
+- What real-world pharmacy problem does it solve (e.g., slow queues, batch mix-ups, expired drug financial losses)?
+- Financial benefits and regulatory compliance impact.
 
-## 3. Persona & Konteks Penggunaan
-- Siapa penggunanya?
-- Bagaimana situasi penggunaannya? (Meja kasir layar sentuh / keyboard barcode, meja peracikan, gudang penerimaan PBF).
+## 3. Personas & Operational Context
+- Who are the users?
+- What are their operational environments? (Touchscreen cashier / USB barcode scanner, compounding lab, warehouse receiving).
 
-## 4. Alur Kerja Utama (Core User Journey)
-- Visual diagram alur proses kerja (Mermaid flowchart / user journey).
-- Narasi langkah demi langkah dari awal hingga selesai dari kacamata staf apotek.
+## 4. Core User Journey
+- Visual workflow diagram (Mermaid flowchart / user journey).
+- Step-by-step narrative from the user's perspective.
 
-## 5. Kebutuhan Fungsional & Aturan Bisnis (Business Rules)
-Gunakan kodefikasi standar: `BR-PHARM-[KODE_MODUL]-[NOMOR]` (contoh: `BR-PHARM-AUTH-01`, `BR-PHARM-POS-03`).
-- **BR-PHARM-XX-01:** [Deskripsi aturan bisnis yang tegas dan tidak ambigu]
-- **BR-PHARM-XX-02:** [Deskripsi aturan validasi atau penghitungan bisnis]
+## 5. Functional Requirements & Business Rules
+Use standardized coding: `BR-PHARM-[MODULE_CODE]-[NUMBER]` (e.g., `BR-PHARM-AUTH-01`, `BR-PHARM-POS-03`).
+- **BR-PHARM-XX-01:** [Unambiguous business rule description]
+- **BR-PHARM-XX-02:** [Business calculation or validation rule]
 
-## 6. Elemen Antarmuka & Input Bisnis (UI & Information Elements)
-- Daftar informasi yang ditampilkan ke pengguna (tanpa menyebut tipe data database).
-- Data masukan (formulir) dan aksi yang dapat dipicu pengguna.
+## 6. User Interface & Information Elements
+- List of information displayed to users (without referencing database types).
+- Form inputs, interactive elements, and available actions.
 
-## 7. Skenario Pengecualian & Kasus Khusus (Edge Cases)
-- Penanganan saat kondisi tidak normal (stok habis di tengah racik, kasir salah ketik, koneksi drop sesaat).
+## 7. Edge Cases & Exception Scenarios
+- Handling abnormal conditions (out of stock during compounding, cashier input errors, transient offline state).
 
-## 8. Metrik Keberhasilan Bisnis (KPI)
-- Dampak langsung terhadap efisiensi operasional apotek (misal: waktu checkout < 30 detik, zero salah dispensing batch).
+## 8. Business Success Metrics (KPIs)
+- Direct operational impact (e.g., checkout time < 15 seconds, zero near-miss dispensing errors).
 
-## 9. Kriteria Penerimaan (Acceptance Criteria)
-Format: Given [kondisi awal], When [aksi pengguna], Then [ekspektasi hasil bisnis].
+## 9. Acceptance Criteria
+Format: Given [initial state], When [user action], Then [expected business outcome].
 - **AC-01:** ...
 - **AC-02:** ...
 ```

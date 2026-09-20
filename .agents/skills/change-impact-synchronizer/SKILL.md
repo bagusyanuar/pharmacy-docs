@@ -11,10 +11,10 @@ This skill governs how to manage, trace, and cascade changes across the **Pharma
 
 ## 1. The Core Philosophy: "Zero Documentation Drift"
 
-In an interconnected multi-tier documentation system (Master PRD $\rightarrow$ Feature PRD $\rightarrow$ Master Data $\rightarrow$ POS & Inventory $\rightarrow$ TRD/DRA):
+In an interconnected multi-tier documentation system (Master PRD $\rightarrow$ Feature PRDs $\rightarrow$ Master Data $\rightarrow$ POS & Inventory $\rightarrow$ Technical Blueprints & TRD):
 * **No document is an isolated island.**
-* Any change in an upstream business rule (PRD) MUST immediately reflect on its downstream business modules and technical implementation specs (TRD/DRA).
-* Any constraint discovered during technical architecture (TRD/DRA) that affects pharmacy workflow MUST be fed back and synchronized into the corresponding PRD.
+* Any change in an upstream business rule (PRD) MUST immediately reflect on its downstream business modules and technical implementation specifications (DBML, diagrams, TRD).
+* Any constraint discovered during technical architecture (DBML/TRD) that affects pharmacy workflow MUST be fed back and synchronized into the corresponding PRD.
 
 ---
 
@@ -24,34 +24,34 @@ When a change request, feature adjustment, or regulation update is proposed for 
 
 ```mermaid
 flowchart TD
-    Step1[1. Identifikasi Perubahan di Dokumen Asal] --> Step2[2. Lacak Dampak via Consumed By & Graphify]
-    Step2 --> Step3[3. Eksekusi Cascade Update ke Dokumen Hilir & TRD]
-    Step3 --> Step4[4. Catat Riwayat Versi & Sinkronkan Knowledge Graph]
+    Step1[1. Identify Changes in Origin Document] --> Step2[2. Trace Impact via Consumed By and Graphify]
+    Step2 --> Step3[3. Execute Cascade Updates to Downstream Docs and TRD]
+    Step3 --> Step4[4. Record Version History and Synchronize Knowledge Graph]
 ```
 
-### Langkah 1: Identifikasi & Update Dokumen Asal
-1. Terapkan perubahan pada dokumen yang bersangkutan.
-2. Naikkan nomor versi dokumen (misal: `v1.0.0` $\rightarrow$ `v1.1.0` untuk perubahan minor/aturan bisnis baru, atau `v2.0.0` untuk perombakan besar).
-3. Catat ringkasan perubahan pada tabel metadata dokumen.
+### Step 1: Identify & Update Origin Document
+1. Apply the modifications to the designated document.
+2. Increment the document version number (e.g., `v1.0.0` $\rightarrow$ `v1.1.0` for minor adjustments / new business rules, or `v2.0.0` for major overhauls).
+3. Record a concise summary of changes in the document's metadata changelog.
 
-### Langkah 2: Lacak Dampak (Impact Traceability Analysis)
-1. **Cek Baris `Consumed By (Dampak)`:** Buka bagian atas dokumen asal dan salin daftar seluruh file yang mengonsumsi dokumen ini.
-2. **Cek Graphify AI:** Jalankan query untuk mendeteksi relasi tidak langsung yang berpotensi terlewat:
+### Step 2: Impact Traceability Analysis
+1. **Check `Consumed By (Downstream)` Field:** Open the top section of the origin document and extract the list of all documents that consume this feature.
+2. **Query Graphify AI:** Execute an impact query to detect any potential indirect dependencies:
    ```bash
-   graphify query "Apa saja alur, tabel DB, dan API yang terdampak oleh perubahan pada [Nama Modul]?"
+   graphify query "What workflows, database tables, and APIs are impacted by modifications to [Module Name]?"
    ```
 
-### Langkah 3: Eksekusi Cascade Update (Penyelarasan Hilir)
-1. Buka setiap dokumen hilir yang terdaftar di `Consumed By`.
-2. Sesuaikan alur pengguna, validasi transaksi, atau penanganan kasus khusus (*edge cases*) agar selaras dengan aturan baru.
-3. Buka dokumen teknis terkait di folder `technical/` (TRD / DRA):
-   * Jika ada penambahan atribut bisnis di PRD $\rightarrow$ tambahkan kolom / tipe data / enum di DRA Database (misal: penambahan kolom `sipa_number` pada master apoteker atau penambahan jenis Surat Pesanan).
-   * Jika ada perubahan alur di PRD $\rightarrow$ sesuaikan request/response payload di TRD API Specs.
+### Step 3: Execute Cascade Updates
+1. Open every downstream document listed in `Consumed By`.
+2. Align user workflows, transaction validations, and edge case scenarios with the new rule.
+3. Open correlated technical documents inside `technical/`:
+   * If new business attributes are added to the PRD $\rightarrow$ update tables, enums, or columns in `technical/database/schema.dbml` (e.g., adding `sipa_number` or new Purchase Order classifications).
+   * If workflow logic changes in the PRD $\rightarrow$ update diagrams in `technical/diagrams/` and request/response payloads in `technical/0X-trd-*.md`.
 
-### Langkah 4: Simpan Progres & Sinkronkan Knowledge Graph
-1. Jalankan workflow `/save-progress` untuk memperbarui [PROGRESS.md](file:///Users/dystopia/projects/pharmacy/pharmacy-docs/PROGRESS.md).
-2. Perbarui graf Graphify:
+### Step 4: Save Progress & Synchronize Knowledge Graph
+1. Execute the `/save-progress` workflow to update [PROGRESS.md](file:///Users/dystopia/projects/pharmacy/pharmacy-docs/PROGRESS.md).
+2. Refresh the Graphify knowledge graph:
    ```bash
    graphify update .
    ```
-3. Commit perubahan ke git dengan pesan deskriptif: `refactor(docs): cascade update impact of [feature]`.
+3. Prepare a descriptive git commit message: `refactor(docs): cascade update impact of [feature]`.

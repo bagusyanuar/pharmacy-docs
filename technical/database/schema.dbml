@@ -1,0 +1,488 @@
+// ============================================================================
+// Pharmacy POS & ERP System (Apotek) - Database Schema (PostgreSQL 15+)
+// Milestone: Fase 1 (Autentikasi, Legalitas, Master Data & Multi-Branch Ready)
+// Standard: Universal 5-Column Audit Trail, Multi-Branch Invariants, ON DELETE RESTRICT
+// ============================================================================
+
+Project pharmacy_pos_erp {
+  database_type: 'PostgreSQL'
+  Note: '''
+    # Skema Database Pharmacy POS & ERP System
+    Sistem Informasi Manajemen Apotek Multi-Cabang berstandar CDOB, BPOM, dan Kemenkes.
+    - Semua tabel operasional wajib terikat ke `branch_id`
+    - Universal Audit Trail: id, created_at, updated_at, created_by, deleted_at
+    - Integritas Relasional: ON DELETE RESTRICT (No hard cascade delete)
+    - Finansial: DECIMAL(12,2) | Dosis & Pecahan Racikan: DECIMAL(10,3)
+  '''
+}
+
+// ----------------------------------------------------------------------------
+// ENUMS (Tipe Data Standar Farmasi & Operasional)
+// ----------------------------------------------------------------------------
+
+Enum branch_type_enum {
+  RETAIL_PHARMACY [note: 'Apotek Ritel Mandiri / Front-Office Kasir']
+  CLINIC_PHARMACY [note: 'Apotek Faskes / Klinik Rawat Jalan']
+  CENTRAL_WAREHOUSE [note: 'Gudang Pusat Distribusi / Buffer Warehouse']
+}
+
+Enum drug_classification_enum {
+  BEBAS [note: 'Lingkaran Hijau (OTC Bebas)']
+  BEBAS_TERBATAS [note: 'Lingkaran Biru (P1-P6)']
+  KERAS [note: 'Lingkaran Merah / K (Wajib Resep)']
+  OWA [note: 'Obat Wajib Apotek (Diserahkan Apoteker tanpa resep dokter)']
+  PREKURSOR [note: 'Mengandung zat prekursor (Pseudoephedrine/Ephedrine)']
+  OOT [note: 'Obat-Obat Tertentu (Tramadol, Trihexyphenidyl, dll)']
+  PSIKOTROPIKA [note: 'Golongan Psikotropika (Pelaporan SIPNAP)']
+  NARKOTIKA [note: 'Golongan Narkotika (Jalur SP & SIPNAP Khusus)']
+}
+
+Enum unit_level_enum {
+  BASE [note: 'Satuan Terkecil / Dispensing Unit (Tablet, Kapsul, Botol, Tube, Sachet)']
+  SUB [note: 'Satuan Antara (Strip, Blister, Amplop)']
+  OUTER [note: 'Satuan Terbesar (Box, Dus, Karton, Kaleng 1.000s)']
+}
+
+Enum pbf_cdob_type_enum {
+  REGULAR [note: 'Distributor Farmasi Reguler']
+  COLD_CHAIN [note: 'Rantai Dingin (Vaksin, Serum, Insulin 2-8 C)']
+  PRECURSOR_OOT [note: 'Jalur Prekursor & OOT Resmi']
+  PSYCHO_NARCO [note: 'Distributor Khusus BUMN / Berizin Narkotika (KFTD/Kimia Farma)']
+}
+
+Enum top_terms_enum {
+  COD [note: 'Cash On Delivery']
+  CBD [note: 'Cash Before Delivery']
+  NET_7 [note: 'Jatuh Tempo 7 Hari']
+  NET_14 [note: 'Jatuh Tempo 14 Hari']
+  NET_21 [note: 'Jatuh Tempo 21 Hari']
+  NET_30 [note: 'Jatuh Tempo 30 Hari']
+}
+
+Enum allergy_severity_enum {
+  MILD [note: 'Ringan (Gatal-gatal, ruam merah)']
+  MODERATE [note: 'Sedang (Bengkak, urtikaria luas)']
+  SEVERE [note: 'Berat / Fatal (Syok anafilaksis, sesak napas/edema laring)']
+}
+
+// ----------------------------------------------------------------------------
+// KLASTER 1: CABANG & GUDANG FISIK (Multi-Branch Core)
+// ----------------------------------------------------------------------------
+
+Table branches {
+  id uuid [pk, default: `gen_random_uuid()`, note: 'Unique Branch ID']
+  branch_code varchar(20) [unique, not null, note: 'Kode unik cabang (e.g. AP-MLW-01)']
+  branch_name varchar(100) [not null, note: 'Nama cabang apotek']
+  branch_type branch_type_enum [not null, default: 'RETAIL_PHARMACY', note: 'Tipe operasional cabang']
+  sia_number varchar(100) [note: 'Nomor Surat Izin Apotek (SIA) resmi Pemda/Dinkes']
+  sia_expired_date date [note: 'Tanggal habis masa berlaku izin SIA']
+  phone varchar(30) [note: 'Nomor telepon operasional cabang']
+  email varchar(100) [note: 'Email resmi cabang apotek']
+  address text [not null, note: 'Alamat lengkap fisik cabang']
+  city varchar(100) [not null, note: 'Kota / Kabupaten']
+  province varchar(100) [not null, note: 'Provinsi']
+  postal_code varchar(10) [note: 'Kode pos']
+  is_active boolean [not null, default: true, note: 'Status aktif operasional cabang']
+  
+  // Universal Audit Trail
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+  created_by uuid [null, note: 'User ID pembuat record']
+  deleted_at timestamptz [null, note: 'Soft delete timestamp']
+
+  Note: 'Master data cabang apotek, gudang pusat, dan izin SIA resmi.'
+}
+
+Table branch_storage_racks {
+  id uuid [pk, default: `gen_random_uuid()` display: 'Storage Rack ID']
+  branch_id uuid [not null, note: 'Invarian cabang pemilik rak simpan fisik']
+  rack_code varchar(30) [not null, note: 'Kode label rak fisik (e.g. RAK-A-01, ETALASE-02, KULKAS-01)']
+  rack_name varchar(100) [not null, note: 'Nama rak atau lokasi simpan obat']
+  zone_area varchar(50) [not null, note: 'Zona simpan: Depan OTC, Meja Racik, Suhu Dingin, Lemari Narkotika']
+  is_locked boolean [not null, default: false, note: 'Wajib terkunci (untuk lemari psikotropika/narkotika)']
+  notes varchar(255) [note: 'Catatan lokasi rak']
+
+  // Universal Audit Trail
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+  created_by uuid [null]
+  deleted_at timestamptz [null]
+
+  Note: 'Denah tata letak dan penomoran rak obat fisik di masing-masing cabang apotek.'
+}
+
+// ----------------------------------------------------------------------------
+// KLASTER 2: PENGGUNA, LEGALITAS PROFESI & AUTENTIKASI (Auth & RBAC)
+// ----------------------------------------------------------------------------
+
+Table roles {
+  id uuid [pk, default: `gen_random_uuid()`]
+  role_code varchar(30) [unique, not null, note: 'KODE ROLE: SUPER_ADMIN, APOTEKER, ASISTEN_APOTEKER, KASIR, GUDANG, FINANCE_OWNER']
+  role_name varchar(100) [not null, note: 'Nama tampilan role pengguna']
+  description varchar(255) [note: 'Deskripsi tanggung jawab role']
+  can_supervisor_override boolean [not null, default: false, note: 'Dapat mengotorisasi void/diskon kasir via PIN override']
+
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+  created_by uuid [null]
+  deleted_at timestamptz [null]
+
+  Note: 'Matriks hak akses 6 persona apotek terstandarisasi.'
+}
+
+Table users {
+  id uuid [pk, default: `gen_random_uuid()`]
+  employee_code varchar(30) [unique, not null, note: 'Nomor Induk Karyawan (NIK Internal)']
+  full_name varchar(100) [not null, note: 'Nama lengkap karyawan']
+  email varchar(100) [unique, not null, note: 'Email login Web ERP']
+  password_hash varchar(255) [not null, note: 'Hash password login Web Admin (Argon2id/Bcrypt)']
+  pin_hash varchar(255) [null, note: 'Hash PIN 4-6 digit untuk login cepat POS Kasir & Supervisor Override']
+  barcode_card varchar(50) [unique, null, note: 'Nomor barcode ID card untuk scan login kasir instan']
+  phone varchar(30) [note: 'Nomor WhatsApp staf']
+  role_id uuid [not null, note: 'Role utama staf']
+  is_active boolean [not null, default: true, note: 'Status aktif staf']
+
+  // Universal Audit Trail
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+  created_by uuid [null]
+  deleted_at timestamptz [null]
+
+  Note: 'Akun identitas staf apotek yang mendukung Dual-UX Login (PIN Kasir & Password ERP).'
+}
+
+Table user_branches {
+  id uuid [pk, default: `gen_random_uuid()`]
+  user_id uuid [not null, note: 'Staf apotek']
+  branch_id uuid [not null, note: 'Cabang tempat staf ditugaskan']
+  is_default boolean [not null, default: false, note: 'Cabang penugasan utama staf']
+  can_operate_pos boolean [not null, default: true, note: 'Apakah staf berwenang membuka shift kasir di cabang ini']
+
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+  created_by uuid [null]
+  deleted_at timestamptz [null]
+
+  Note: 'Pemetaan penugasan staf ke cabang tertentu untuk isolasi multi-cabang (X-Branch-Id).'
+}
+
+Table pharmacist_profiles {
+  id uuid [pk, default: `gen_random_uuid()`]
+  user_id uuid [unique, not null, note: 'User apoteker / TTK']
+  license_type varchar(30) [not null, note: 'SIPA (Apoteker) atau STRTTK / SIPTTK (Tenaga Teknis Kefarmasian)']
+  license_number varchar(100) [not null, note: 'Nomor Surat Izin Praktik Apoteker / STRTTK resmi']
+  license_expired_date date [not null, note: 'Tanggal habis masa berlaku izin resmi']
+  is_apa boolean [not null, default: false, note: 'Apakah menjabat sebagai Apoteker Pengelola Apotek (1 Cabang = 1 APA)']
+  assigned_branch_id uuid [null, note: 'Cabang apotek di mana SIPA didaftarkan secara hukum']
+
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+  created_by uuid [null]
+  deleted_at timestamptz [null]
+
+  Note: 'Profil legalitas profesi kefarmasian untuk keabsahan Surat Pesanan (SP) dan penanggung jawab etiket obat.'
+}
+
+// ----------------------------------------------------------------------------
+// KLASTER 3: KATALOG MASTER OBAT, MULTI-SATUAN & BARCODE (Product Catalog)
+// ----------------------------------------------------------------------------
+
+Table products {
+  id uuid [pk, default: `gen_random_uuid()`]
+  product_code varchar(30) [unique, not null, note: 'Kode SKU produk apotek (e.g. MED-AMX-500)']
+  product_name varchar(150) [not null, note: 'Nama paten produk (e.g. Amoxsan 500mg)']
+  generic_name varchar(150) [null, note: 'Nama zat aktif generik (e.g. Amoxicillin Trihydrate)']
+  manufacturer varchar(100) [null, note: 'Pabrik / Industri Farmasi pembuat (e.g. Sanbe Farma)']
+  drug_classification drug_classification_enum [not null, default: 'BEBAS', note: 'Golongan regulasi farmasi BPOM']
+  dosage_form varchar(50) [not null, note: 'Bentuk sediaan: Tablet, Kapsul, Sirup, Salep, Injeksi, Tetes Mata']
+  strength varchar(50) [null, note: 'Kekuatan dosis obat (e.g. 500 mg, 125 mg / 5 ml)']
+  min_stock_alert decimal(10,3) [not null, default: 0, note: 'Batas buffer stock aman dalam Base Unit']
+  max_stock_limit decimal(10,3) [null, note: 'Batas maksimum persediaan untuk mencegah overstock']
+  is_active boolean [not null, default: true, note: 'Status aktif jual']
+  requires_prescription boolean [not null, default: false, note: 'Wajib resep dokter (Otomatis True untuk Obat Keras/Narko)']
+
+  // Universal Audit Trail
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+  created_by uuid [null]
+  deleted_at timestamptz [null]
+
+  Note: 'Master katalog obat & produk farmasi global (tidak terikat cabang).'
+}
+
+Table product_units {
+  id uuid [pk, default: `gen_random_uuid()`]
+  product_id uuid [not null, note: 'Produk pemilik kemasan']
+  unit_name varchar(50) [not null, note: 'Nama satuan kemasan: Box, Strip, Tablet, Botol, Tube']
+  unit_level unit_level_enum [not null, note: 'Hierarki kemasan: BASE (terkecil), SUB (antara), OUTER (terbesar)']
+  conversion_to_base decimal(10,3) [not null, default: 1, note: 'Faktor pengali ke Base Unit (e.g. 1 Box = 100 Tablet -> 100)']
+  is_default_dispense boolean [not null, default: false, note: 'Satuan default yang dipilih kasir saat scan']
+
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+  created_by uuid [null]
+  deleted_at timestamptz [null]
+
+  Note: 'Hierarki multi-satuan bertingkat per produk untuk konversi otomatis dan peracikan.'
+}
+
+Table product_barcodes {
+  id uuid [pk, default: `gen_random_uuid()`]
+  product_unit_id uuid [not null, note: 'Kemasan satuan spesifik yang memiliki barcode ini']
+  barcode varchar(50) [unique, not null, note: 'Nomor barcode fisik (EAN-13, UPC, Code128, QR)']
+
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+  created_by uuid [null]
+  deleted_at timestamptz [null]
+
+  Note: 'Multi-barcode per kemasan: Barcode Box berbeda dengan Barcode Strip dan Barcode Botol.'
+}
+
+Table product_prices {
+  id uuid [pk, default: `gen_random_uuid()`]
+  product_unit_id uuid [not null, note: 'Satuan kemasan produk']
+  branch_id uuid [null, note: 'Jika NULL berlaku global, jika terisi berlaku khusus cabang tersebut']
+  purchase_price decimal(12,2) [not null, default: 0, note: 'Harga beli HPP acuan per satuan kemasan']
+  selling_price decimal(12,2) [not null, default: 0, note: 'Harga jual kotor ke pasien sebelum diskon']
+  margin_percentage decimal(5,2) [not null, default: 0, note: 'Persentase margin laba kotor']
+
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+  created_by uuid [null]
+  deleted_at timestamptz [null]
+
+  Note: 'Matriks harga jual dan HPP bertingkat per satuan kemasan obat.'
+}
+
+// ----------------------------------------------------------------------------
+// KLASTER 4: DISTRIBUTOR (PBF) & PENGADAAN (Suppliers & CDOB)
+// ----------------------------------------------------------------------------
+
+Table pbf_suppliers {
+  id uuid [pk, default: `gen_random_uuid()`]
+  pbf_code varchar(30) [unique, not null, note: 'Kode distributor (e.g. PBF-ENS-01)']
+  pbf_name varchar(150) [not null, note: 'Nama resmi distributor (PT/CV PBF)']
+  license_number varchar(100) [not null, note: 'Nomor izin operasional PBF dari Kemenkes/Dinkes']
+  license_expired_date date [not null, note: 'Tanggal masa berlaku izin PBF']
+  cdob_capability pbf_cdob_type_enum [not null, default: 'REGULAR', note: 'Sertifikasi CDOB (Reguler, Cold Chain, Psiko/Narko)']
+  default_top top_terms_enum [not null, default: 'NET_30', note: 'Syarat pembayaran default (TOP)']
+  credit_limit decimal(12,2) [not null, default: 0, note: 'Plafon maksimum hutang dagang yang diizinkan']
+  phone varchar(30) [note: 'Telepon kantor pesanan']
+  email varchar(100) [note: 'Email resmi pesanan / PO']
+  address text [not null, note: 'Alamat fisik kantor & gudang PBF']
+  npwp varchar(50) [note: 'Nomor NPWP resmi badan usaha PBF']
+  is_active boolean [not null, default: true, note: 'Status aktif distributor']
+
+  // Universal Audit Trail
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+  created_by uuid [null]
+  deleted_at timestamptz [null]
+
+  Note: 'Direktori resmi Pedagang Besar Farmasi (PBF) berizin standar CDOB.'
+}
+
+Table pbf_bank_accounts {
+  id uuid [pk, default: `gen_random_uuid()`]
+  pbf_id uuid [not null, note: 'Distributor PBF pemilik rekening']
+  bank_name varchar(50) [not null, note: 'Nama Bank (e.g. BCA, Mandiri, BNI, BRI)']
+  branch_office varchar(100) [note: 'Kantor Cabang Bank']
+  account_number varchar(50) [not null, note: 'Nomor Rekening Bank']
+  account_holder_name varchar(150) [not null, note: 'Nama Pemilik Rekening Wajib sesuai Akta PT/CV PBF (Anti-fraud)']
+  is_verified boolean [not null, default: true, note: 'Telah diverifikasi APA / Keuangan']
+
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+  created_by uuid [null]
+  deleted_at timestamptz [null]
+
+  Note: 'Rekening bank resmi distributor PBF untuk mencegah penipuan transfer ke rekening pribadi salesman.'
+}
+
+Table pbf_salesmen {
+  id uuid [pk, default: `gen_random_uuid()`]
+  pbf_id uuid [not null, note: 'PBF tempat salesman bernaung']
+  salesman_name varchar(100) [not null, note: 'Nama lengkap salesman order']
+  phone_whatsapp varchar(30) [not null, note: 'Nomor WhatsApp untuk kirim PO / defekta']
+  division varchar(50) [note: 'Divisi produk: Ethical, OTC, Rantai Dingin, Alkes']
+  order_day varchar(20) [note: 'Hari jadwal kunjungan / order mingguan (e.g. Senin, Kamis)']
+
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+  created_by uuid [null]
+  deleted_at timestamptz [null]
+
+  Note: 'Kontak salesman PBF untuk sinkronisasi pemesanan rutin buku defekta.'
+}
+
+// ----------------------------------------------------------------------------
+// KLASTER 5: DOKTER PERUJUK & PASIEN PMR (Clinical & Patient Entities)
+// ----------------------------------------------------------------------------
+
+Table doctors {
+  id uuid [pk, default: `gen_random_uuid()`]
+  doctor_code varchar(30) [unique, not null, note: 'Kode dokter perujuk (e.g. DOC-001)']
+  doctor_name varchar(100) [not null, note: 'Nama lengkap dokter beserta gelar (e.g. dr. Budi, Sp.A)']
+  specialization varchar(100) [not null, default: 'DOKTER_UMUM', note: 'Spesialisasi medis dokter']
+  sip_number varchar(100) [not null, note: 'Nomor Surat Izin Praktik (SIP) resmi']
+  sip_expired_date date [not null, note: 'Tanggal habis masa berlaku SIP']
+  faskes_name varchar(150) [note: 'Nama Fasyankes praktik (RS/Klinik/Praktik Mandiri)']
+  faskes_address text [note: 'Alamat tempat praktik']
+  phone varchar(30) [note: 'Nomor telepon dokter untuk verifikasi resep ambigu']
+  is_active boolean [not null, default: true, note: 'Status aktif verifikasi dokter']
+
+  // Universal Audit Trail
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+  created_by uuid [null]
+  deleted_at timestamptz [null]
+
+  Note: 'Direktori dokter perujuk untuk skrining administrasi resep dan regulasi SIP.'
+}
+
+Table patients {
+  id uuid [pk, default: `gen_random_uuid()`]
+  patient_code varchar(30) [unique, not null, note: 'Nomor Rekam Pasien Apotek (e.g. PAT-2026-0001)']
+  nik varchar(16) [unique, null, note: 'Nomor Induk Kependudukan KTP (16 Digit, SatuSehat ready)']
+  ihs_number varchar(50) [unique, null, note: 'Nomor Identitas SatuSehat Kemenkes (FHIR Patient ID)']
+  full_name varchar(100) [not null, note: 'Nama lengkap pasien']
+  gender varchar(10) [not null, note: 'LAKI_LAKI / PEREMPUAN']
+  birth_date date [not null, note: 'Tanggal lahir untuk perhitungan usia & dosis anak']
+  phone_whatsapp varchar(30) [null, note: 'Nomor WhatsApp aktif untuk pengingat obat habis']
+  address text [null, note: 'Alamat tempat tinggal pasien']
+  blood_type varchar(5) [null, note: 'Golongan Darah: A, B, AB, O']
+  current_weight_kg decimal(5,2) [null, note: 'Berat badan terkini (kg) untuk kalkulasi Dosis Maksimum racikan']
+  is_pregnant boolean [not null, default: false, note: 'Status kondisi hamil']
+  is_breastfeeding boolean [not null, default: false, note: 'Status menyusui']
+
+  // Universal Audit Trail
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+  created_by uuid [null]
+  deleted_at timestamptz [null]
+
+  Note: 'Master profil pasien & rekam medikasi klinis (PMR Level 4).'
+}
+
+Table patient_allergies {
+  id uuid [pk, default: `gen_random_uuid()`]
+  patient_id uuid [not null, note: 'Pasien pemilik riwayat alergi']
+  allergen_type varchar(50) [not null, default: 'ZAT_AKTIF', note: 'ZAT_AKTIF, GOLONGAN_OBAT, MAKANAN']
+  allergen_name varchar(100) [not null, note: 'Nama zat aktif alergen (e.g. Amoxicillin, Ibuprofen)']
+  severity allergy_severity_enum [not null, default: 'MILD', note: 'Tingkat keparahan alergi']
+  reaction_description varchar(255) [null, note: 'Deskripsi gejala (e.g. Syok anafilaksis, bengkak mata, sesak napas)']
+
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+  created_by uuid [null]
+  deleted_at timestamptz [null]
+
+  Note: 'Daftar riwayat alergi pasien untuk memicu Pop-Up Peringatan Bahaya Alergi Merah di POS.'
+}
+
+Table patient_chronic_diseases {
+  id uuid [pk, default: `gen_random_uuid()`]
+  patient_id uuid [not null, note: 'Pasien penderita penyakit kronis']
+  disease_name varchar(100) [not null, note: 'Nama penyakit kronis (Hipertensi, Diabetes Melitus, Asma, Ginjal Kronis)']
+  diagnosed_year int [null, note: 'Tahun pertama terdiagnosa']
+  notes varchar(255) [null, note: 'Catatan kondisi khusus pasien']
+
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+  created_by uuid [null]
+  deleted_at timestamptz [null]
+
+  Note: 'Penyakit penyerta kronis untuk pemantauan terapi rutin dan Program Rujuk Balik (PRB).'
+}
+
+Table patient_medication_histories {
+  id uuid [pk, default: `gen_random_uuid()`]
+  patient_id uuid [not null, note: 'Pasien penerima obat']
+  branch_id uuid [not null, note: 'Cabang apotek tempat obat ditebus']
+  order_reference_id uuid [null, note: 'ID Transaksi Penebusan di Kasir POS']
+  dispense_date timestamptz [not null, default: `now()`, note: 'Waktu obat diserahkan ke pasien']
+  doctor_id uuid [null, note: 'Dokter penulis resep (jika berasal dari resep)']
+  product_id uuid [not null, note: 'Obat yang diserahkan']
+  product_name_snapshot varchar(150) [not null, note: 'Snapshot nama obat saat diserahkan']
+  quantity decimal(10,3) [not null, note: 'Jumlah obat dalam Base Unit']
+  unit_name_snapshot varchar(50) [not null, note: 'Nama kemasan yang diserahkan']
+  signa_instructions varchar(150) [not null, note: 'Aturan pakai (e.g. 3 x sehari 1 tablet sesudah makan)']
+  pharmacist_notes text [null, note: 'Catatan konseling apoteker (PIO) dan pemantauan efek samping (MESO)']
+
+  created_at timestamptz [not null, default: `now()`]
+  updated_at timestamptz [not null, default: `now()`]
+  created_by uuid [null]
+  deleted_at timestamptz [null]
+
+  Note: 'Rekam riwayat terapi kronologis penggunaan obat pasien (Patient Medication Record / PMR).'
+}
+
+// ----------------------------------------------------------------------------
+// RELATIONS & FOREIGN KEYS (Strict ON DELETE RESTRICT Policy)
+// ----------------------------------------------------------------------------
+
+// Relasi Cabang & Rak
+Ref: branch_storage_racks.branch_id > branches.id [delete: restrict]
+
+// Relasi Pengguna, Role & Sesi Cabang
+Ref: users.role_id > roles.id [delete: restrict]
+Ref: user_branches.user_id > users.id [delete: restrict]
+Ref: user_branches.branch_id > branches.id [delete: restrict]
+Ref: pharmacist_profiles.user_id - users.id [delete: restrict]
+Ref: pharmacist_profiles.assigned_branch_id > branches.id [delete: restrict]
+
+// Relasi Katalog Obat & Multi-Satuan
+Ref: product_units.product_id > products.id [delete: restrict]
+Ref: product_barcodes.product_unit_id > product_units.id [delete: restrict]
+Ref: product_prices.product_unit_id > product_units.id [delete: restrict]
+Ref: product_prices.branch_id > branches.id [delete: restrict]
+
+// Relasi PBF & Supplier
+Ref: pbf_bank_accounts.pbf_id > pbf_suppliers.id [delete: restrict]
+Ref: pbf_salesmen.pbf_id > pbf_suppliers.id [delete: restrict]
+
+// Relasi Pasien & PMR
+Ref: patient_allergies.patient_id > patients.id [delete: restrict]
+Ref: patient_chronic_diseases.patient_id > patients.id [delete: restrict]
+Ref: patient_medication_histories.patient_id > patients.id [delete: restrict]
+Ref: patient_medication_histories.branch_id > branches.id [delete: restrict]
+Ref: patient_medication_histories.doctor_id > doctors.id [delete: restrict]
+Ref: patient_medication_histories.product_id > products.id [delete: restrict]
+
+// ----------------------------------------------------------------------------
+// TABLE GROUPS (Logical Domain Grouping for dbdiagram.io / dbdocs.io)
+// ----------------------------------------------------------------------------
+
+TableGroup Core_MultiBranch {
+  branches
+  branch_storage_racks
+}
+
+TableGroup Auth_And_Staff {
+  roles
+  users
+  user_branches
+  pharmacist_profiles
+}
+
+TableGroup Drug_Catalog_And_Packaging {
+  products
+  product_units
+  product_barcodes
+  product_prices
+}
+
+TableGroup Procurement_And_Suppliers {
+  pbf_suppliers
+  pbf_bank_accounts
+  pbf_salesmen
+}
+
+TableGroup Clinical_Doctors_And_PMR {
+  doctors
+  patients
+  patient_allergies
+  patient_chronic_diseases
+  patient_medication_histories
+}

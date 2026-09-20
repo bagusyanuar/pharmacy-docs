@@ -17,7 +17,7 @@ Dokumen ini adalah rekam jejak resmi status pengerjaan spesifikasi teknis, arsit
 ## ✅ Deliverables yang Sudah Selesai (Completed)
 
 ### 1. Tata Kelola & Aturan Arsitektur (`.agents/` & `.github/`)
-- [x] [`.agents/rules/persona-tika.md`](./.agents/rules/persona-tika.md) — Persona Tika (Lead System Analyst & Technical PM Apotek).
+- [x] [`.agents/rules/agent-persona.md`](./.agents/rules/agent-persona.md) — Persona Tika (Lead System Analyst & Technical PM Apotek).
 - [x] [`.agents/rules/graphify.md`](./.agents/rules/graphify.md) — Aturan hemat & efisien pembaruan graf (hanya saat checkpoint/save-progress).
 - [x] [`.agents/workflows/save-progress.md`](./.agents/workflows/save-progress.md) — Workflow checkpoint otomatis akhir sesi (`/save-progress`).
 - [x] [`.agents/workflows/graphify.md`](./.agents/workflows/graphify.md) — Workflow navigasi & sinkronisasi graf pengetahuan (`/graphify`).

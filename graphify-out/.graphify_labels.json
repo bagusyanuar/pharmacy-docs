@@ -5,7 +5,7 @@
   "3": "Pharmacy POS & ERP System (Dokumentasi & Spesifikasi Arsitektur)",
   "4": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
   "5": "PROGRESS.md",
-  "6": "3. Template Body Tiket Standar",
+  "6": "3. Standard Issue Body Templates",
   "7": "🏷️ Rincian Fitur per Fase",
   "8": "Langkah-Langkah Eksekusi Otomatis",
   "9": "Pharmacy POS & ERP System (Apotek)",
@@ -16,8 +16,8 @@
   "14": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
   "15": "backend-task.md",
   "16": "frontend-pos-task.md",
-  "17": "Persona: Tika — Lead System Analyst & Technical Project Manager",
+  "17": "Modul: Autentikasi Dual-UX, Hak Akses (RBAC) & Sesi Cabang",
   "18": "frontend-web-task.md",
   "19": "Feature PRD: Master Distributor (PBF), Dokter Perujuk & Rekam Pengobatan Pasien (PMR)",
-  "20": "9. Kriteria Penerimaan (Acceptance Criteria)"
+  "20": "Persona: Tika — Lead System Analyst & Technical Project Manager"
 }

@@ -1,17 +1,17 @@
 # Graph Report - pharmacy-docs  (2026-09-20)
 
 ## Corpus Check
-- 21 files · ~26,465 words
+- 22 files · ~29,384 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 1 file(s) not represented in the graph (top: (none) 1)
+- Unclassified: 2 file(s) not represented in the graph (top: (none) 1, .dbml 1)
 
 ## Summary
-- 256 nodes · 268 edges · 21 communities
+- 276 nodes · 289 edges · 21 communities
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c929da0e`
+- Built from commit: `ef321dc8`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -22,7 +22,7 @@
 - Pharmacy POS & ERP System (Dokumentasi & Spesifikasi Arsitektur)
 - 2. Invariants & Standards for DRA (Database Architecture & ERD)
 - PROGRESS.md
-- 3. Template Body Tiket Standar
+- 3. Standard Issue Body Templates
 - 🏷️ Rincian Fitur per Fase
 - Langkah-Langkah Eksekusi Otomatis
 - Pharmacy POS & ERP System (Apotek)
@@ -33,10 +33,10 @@
 - Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat
 - backend-task.md
 - frontend-pos-task.md
-- Persona: Tika — Lead System Analyst & Technical Project Manager
+- Modul: Autentikasi Dual-UX, Hak Akses (RBAC) & Sesi Cabang
 - frontend-web-task.md
 - Feature PRD: Master Distributor (PBF), Dokter Perujuk & Rekam Pengobatan Pasien (PMR)
-- 9. Kriteria Penerimaan (Acceptance Criteria)
+- Persona: Tika — Lead System Analyst & Technical Project Manager
 
 ## God Nodes (most connected - your core abstractions)
 1. `Feature PRD: Autentikasi, Akun Pengguna, Legalitas Profesi Farmasi & Hak Akses (RBAC)` - 10 edges
@@ -44,11 +44,11 @@
 3. `Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat` - 10 edges
 4. `Feature PRD: Master Distributor (PBF), Dokter Perujuk & Rekam Pengobatan Pasien (PMR)` - 10 edges
 5. `Pharmacy POS & ERP System` - 8 edges
-6. `Langkah-Langkah Eksekusi Otomatis` - 7 edges
-7. `Pharmacy POS & ERP System (Dokumentasi & Spesifikasi Arsitektur)` - 7 edges
-8. `5. Kebutuhan Fungsional & Aturan Bisnis (Business Rules)` - 7 edges
+6. `Modul: Autentikasi Dual-UX, Hak Akses (RBAC) & Sesi Cabang` - 8 edges
+7. `Langkah-Langkah Eksekusi Otomatis` - 7 edges
+8. `Pharmacy POS & ERP System (Dokumentasi & Spesifikasi Arsitektur)` - 7 edges
 9. `5. Kebutuhan Fungsional & Aturan Bisnis (Business Rules)` - 7 edges
-10. `9. Kriteria Penerimaan (Acceptance Criteria)` - 7 edges
+10. `5. Kebutuhan Fungsional & Aturan Bisnis (Business Rules)` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
@@ -72,16 +72,16 @@ Cohesion: 0.14
 Nodes (13): 1. Membuka Graf Pengetahuan Interaktif, 2. Menanyakan Relasi Arsitektur via AI, 3. Memperbarui Graf Pengetahuan, 🏛️ Arsitektur 5 Pilar Sistem, Cara Menerbitkan Tiket via AI:, 👥 Matriks Peran Pengguna (Role-Based Access Control / RBAC), Menutup Tiket Otomatis via Pull Request (Cross-Repo Auto-Close):, 🧠 Panduan Navigasi Knowledge Graph (Graphify) (+5 more)
 
 ### Community 4 - "2. Invariants & Standards for DRA (Database Architecture & ERD)"
-Cohesion: 0.15
-Nodes (12): 1. Core Principles of Technical Documentation, 2.1 Multi-Branch Ready from Day 1 (Invarian Mutlak), 2.2 Universal Audit Trail (Wajib di Setiap Tabel), 2.3 Relational Integrity & Deletion Policy, 2.4 Strict Data Type Conventions, 2.5 Indexing Strategy for Pharmacy Performance, 2. Invariants & Standards for DRA (Database Architecture & ERD), 3.1 Standard RESTful API Envelope (+4 more)
+Cohesion: 0.12
+Nodes (15): 1. Core Principles of Technical Documentation, 2.1 Multi-Branch Ready from Day 1 (Absolute Invariant), 2.2 Universal Audit Trail (Mandatory on Every Entity Table), 2.3 Relational Integrity & Deletion Policy, 2.4 Strict Data Type Conventions, 2.5 Indexing Strategy for Pharmacy Performance, 2. Invariants & Standards for DRA (Database Architecture & ERD), 3.1 Standard RESTful API Envelope (+7 more)
 
 ### Community 5 - "PROGRESS.md"
-Cohesion: 0.29
-Nodes (5): Master Product Requirements Document (PRD), graphify, Workflow: graphify, Status Progres Pengerjaan Dokumentasi & Arsitektur, Fondasi Arsitektur & Panduan Multi-Branch Ready
+Cohesion: 0.24
+Nodes (6): Master Product Requirements Document (PRD), graphify, Workflow: graphify, Status Progres Pengerjaan Dokumentasi & Arsitektur, Fondasi Arsitektur & Panduan Multi-Branch Ready, Blueprint Visual: Diagram Usecase, Alur Proses & Scoped ERD
 
-### Community 6 - "3. Template Body Tiket Standar"
+### Community 6 - "3. Standard Issue Body Templates"
 Cohesion: 0.20
-Nodes (9): 1. Core Principles of Issue-Driven Development (IDD), 2. Format Penamaan & Labeling Standar, 3. Template Body Tiket Standar, A. Format Backend (`[BE]`), B. Format Frontend POS Kasir (`[FE-POS]`), C. Format Frontend Web Admin / ERP (`[FE-WEB]`), Format Judul Tiket:, Issue Task Scaffolder Skill (Spec-Driven / Issue-Driven Development) (+1 more)
+Nodes (9): 1. Core Principles of Issue-Driven Development (IDD), 2. Standard Naming & Labeling Conventions, 3. Standard Issue Body Templates, A. Backend Format (`[BE]`), B. Frontend POS Cashier Format (`[FE-POS]`), C. Frontend Web Admin / ERP Format (`[FE-WEB]`), Issue Task Scaffolder Skill (Spec-Driven / Issue-Driven Development), Label Conventions: (+1 more)
 
 ### Community 7 - "🏷️ Rincian Fitur per Fase"
 Cohesion: 0.20
@@ -97,7 +97,7 @@ Nodes (9): 1. Tata Kelola & Aturan Arsitektur (`.agents/` & `.github/`), 2. Doku
 
 ### Community 10 - "2. Standard 4-Step Cascade Update Workflow"
 Cohesion: 0.25
-Nodes (7): 1. The Core Philosophy: "Zero Documentation Drift", 2. Standard 4-Step Cascade Update Workflow, Change Impact Synchronizer & Traceability Skill, Langkah 1: Identifikasi & Update Dokumen Asal, Langkah 2: Lacak Dampak (Impact Traceability Analysis), Langkah 3: Eksekusi Cascade Update (Penyelarasan Hilir), Langkah 4: Simpan Progres & Sinkronkan Knowledge Graph
+Nodes (7): 1. The Core Philosophy: "Zero Documentation Drift", 2. Standard 4-Step Cascade Update Workflow, Change Impact Synchronizer & Traceability Skill, Step 1: Identify & Update Origin Document, Step 2: Impact Traceability Analysis, Step 3: Execute Cascade Updates, Step 4: Save Progress & Synchronize Knowledge Graph
 
 ### Community 11 - "Langkah-Langkah Eksekusi Otomatis"
 Cohesion: 0.25
@@ -109,11 +109,11 @@ Nodes (7): 1. Metadata Dokumen, 2.1 Konteks Masalah Operasional Apotek, 2.2 Visi
 
 ### Community 13 - "Business-Centric PRD Scaffolder Skill (Pharmacy POS & ERP)"
 Cohesion: 0.29
-Nodes (6): 1. Core Philosophy: "WHAT & WHY", Not "HOW", 2. Tabel Komparasi: PRD (Bisnis) vs TRD/DRA (Teknis), 3. Standard Template Structure for Feature PRDs, Business-Centric PRD Scaffolder Skill (Pharmacy POS & ERP), ✅ Mandatory Focus in PRDs (Wajib Ada di PRD):, 🚫 Strictly Prohibited in PRDs (Dilarang Masuk ke PRD):
+Nodes (6): 1. Core Philosophy: "WHAT & WHY", Not "HOW", 2. Comparison Table: PRD (Business) vs TRD / DRA (Technical), 3. Standard Template Structure for Feature PRDs, Business-Centric PRD Scaffolder Skill (Pharmacy POS & ERP), ✅ Mandatory Focus in PRDs:, 🚫 Strictly Prohibited in PRDs:
 
 ### Community 14 - "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat"
-Cohesion: 0.09
-Nodes (22): 1. Metadata Dokumen, 2. Latar Belakang & Masalah Bisnis, 3. Persona & Konteks Penggunaan, 4.1 Alur 1: Pendaftaran Master Obat & Definisi Hierarki Multi-Satuan, 4.2 Alur 2: Transaksi Penjualan Eceran POS & Auto-Breakdown Mutasi, 4.3 Alur 3: Prosedur Aman Penggantian Satuan Terkecil (Unit Re-basing Wizard), 4. Alur Kerja Utama (Core User Journey), 5.1 Katalog Produk & Penggolongan Regulasi Farmasi (+14 more)
+Cohesion: 0.07
+Nodes (29): 1. Metadata Dokumen, 2. Latar Belakang & Masalah Bisnis, 3. Persona & Konteks Penggunaan, 4.1 Alur 1: Pendaftaran Master Obat & Definisi Hierarki Multi-Satuan, 4.2 Alur 2: Transaksi Penjualan Eceran POS & Auto-Breakdown Mutasi, 4.3 Alur 3: Prosedur Aman Penggantian Satuan Terkecil (Unit Re-basing Wizard), 4. Alur Kerja Utama (Core User Journey), 5.1 Katalog Produk & Penggolongan Regulasi Farmasi (+21 more)
 
 ### Community 15 - "backend-task.md"
 Cohesion: 0.33
@@ -123,9 +123,9 @@ Nodes (5): 🛡️ Aturan Bisnis yang Wajib Dipenuhi, 📚 Dokumen Acuan (SSOT),
 Cohesion: 0.33
 Nodes (5): 🛡️ Aturan Bisnis yang Wajib Dipenuhi, 📚 Dokumen Acuan (SSOT), 🎯 Lingkup Pengerjaan (Checklist), ⚡ Non-Functional Requirements (NFR), 📌 Ringkasan Tugas
 
-### Community 17 - "Persona: Tika — Lead System Analyst & Technical Project Manager"
-Cohesion: 0.40
-Nodes (4): 1. Identitas & Profil Utama, 2. Penguasaan Domain & Pengetahuan Sistem (Core Competencies), 3. Tanggung Jawab Harian Tika dalam Tim, Persona: Tika — Lead System Analyst & Technical Project Manager
+### Community 17 - "Modul: Autentikasi Dual-UX, Hak Akses (RBAC) & Sesi Cabang"
+Cohesion: 0.13
+Nodes (15): 1. Metadata Dokumen, 2. Diagram Usecase (Aktor vs Fungsionalitas Sistem), 3.1 Flowchart 1: Alur Login Dual-UX (Terminal POS Kasir vs Web Admin ERP), 3.2 Flowchart 2: Alur Persetujuan Supervisor (*Manager Override*) di Meja Kasir, 3.3 Flowchart 3: Siklus Pemantauan Masa Berlaku Legalitas Profesi (SIPA / STRTTK), 3. Diagram Alur Proses Sistem (Detailed Flowcharts), 4.1 Sequence 1: Login Cepat Kasir POS (Fast PIN Authentication), 4.2 Sequence 2: Dialog Otorisasi Supervisor (*Manager Override Pop-Up*) (+7 more)
 
 ### Community 18 - "frontend-web-task.md"
 Cohesion: 0.40
@@ -135,25 +135,25 @@ Nodes (4): 🛡️ Aturan Bisnis yang Wajib Dipenuhi, 📚 Dokumen Acuan (SSOT),
 Cohesion: 0.08
 Nodes (25): 1. Metadata Dokumen, 2. Latar Belakang & Masalah Bisnis, 3. Persona & Konteks Penggunaan, 4.1 Alur 1: Pendaftaran Master Distributor (PBF) & Legalitas Operasional, 4.2 Alur 2: Pendaftaran Master Dokter Perujuk & Validasi Izin Praktik (SIP), 4.3 Alur 3: Pendekatan 4-Tingkat Pasien di POS (Kasir Cepat vs Resep vs PMR), 4. Alur Kerja Utama (Core User Journey), 5.1 Bagian 1: Master Pedagang Besar Farmasi (PBF / Supplier) (+17 more)
 
-### Community 20 - "9. Kriteria Penerimaan (Acceptance Criteria)"
-Cohesion: 0.29
-Nodes (7): 9. Kriteria Penerimaan (Acceptance Criteria), AC-01: Pendaftaran Master Obat dengan Satuan Bertingkat & Multi-Barcode, AC-02: Seamless Auto-Breakdown di Meja Kasir POS, AC-03: Pencatatan Ganda Lalu Lintas Stok pada Pemecahan Otomatis, AC-04: Kalkulasi HPP Proporsional Termasuk Bonus Faktur PBF, AC-05: Perlindungan Mutlak terhadap Pengubahan Satuan Terkecil (Anti-Corruption Guardrail), AC-06: Manajemen Kamus Master Satuan & Validasi Anti-Free-Text
+### Community 20 - "Persona: Tika — Lead System Analyst & Technical Project Manager"
+Cohesion: 0.40
+Nodes (4): 1. Identity & Core Profile, 2. Domain Mastery & System Knowledge (Core Competencies), 3. Tika's Daily Responsibilities in the Team, Persona: Tika — Lead System Analyst & Technical Project Manager
 
 ## Knowledge Gaps
-- **186 isolated node(s):** `graphify`, `1. Identitas & Profil Utama`, `2. Penguasaan Domain & Pengetahuan Sistem (Core Competencies)`, `3. Tanggung Jawab Harian Tika dalam Tim`, `🚫 Strictly Prohibited in PRDs (Dilarang Masuk ke PRD):` (+181 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 186 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **200 isolated node(s):** `1. Identity & Core Profile`, `2. Domain Mastery & System Knowledge (Core Competencies)`, `3. Tika's Daily Responsibilities in the Team`, `graphify`, `🚫 Strictly Prohibited in PRDs:` (+195 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 200 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat` connect `Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat` to `9. Kriteria Penerimaan (Acceptance Criteria)`, `PROGRESS.md`?**
-  _High betweenness centrality (0.206) - this node is a cross-community bridge._
+- **Why does `Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat` connect `Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat` to `PROGRESS.md`?**
+  _High betweenness centrality (0.192) - this node is a cross-community bridge._
 - **Why does `Feature PRD: Autentikasi, Akun Pengguna, Legalitas Profesi Farmasi & Hak Akses (RBAC)` connect `Feature PRD: Autentikasi, Akun Pengguna, Legalitas Profesi Farmasi & Hak Akses (RBAC)` to `PROGRESS.md`?**
-  _High betweenness centrality (0.186) - this node is a cross-community bridge._
+  _High betweenness centrality (0.173) - this node is a cross-community bridge._
 - **Why does `Feature PRD: Master Cabang, Izin Operasional Apotek (SIA) & Struktur Gudang` connect `Feature PRD: Master Cabang, Izin Operasional Apotek (SIA) & Struktur Gudang` to `PROGRESS.md`?**
-  _High betweenness centrality (0.185) - this node is a cross-community bridge._
-- **What connects `graphify`, `1. Identitas & Profil Utama`, `2. Penguasaan Domain & Pengetahuan Sistem (Core Competencies)` to the rest of the system?**
-  _186 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.173) - this node is a cross-community bridge._
+- **What connects `1. Identity & Core Profile`, `2. Domain Mastery & System Knowledge (Core Competencies)`, `3. Tika's Daily Responsibilities in the Team` to the rest of the system?**
+  _200 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Feature PRD: Autentikasi, Akun Pengguna, Legalitas Profesi Farmasi & Hak Akses (RBAC)` be split into smaller, more focused modules?**
   _Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected._
 - **Should `Feature PRD: Master Cabang, Izin Operasional Apotek (SIA) & Struktur Gudang` be split into smaller, more focused modules?**

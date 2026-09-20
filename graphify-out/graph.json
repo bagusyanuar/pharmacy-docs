@@ -680,50 +680,50 @@
       "source_location": "L6"
     },
     {
-      "id": "agents_skills_change_impact_synchronizer_skill_langkah_1_identifikasi_update_dokumen_asal",
-      "label": "Langkah 1: Identifikasi & Update Dokumen Asal",
+      "id": "agents_skills_change_impact_synchronizer_skill_step_1_identify_update_origin_document",
+      "label": "Step 1: Identify & Update Origin Document",
       "_origin": "ast",
       "community": 10,
       "community_name": "2. Standard 4-Step Cascade Update Workflow",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "langkah 1: identifikasi & update dokumen asal",
+      "norm_label": "step 1: identify & update origin document",
       "source_file": ".agents/skills/change-impact-synchronizer/SKILL.md",
       "source_location": "L32"
     },
     {
-      "id": "agents_skills_change_impact_synchronizer_skill_langkah_2_lacak_dampak_impact_traceability_analysis",
-      "label": "Langkah 2: Lacak Dampak (Impact Traceability Analysis)",
+      "id": "agents_skills_change_impact_synchronizer_skill_step_2_impact_traceability_analysis",
+      "label": "Step 2: Impact Traceability Analysis",
       "_origin": "ast",
       "community": 10,
       "community_name": "2. Standard 4-Step Cascade Update Workflow",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "langkah 2: lacak dampak (impact traceability analysis)",
+      "norm_label": "step 2: impact traceability analysis",
       "source_file": ".agents/skills/change-impact-synchronizer/SKILL.md",
       "source_location": "L37"
     },
     {
-      "id": "agents_skills_change_impact_synchronizer_skill_langkah_3_eksekusi_cascade_update_penyelarasan_hilir",
-      "label": "Langkah 3: Eksekusi Cascade Update (Penyelarasan Hilir)",
+      "id": "agents_skills_change_impact_synchronizer_skill_step_3_execute_cascade_updates",
+      "label": "Step 3: Execute Cascade Updates",
       "_origin": "ast",
       "community": 10,
       "community_name": "2. Standard 4-Step Cascade Update Workflow",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "langkah 3: eksekusi cascade update (penyelarasan hilir)",
+      "norm_label": "step 3: execute cascade updates",
       "source_file": ".agents/skills/change-impact-synchronizer/SKILL.md",
       "source_location": "L44"
     },
     {
-      "id": "agents_skills_change_impact_synchronizer_skill_langkah_4_simpan_progres_sinkronkan_knowledge_graph",
-      "label": "Langkah 4: Simpan Progres & Sinkronkan Knowledge Graph",
+      "id": "agents_skills_change_impact_synchronizer_skill_step_4_save_progress_synchronize_knowledge_graph",
+      "label": "Step 4: Save Progress & Synchronize Knowledge Graph",
       "_origin": "ast",
       "community": 10,
       "community_name": "2. Standard 4-Step Cascade Update Workflow",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "langkah 4: simpan progres & sinkronkan knowledge graph",
+      "norm_label": "step 4: save progress & synchronize knowledge graph",
       "source_file": ".agents/skills/change-impact-synchronizer/SKILL.md",
       "source_location": "L51"
     },
@@ -940,16 +940,16 @@
       "source_location": "L12"
     },
     {
-      "id": "agents_skills_business_prd_scaffolder_skill_2_tabel_komparasi_prd_bisnis_vs_trd_dra_teknis",
-      "label": "2. Tabel Komparasi: PRD (Bisnis) vs TRD/DRA (Teknis)",
+      "id": "agents_skills_business_prd_scaffolder_skill_2_comparison_table_prd_business_vs_trd_dra_technical",
+      "label": "2. Comparison Table: PRD (Business) vs TRD / DRA (Technical)",
       "_origin": "ast",
       "community": 13,
       "community_name": "Business-Centric PRD Scaffolder Skill (Pharmacy POS & ERP)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "2. tabel komparasi: prd (bisnis) vs trd/dra (teknis)",
+      "norm_label": "2. comparison table: prd (business) vs trd / dra (technical)",
       "source_file": ".agents/skills/business-prd-scaffolder/SKILL.md",
-      "source_location": "L34"
+      "source_location": "L35"
     },
     {
       "id": "agents_skills_business_prd_scaffolder_skill_3_standard_template_structure_for_feature_prds",
@@ -961,7 +961,7 @@
       "node_kind": "heading",
       "norm_label": "3. standard template structure for feature prds",
       "source_file": ".agents/skills/business-prd-scaffolder/SKILL.md",
-      "source_location": "L46"
+      "source_location": "L47"
     },
     {
       "id": "agents_skills_business_prd_scaffolder_skill_business_centric_prd_scaffolder_skill_pharmacy_pos_erp",
@@ -976,26 +976,26 @@
       "source_location": "L6"
     },
     {
-      "id": "agents_skills_business_prd_scaffolder_skill_mandatory_focus_in_prds_wajib_ada_di_prd",
-      "label": "\u2705 Mandatory Focus in PRDs (Wajib Ada di PRD):",
+      "id": "agents_skills_business_prd_scaffolder_skill_mandatory_focus_in_prds",
+      "label": "\u2705 Mandatory Focus in PRDs:",
       "_origin": "ast",
       "community": 13,
       "community_name": "Business-Centric PRD Scaffolder Skill (Pharmacy POS & ERP)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "\u2705 mandatory focus in prds (wajib ada di prd):",
+      "norm_label": "\u2705 mandatory focus in prds:",
       "source_file": ".agents/skills/business-prd-scaffolder/SKILL.md",
       "source_location": "L24"
     },
     {
-      "id": "agents_skills_business_prd_scaffolder_skill_strictly_prohibited_in_prds_dilarang_masuk_ke_prd",
-      "label": "\ud83d\udeab Strictly Prohibited in PRDs (Dilarang Masuk ke PRD):",
+      "id": "agents_skills_business_prd_scaffolder_skill_strictly_prohibited_in_prds",
+      "label": "\ud83d\udeab Strictly Prohibited in PRDs:",
       "_origin": "ast",
       "community": 13,
       "community_name": "Business-Centric PRD Scaffolder Skill (Pharmacy POS & ERP)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "\ud83d\udeab strictly prohibited in prds (dilarang masuk ke prd):",
+      "norm_label": "\ud83d\udeab strictly prohibited in prds:",
       "source_file": ".agents/skills/business-prd-scaffolder/SKILL.md",
       "source_location": "L17"
     },
@@ -1252,6 +1252,90 @@
       "source_location": "L319"
     },
     {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_9_kriteria_penerimaan_acceptance_criteria",
+      "label": "9. Kriteria Penerimaan (Acceptance Criteria)",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "9. kriteria penerimaan (acceptance criteria)",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L328"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_01_pendaftaran_master_obat_dengan_satuan_bertingkat_multi_barcode",
+      "label": "AC-01: Pendaftaran Master Obat dengan Satuan Bertingkat & Multi-Barcode",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-01: pendaftaran master obat dengan satuan bertingkat & multi-barcode",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L330"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_02_seamless_auto_breakdown_di_meja_kasir_pos",
+      "label": "AC-02: Seamless Auto-Breakdown di Meja Kasir POS",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-02: seamless auto-breakdown di meja kasir pos",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L335"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_03_pencatatan_ganda_lalu_lintas_stok_pada_pemecahan_otomatis",
+      "label": "AC-03: Pencatatan Ganda Lalu Lintas Stok pada Pemecahan Otomatis",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-03: pencatatan ganda lalu lintas stok pada pemecahan otomatis",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L340"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_04_kalkulasi_hpp_proporsional_termasuk_bonus_faktur_pbf",
+      "label": "AC-04: Kalkulasi HPP Proporsional Termasuk Bonus Faktur PBF",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-04: kalkulasi hpp proporsional termasuk bonus faktur pbf",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L345"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_05_perlindungan_mutlak_terhadap_pengubahan_satuan_terkecil_anti_corruption_guardrail",
+      "label": "AC-05: Perlindungan Mutlak terhadap Pengubahan Satuan Terkecil (Anti-Corruption Guardrail)",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-05: perlindungan mutlak terhadap pengubahan satuan terkecil (anti-corruption guardrail)",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L350"
+    },
+    {
+      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_06_manajemen_kamus_master_satuan_validasi_anti_free_text",
+      "label": "AC-06: Manajemen Kamus Master Satuan & Validasi Anti-Free-Text",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ac-06: manajemen kamus master satuan & validasi anti-free-text",
+      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
+      "source_location": "L355"
+    },
+    {
       "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_feature_prd_master_obat_penggolongan_regulasi_farmasi_multi_satuan_bertingkat",
       "label": "Feature PRD: Master Obat, Penggolongan Regulasi Farmasi & Multi-Satuan Bertingkat",
       "_origin": "ast",
@@ -1422,64 +1506,184 @@
       "source_location": "L9"
     },
     {
-      "id": "agents_rules_persona_tika",
-      "label": "persona-tika.md",
+      "id": "technical_diagrams_01_diagrams_auth_dan_cabang_1_metadata_dokumen",
+      "label": "1. Metadata Dokumen",
       "_origin": "ast",
       "community": 17,
-      "community_name": "Persona: Tika \u2014 Lead System Analyst & Technical Project Manager",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "persona-tika.md",
-      "source_file": ".agents/rules/persona-tika.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "agents_rules_persona_tika_1_identitas_profil_utama",
-      "label": "1. Identitas & Profil Utama",
-      "_origin": "ast",
-      "community": 17,
-      "community_name": "Persona: Tika \u2014 Lead System Analyst & Technical Project Manager",
+      "community_name": "Modul: Autentikasi Dual-UX, Hak Akses (RBAC) & Sesi Cabang",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "1. identitas & profil utama",
-      "source_file": ".agents/rules/persona-tika.md",
-      "source_location": "L3"
+      "norm_label": "1. metadata dokumen",
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L6"
     },
     {
-      "id": "agents_rules_persona_tika_2_penguasaan_domain_pengetahuan_sistem_core_competencies",
-      "label": "2. Penguasaan Domain & Pengetahuan Sistem (Core Competencies)",
+      "id": "technical_diagrams_01_diagrams_auth_dan_cabang_2_diagram_usecase_aktor_vs_fungsionalitas_sistem",
+      "label": "2. Diagram Usecase (Aktor vs Fungsionalitas Sistem)",
       "_origin": "ast",
       "community": 17,
-      "community_name": "Persona: Tika \u2014 Lead System Analyst & Technical Project Manager",
+      "community_name": "Modul: Autentikasi Dual-UX, Hak Akses (RBAC) & Sesi Cabang",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "2. penguasaan domain & pengetahuan sistem (core competencies)",
-      "source_file": ".agents/rules/persona-tika.md",
-      "source_location": "L13"
+      "norm_label": "2. diagram usecase (aktor vs fungsionalitas sistem)",
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L18"
     },
     {
-      "id": "agents_rules_persona_tika_3_tanggung_jawab_harian_tika_dalam_tim",
-      "label": "3. Tanggung Jawab Harian Tika dalam Tim",
+      "id": "technical_diagrams_01_diagrams_auth_dan_cabang_3_1_flowchart_1_alur_login_dual_ux_terminal_pos_kasir_vs_web_admin_erp",
+      "label": "3.1 Flowchart 1: Alur Login Dual-UX (Terminal POS Kasir vs Web Admin ERP)",
       "_origin": "ast",
       "community": 17,
-      "community_name": "Persona: Tika \u2014 Lead System Analyst & Technical Project Manager",
+      "community_name": "Modul: Autentikasi Dual-UX, Hak Akses (RBAC) & Sesi Cabang",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "3. tanggung jawab harian tika dalam tim",
-      "source_file": ".agents/rules/persona-tika.md",
-      "source_location": "L37"
+      "norm_label": "3.1 flowchart 1: alur login dual-ux (terminal pos kasir vs web admin erp)",
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L76"
     },
     {
-      "id": "agents_rules_persona_tika_persona_tika_lead_system_analyst_technical_project_manager",
-      "label": "Persona: Tika \u2014 Lead System Analyst & Technical Project Manager",
+      "id": "technical_diagrams_01_diagrams_auth_dan_cabang_3_2_flowchart_2_alur_persetujuan_supervisor_manager_override_di_meja_kasir",
+      "label": "3.2 Flowchart 2: Alur Persetujuan Supervisor (*Manager Override*) di Meja Kasir",
       "_origin": "ast",
       "community": 17,
-      "community_name": "Persona: Tika \u2014 Lead System Analyst & Technical Project Manager",
+      "community_name": "Modul: Autentikasi Dual-UX, Hak Akses (RBAC) & Sesi Cabang",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "persona: tika \u2014 lead system analyst & technical project manager",
-      "source_file": ".agents/rules/persona-tika.md",
-      "source_location": "L1"
+      "norm_label": "3.2 flowchart 2: alur persetujuan supervisor (*manager override*) di meja kasir",
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L127"
+    },
+    {
+      "id": "technical_diagrams_01_diagrams_auth_dan_cabang_3_3_flowchart_3_siklus_pemantauan_masa_berlaku_legalitas_profesi_sipa_strttk",
+      "label": "3.3 Flowchart 3: Siklus Pemantauan Masa Berlaku Legalitas Profesi (SIPA / STRTTK)",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Modul: Autentikasi Dual-UX, Hak Akses (RBAC) & Sesi Cabang",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3.3 flowchart 3: siklus pemantauan masa berlaku legalitas profesi (sipa / strttk)",
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L158"
+    },
+    {
+      "id": "technical_diagrams_01_diagrams_auth_dan_cabang_3_diagram_alur_proses_sistem_detailed_flowcharts",
+      "label": "3. Diagram Alur Proses Sistem (Detailed Flowcharts)",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Modul: Autentikasi Dual-UX, Hak Akses (RBAC) & Sesi Cabang",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. diagram alur proses sistem (detailed flowcharts)",
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L74"
+    },
+    {
+      "id": "technical_diagrams_01_diagrams_auth_dan_cabang_4_1_sequence_1_login_cepat_kasir_pos_fast_pin_authentication",
+      "label": "4.1 Sequence 1: Login Cepat Kasir POS (Fast PIN Authentication)",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Modul: Autentikasi Dual-UX, Hak Akses (RBAC) & Sesi Cabang",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4.1 sequence 1: login cepat kasir pos (fast pin authentication)",
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L189"
+    },
+    {
+      "id": "technical_diagrams_01_diagrams_auth_dan_cabang_4_2_sequence_2_dialog_otorisasi_supervisor_manager_override_pop_up",
+      "label": "4.2 Sequence 2: Dialog Otorisasi Supervisor (*Manager Override Pop-Up*)",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Modul: Autentikasi Dual-UX, Hak Akses (RBAC) & Sesi Cabang",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4.2 sequence 2: dialog otorisasi supervisor (*manager override pop-up*)",
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L229"
+    },
+    {
+      "id": "technical_diagrams_01_diagrams_auth_dan_cabang_4_sequence_diagram_interaksi_teknis_antar_komponen",
+      "label": "4. Sequence Diagram (Interaksi Teknis Antar Komponen)",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Modul: Autentikasi Dual-UX, Hak Akses (RBAC) & Sesi Cabang",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4. sequence diagram (interaksi teknis antar komponen)",
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L187"
+    },
+    {
+      "id": "technical_diagrams_01_diagrams_auth_dan_cabang_5_1_siklus_status_akun_staf_users",
+      "label": "5.1 Siklus Status Akun Staf (`users`)",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Modul: Autentikasi Dual-UX, Hak Akses (RBAC) & Sesi Cabang",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5.1 siklus status akun staf (`users`)",
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L264"
+    },
+    {
+      "id": "technical_diagrams_01_diagrams_auth_dan_cabang_5_2_siklus_sesi_kerja_kasir_di_cabang_user_branches_kasir_pos",
+      "label": "5.2 Siklus Sesi Kerja Kasir di Cabang (`user_branches` & Kasir POS)",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Modul: Autentikasi Dual-UX, Hak Akses (RBAC) & Sesi Cabang",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5.2 siklus sesi kerja kasir di cabang (`user_branches` & kasir pos)",
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L288"
+    },
+    {
+      "id": "technical_diagrams_01_diagrams_auth_dan_cabang_5_diagram_status_siklus_hidup_state_lifecycle_diagrams",
+      "label": "5. Diagram Status & Siklus Hidup (State Lifecycle Diagrams)",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Modul: Autentikasi Dual-UX, Hak Akses (RBAC) & Sesi Cabang",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "5. diagram status & siklus hidup (state lifecycle diagrams)",
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L262"
+    },
+    {
+      "id": "technical_diagrams_01_diagrams_auth_dan_cabang_6_scoped_erd_khusus_domain_autentikasi_staf_cabang",
+      "label": "6. Scoped ERD: Khusus Domain Autentikasi, Staf & Cabang",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Modul: Autentikasi Dual-UX, Hak Akses (RBAC) & Sesi Cabang",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "6. scoped erd: khusus domain autentikasi, staf & cabang",
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L314"
+    },
+    {
+      "id": "technical_diagrams_01_diagrams_auth_dan_cabang_7_rangkuman_keterkaitan_antara_diagram_dengan_dokumen_spesifikasi",
+      "label": "7. Rangkuman Keterkaitan Antara Diagram dengan Dokumen Spesifikasi",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Modul: Autentikasi Dual-UX, Hak Akses (RBAC) & Sesi Cabang",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "7. rangkuman keterkaitan antara diagram dengan dokumen spesifikasi",
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L390"
+    },
+    {
+      "id": "technical_diagrams_01_diagrams_auth_dan_cabang_modul_autentikasi_dual_ux_hak_akses_rbac_sesi_cabang",
+      "label": "Modul: Autentikasi Dual-UX, Hak Akses (RBAC) & Sesi Cabang",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "Modul: Autentikasi Dual-UX, Hak Akses (RBAC) & Sesi Cabang",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "modul: autentikasi dual-ux, hak akses (rbac) & sesi cabang",
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L2"
     },
     {
       "id": "github_issue_template_frontend_web_task",
@@ -2077,88 +2281,64 @@
       "source_location": "L2"
     },
     {
-      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_9_kriteria_penerimaan_acceptance_criteria",
-      "label": "9. Kriteria Penerimaan (Acceptance Criteria)",
+      "id": "agents_rules_agent_persona",
+      "label": "agent-persona.md",
       "_origin": "ast",
       "community": 20,
-      "community_name": "9. Kriteria Penerimaan (Acceptance Criteria)",
+      "community_name": "Persona: Tika \u2014 Lead System Analyst & Technical Project Manager",
       "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "9. kriteria penerimaan (acceptance criteria)",
-      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
-      "source_location": "L328"
+      "node_kind": "page",
+      "norm_label": "agent-persona.md",
+      "source_file": ".agents/rules/agent-persona.md",
+      "source_location": "L1"
     },
     {
-      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_01_pendaftaran_master_obat_dengan_satuan_bertingkat_multi_barcode",
-      "label": "AC-01: Pendaftaran Master Obat dengan Satuan Bertingkat & Multi-Barcode",
+      "id": "agents_rules_agent_persona_1_identity_core_profile",
+      "label": "1. Identity & Core Profile",
       "_origin": "ast",
       "community": 20,
-      "community_name": "9. Kriteria Penerimaan (Acceptance Criteria)",
+      "community_name": "Persona: Tika \u2014 Lead System Analyst & Technical Project Manager",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "ac-01: pendaftaran master obat dengan satuan bertingkat & multi-barcode",
-      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
-      "source_location": "L330"
+      "norm_label": "1. identity & core profile",
+      "source_file": ".agents/rules/agent-persona.md",
+      "source_location": "L3"
     },
     {
-      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_02_seamless_auto_breakdown_di_meja_kasir_pos",
-      "label": "AC-02: Seamless Auto-Breakdown di Meja Kasir POS",
+      "id": "agents_rules_agent_persona_2_domain_mastery_system_knowledge_core_competencies",
+      "label": "2. Domain Mastery & System Knowledge (Core Competencies)",
       "_origin": "ast",
       "community": 20,
-      "community_name": "9. Kriteria Penerimaan (Acceptance Criteria)",
+      "community_name": "Persona: Tika \u2014 Lead System Analyst & Technical Project Manager",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "ac-02: seamless auto-breakdown di meja kasir pos",
-      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
-      "source_location": "L335"
+      "norm_label": "2. domain mastery & system knowledge (core competencies)",
+      "source_file": ".agents/rules/agent-persona.md",
+      "source_location": "L16"
     },
     {
-      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_03_pencatatan_ganda_lalu_lintas_stok_pada_pemecahan_otomatis",
-      "label": "AC-03: Pencatatan Ganda Lalu Lintas Stok pada Pemecahan Otomatis",
+      "id": "agents_rules_agent_persona_3_tika_s_daily_responsibilities_in_the_team",
+      "label": "3. Tika's Daily Responsibilities in the Team",
       "_origin": "ast",
       "community": 20,
-      "community_name": "9. Kriteria Penerimaan (Acceptance Criteria)",
+      "community_name": "Persona: Tika \u2014 Lead System Analyst & Technical Project Manager",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "ac-03: pencatatan ganda lalu lintas stok pada pemecahan otomatis",
-      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
-      "source_location": "L340"
+      "norm_label": "3. tika's daily responsibilities in the team",
+      "source_file": ".agents/rules/agent-persona.md",
+      "source_location": "L40"
     },
     {
-      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_04_kalkulasi_hpp_proporsional_termasuk_bonus_faktur_pbf",
-      "label": "AC-04: Kalkulasi HPP Proporsional Termasuk Bonus Faktur PBF",
+      "id": "agents_rules_agent_persona_persona_tika_lead_system_analyst_technical_project_manager",
+      "label": "Persona: Tika \u2014 Lead System Analyst & Technical Project Manager",
       "_origin": "ast",
       "community": 20,
-      "community_name": "9. Kriteria Penerimaan (Acceptance Criteria)",
+      "community_name": "Persona: Tika \u2014 Lead System Analyst & Technical Project Manager",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "ac-04: kalkulasi hpp proporsional termasuk bonus faktur pbf",
-      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
-      "source_location": "L345"
-    },
-    {
-      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_05_perlindungan_mutlak_terhadap_pengubahan_satuan_terkecil_anti_corruption_guardrail",
-      "label": "AC-05: Perlindungan Mutlak terhadap Pengubahan Satuan Terkecil (Anti-Corruption Guardrail)",
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "9. Kriteria Penerimaan (Acceptance Criteria)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "ac-05: perlindungan mutlak terhadap pengubahan satuan terkecil (anti-corruption guardrail)",
-      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
-      "source_location": "L350"
-    },
-    {
-      "id": "features_master_data_02_prd_obat_dan_satuan_bertingkat_ac_06_manajemen_kamus_master_satuan_validasi_anti_free_text",
-      "label": "AC-06: Manajemen Kamus Master Satuan & Validasi Anti-Free-Text",
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "9. Kriteria Penerimaan (Acceptance Criteria)",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "ac-06: manajemen kamus master satuan & validasi anti-free-text",
-      "source_file": "features/master-data/02-prd-obat-dan-satuan-bertingkat.md",
-      "source_location": "L355"
+      "norm_label": "persona: tika \u2014 lead system analyst & technical project manager",
+      "source_file": ".agents/rules/agent-persona.md",
+      "source_location": "L1"
     },
     {
       "id": "readme",
@@ -2357,28 +2537,28 @@
       "source_location": "L12"
     },
     {
-      "id": "agents_skills_trd_dra_scaffolder_skill_2_1_multi_branch_ready_from_day_1_invarian_mutlak",
-      "label": "2.1 Multi-Branch Ready from Day 1 (Invarian Mutlak)",
+      "id": "agents_skills_trd_dra_scaffolder_skill_2_1_multi_branch_ready_from_day_1_absolute_invariant",
+      "label": "2.1 Multi-Branch Ready from Day 1 (Absolute Invariant)",
       "_origin": "ast",
       "community": 4,
       "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "2.1 multi-branch ready from day 1 (invarian mutlak)",
+      "norm_label": "2.1 multi-branch ready from day 1 (absolute invariant)",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L28"
+      "source_location": "L49"
     },
     {
-      "id": "agents_skills_trd_dra_scaffolder_skill_2_2_universal_audit_trail_wajib_di_setiap_tabel",
-      "label": "2.2 Universal Audit Trail (Wajib di Setiap Tabel)",
+      "id": "agents_skills_trd_dra_scaffolder_skill_2_2_universal_audit_trail_mandatory_on_every_entity_table",
+      "label": "2.2 Universal Audit Trail (Mandatory on Every Entity Table)",
       "_origin": "ast",
       "community": 4,
       "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "2.2 universal audit trail (wajib di setiap tabel)",
+      "norm_label": "2.2 universal audit trail (mandatory on every entity table)",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L35"
+      "source_location": "L56"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill_2_3_relational_integrity_deletion_policy",
@@ -2390,7 +2570,7 @@
       "node_kind": "heading",
       "norm_label": "2.3 relational integrity & deletion policy",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L45"
+      "source_location": "L66"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill_2_4_strict_data_type_conventions",
@@ -2402,7 +2582,7 @@
       "node_kind": "heading",
       "norm_label": "2.4 strict data type conventions",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L49"
+      "source_location": "L70"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill_2_5_indexing_strategy_for_pharmacy_performance",
@@ -2414,7 +2594,7 @@
       "node_kind": "heading",
       "norm_label": "2.5 indexing strategy for pharmacy performance",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L56"
+      "source_location": "L77"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill_2_invariants_standards_for_dra_database_architecture_erd",
@@ -2426,7 +2606,7 @@
       "node_kind": "heading",
       "norm_label": "2. invariants & standards for dra (database architecture & erd)",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L24"
+      "source_location": "L45"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill_3_1_standard_restful_api_envelope",
@@ -2438,43 +2618,79 @@
       "node_kind": "heading",
       "norm_label": "3.1 standard restful api envelope",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L71"
+      "source_location": "L98"
     },
     {
-      "id": "agents_skills_trd_dra_scaffolder_skill_3_2_context_multi_branch_security",
-      "label": "3.2 Context & Multi-Branch Security",
+      "id": "agents_skills_trd_dra_scaffolder_skill_3_2_backend_be_engineering_standards",
+      "label": "3.2 Backend [BE] Engineering Standards",
       "_origin": "ast",
       "community": 4,
       "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "3.2 context & multi-branch security",
+      "norm_label": "3.2 backend [be] engineering standards",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L100"
+      "source_location": "L137"
     },
     {
-      "id": "agents_skills_trd_dra_scaffolder_skill_3_3_hardware_integration_standards_pos_etiket",
-      "label": "3.3 Hardware Integration Standards (POS & Etiket)",
+      "id": "agents_skills_trd_dra_scaffolder_skill_3_3_frontend_fe_web_fe_pos_engineering_standards",
+      "label": "3.3 Frontend [FE-WEB & FE-POS] Engineering Standards",
       "_origin": "ast",
       "community": 4,
       "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "3.3 hardware integration standards (pos & etiket)",
+      "norm_label": "3.3 frontend [fe-web & fe-pos] engineering standards",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L104"
+      "source_location": "L153"
     },
     {
-      "id": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_trd_api_contracts_architecture",
-      "label": "3. Standards for TRD (API Contracts & Architecture)",
+      "id": "agents_skills_trd_dra_scaffolder_skill_3_4_standard_trd_document_template",
+      "label": "3.4 Standard TRD Document Template",
       "_origin": "ast",
       "community": 4,
       "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "3. standards for trd (api contracts & architecture)",
+      "norm_label": "3.4 standard trd document template",
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L69"
+      "source_location": "L178"
+    },
+    {
+      "id": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_be_fe_architecture",
+      "label": "3. Standards for Unified Contract-First TRD (BE & FE Architecture)",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "3. standards for unified contract-first trd (be & fe architecture)",
+      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
+      "source_location": "L90"
+    },
+    {
+      "id": "agents_skills_trd_dra_scaffolder_skill_error_response_http_4xx_5xx",
+      "label": "Error Response (HTTP 4xx / 5xx):",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "error response (http 4xx / 5xx):",
+      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
+      "source_location": "L116"
+    },
+    {
+      "id": "agents_skills_trd_dra_scaffolder_skill_success_response_http_200_201",
+      "label": "Success Response (HTTP 200 / 201):",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "2. Invariants & Standards for DRA (Database Architecture & ERD)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "success response (http 200 / 201):",
+      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
+      "source_location": "L101"
     },
     {
       "id": "agents_skills_trd_dra_scaffolder_skill_trd_dra_scaffolder_skill_pharmacy_pos_erp",
@@ -2665,11 +2881,35 @@
       "source_location": "L1"
     },
     {
+      "id": "technical_diagrams_01_diagrams_auth_dan_cabang",
+      "label": "01-diagrams-auth-dan-cabang.md",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "PROGRESS.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "01-diagrams-auth-dan-cabang.md",
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "technical_diagrams_01_diagrams_auth_dan_cabang_blueprint_visual_diagram_usecase_alur_proses_scoped_erd",
+      "label": "Blueprint Visual: Diagram Usecase, Alur Proses & Scoped ERD",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "PROGRESS.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "blueprint visual: diagram usecase, alur proses & scoped erd",
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L1"
+    },
+    {
       "id": "agents_skills_issue_task_scaffolder_skill",
       "label": "issue-task-scaffolder/SKILL.md",
       "_origin": "ast",
       "community": 6,
-      "community_name": "3. Template Body Tiket Standar",
+      "community_name": "3. Standard Issue Body Templates",
       "file_type": "document",
       "frontmatter": {
         "name": "issue-task-scaffolder",
@@ -2685,7 +2925,7 @@
       "label": "1. Core Principles of Issue-Driven Development (IDD)",
       "_origin": "ast",
       "community": 6,
-      "community_name": "3. Template Body Tiket Standar",
+      "community_name": "3. Standard Issue Body Templates",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "1. core principles of issue-driven development (idd)",
@@ -2693,83 +2933,71 @@
       "source_location": "L12"
     },
     {
-      "id": "agents_skills_issue_task_scaffolder_skill_2_format_penamaan_labeling_standar",
-      "label": "2. Format Penamaan & Labeling Standar",
+      "id": "agents_skills_issue_task_scaffolder_skill_2_standard_naming_labeling_conventions",
+      "label": "2. Standard Naming & Labeling Conventions",
       "_origin": "ast",
       "community": 6,
-      "community_name": "3. Template Body Tiket Standar",
+      "community_name": "3. Standard Issue Body Templates",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "2. format penamaan & labeling standar",
+      "norm_label": "2. standard naming & labeling conventions",
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L25"
+      "source_location": "L26"
     },
     {
-      "id": "agents_skills_issue_task_scaffolder_skill_3_template_body_tiket_standar",
-      "label": "3. Template Body Tiket Standar",
+      "id": "agents_skills_issue_task_scaffolder_skill_3_standard_issue_body_templates",
+      "label": "3. Standard Issue Body Templates",
       "_origin": "ast",
       "community": 6,
-      "community_name": "3. Template Body Tiket Standar",
+      "community_name": "3. Standard Issue Body Templates",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "3. template body tiket standar",
+      "norm_label": "3. standard issue body templates",
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L43"
+      "source_location": "L44"
     },
     {
-      "id": "agents_skills_issue_task_scaffolder_skill_a_format_backend_be",
-      "label": "A. Format Backend (`[BE]`)",
+      "id": "agents_skills_issue_task_scaffolder_skill_a_backend_format_be",
+      "label": "A. Backend Format (`[BE]`)",
       "_origin": "ast",
       "community": 6,
-      "community_name": "3. Template Body Tiket Standar",
+      "community_name": "3. Standard Issue Body Templates",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "a. format backend (`[be]`)",
+      "norm_label": "a. backend format (`[be]`)",
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L45"
+      "source_location": "L46"
     },
     {
-      "id": "agents_skills_issue_task_scaffolder_skill_b_format_frontend_pos_kasir_fe_pos",
-      "label": "B. Format Frontend POS Kasir (`[FE-POS]`)",
+      "id": "agents_skills_issue_task_scaffolder_skill_b_frontend_pos_cashier_format_fe_pos",
+      "label": "B. Frontend POS Cashier Format (`[FE-POS]`)",
       "_origin": "ast",
       "community": 6,
-      "community_name": "3. Template Body Tiket Standar",
+      "community_name": "3. Standard Issue Body Templates",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "b. format frontend pos kasir (`[fe-pos]`)",
+      "norm_label": "b. frontend pos cashier format (`[fe-pos]`)",
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L66"
+      "source_location": "L67"
     },
     {
-      "id": "agents_skills_issue_task_scaffolder_skill_c_format_frontend_web_admin_erp_fe_web",
-      "label": "C. Format Frontend Web Admin / ERP (`[FE-WEB]`)",
+      "id": "agents_skills_issue_task_scaffolder_skill_c_frontend_web_admin_erp_format_fe_web",
+      "label": "C. Frontend Web Admin / ERP Format (`[FE-WEB]`)",
       "_origin": "ast",
       "community": 6,
-      "community_name": "3. Template Body Tiket Standar",
+      "community_name": "3. Standard Issue Body Templates",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "c. format frontend web admin / erp (`[fe-web]`)",
+      "norm_label": "c. frontend web admin / erp format (`[fe-web]`)",
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L82"
-    },
-    {
-      "id": "agents_skills_issue_task_scaffolder_skill_format_judul_tiket",
-      "label": "Format Judul Tiket:",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "3. Template Body Tiket Standar",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "format judul tiket:",
-      "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L27"
+      "source_location": "L83"
     },
     {
       "id": "agents_skills_issue_task_scaffolder_skill_issue_task_scaffolder_skill_spec_driven_issue_driven_development",
       "label": "Issue Task Scaffolder Skill (Spec-Driven / Issue-Driven Development)",
       "_origin": "ast",
       "community": 6,
-      "community_name": "3. Template Body Tiket Standar",
+      "community_name": "3. Standard Issue Body Templates",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "issue task scaffolder skill (spec-driven / issue-driven development)",
@@ -2777,16 +3005,28 @@
       "source_location": "L6"
     },
     {
-      "id": "agents_skills_issue_task_scaffolder_skill_standar_labeling",
-      "label": "Standar Labeling:",
+      "id": "agents_skills_issue_task_scaffolder_skill_label_conventions",
+      "label": "Label Conventions:",
       "_origin": "ast",
       "community": 6,
-      "community_name": "3. Template Body Tiket Standar",
+      "community_name": "3. Standard Issue Body Templates",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "standar labeling:",
+      "norm_label": "label conventions:",
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L36"
+      "source_location": "L37"
+    },
+    {
+      "id": "agents_skills_issue_task_scaffolder_skill_title_format",
+      "label": "Title Format:",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "3. Standard Issue Body Templates",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "title format:",
+      "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
+      "source_location": "L28"
     },
     {
       "id": "feature_checklist",
@@ -3219,6 +3459,50 @@
       "weight": 1.0
     },
     {
+      "source": "agents_rules_agent_persona",
+      "target": "agents_rules_agent_persona_persona_tika_lead_system_analyst_technical_project_manager",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/rules/agent-persona.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_rules_agent_persona_persona_tika_lead_system_analyst_technical_project_manager",
+      "target": "agents_rules_agent_persona_2_domain_mastery_system_knowledge_core_competencies",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/rules/agent-persona.md",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_rules_agent_persona_persona_tika_lead_system_analyst_technical_project_manager",
+      "target": "agents_rules_agent_persona_1_identity_core_profile",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/rules/agent-persona.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_rules_agent_persona_persona_tika_lead_system_analyst_technical_project_manager",
+      "target": "agents_rules_agent_persona_3_tika_s_daily_responsibilities_in_the_team",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/rules/agent-persona.md",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
       "source": "agents_rules_graphify",
       "target": "agents_rules_graphify_graphify",
       "relation": "contains",
@@ -3227,50 +3511,6 @@
       "confidence_score": 1.0,
       "source_file": ".agents/rules/graphify.md",
       "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "agents_rules_persona_tika",
-      "target": "agents_rules_persona_tika_persona_tika_lead_system_analyst_technical_project_manager",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".agents/rules/persona-tika.md",
-      "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "agents_rules_persona_tika_persona_tika_lead_system_analyst_technical_project_manager",
-      "target": "agents_rules_persona_tika_2_penguasaan_domain_pengetahuan_sistem_core_competencies",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".agents/rules/persona-tika.md",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "agents_rules_persona_tika_persona_tika_lead_system_analyst_technical_project_manager",
-      "target": "agents_rules_persona_tika_1_identitas_profil_utama",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".agents/rules/persona-tika.md",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "agents_rules_persona_tika_persona_tika_lead_system_analyst_technical_project_manager",
-      "target": "agents_rules_persona_tika_3_tanggung_jawab_harian_tika_dalam_tim",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".agents/rules/persona-tika.md",
-      "source_location": "L37",
       "weight": 1.0
     },
     {
@@ -3286,7 +3526,7 @@
     },
     {
       "source": "agents_skills_business_prd_scaffolder_skill_1_core_philosophy_what_why_not_how",
-      "target": "agents_skills_business_prd_scaffolder_skill_strictly_prohibited_in_prds_dilarang_masuk_ke_prd",
+      "target": "agents_skills_business_prd_scaffolder_skill_strictly_prohibited_in_prds",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3297,7 +3537,7 @@
     },
     {
       "source": "agents_skills_business_prd_scaffolder_skill_1_core_philosophy_what_why_not_how",
-      "target": "agents_skills_business_prd_scaffolder_skill_mandatory_focus_in_prds_wajib_ada_di_prd",
+      "target": "agents_skills_business_prd_scaffolder_skill_mandatory_focus_in_prds",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3319,13 +3559,13 @@
     },
     {
       "source": "agents_skills_business_prd_scaffolder_skill_business_centric_prd_scaffolder_skill_pharmacy_pos_erp",
-      "target": "agents_skills_business_prd_scaffolder_skill_2_tabel_komparasi_prd_bisnis_vs_trd_dra_teknis",
+      "target": "agents_skills_business_prd_scaffolder_skill_2_comparison_table_prd_business_vs_trd_dra_technical",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/business-prd-scaffolder/SKILL.md",
-      "source_location": "L34",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -3336,7 +3576,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/business-prd-scaffolder/SKILL.md",
-      "source_location": "L46",
+      "source_location": "L47",
       "weight": 1.0
     },
     {
@@ -3352,7 +3592,7 @@
     },
     {
       "source": "agents_skills_change_impact_synchronizer_skill_2_standard_4_step_cascade_update_workflow",
-      "target": "agents_skills_change_impact_synchronizer_skill_langkah_1_identifikasi_update_dokumen_asal",
+      "target": "agents_skills_change_impact_synchronizer_skill_step_1_identify_update_origin_document",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3363,7 +3603,7 @@
     },
     {
       "source": "agents_skills_change_impact_synchronizer_skill_2_standard_4_step_cascade_update_workflow",
-      "target": "agents_skills_change_impact_synchronizer_skill_langkah_2_lacak_dampak_impact_traceability_analysis",
+      "target": "agents_skills_change_impact_synchronizer_skill_step_2_impact_traceability_analysis",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3374,7 +3614,7 @@
     },
     {
       "source": "agents_skills_change_impact_synchronizer_skill_2_standard_4_step_cascade_update_workflow",
-      "target": "agents_skills_change_impact_synchronizer_skill_langkah_3_eksekusi_cascade_update_penyelarasan_hilir",
+      "target": "agents_skills_change_impact_synchronizer_skill_step_3_execute_cascade_updates",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3385,7 +3625,7 @@
     },
     {
       "source": "agents_skills_change_impact_synchronizer_skill_2_standard_4_step_cascade_update_workflow",
-      "target": "agents_skills_change_impact_synchronizer_skill_langkah_4_simpan_progres_sinkronkan_knowledge_graph",
+      "target": "agents_skills_change_impact_synchronizer_skill_step_4_save_progress_synchronize_knowledge_graph",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3428,58 +3668,58 @@
       "weight": 1.0
     },
     {
-      "source": "agents_skills_issue_task_scaffolder_skill_2_format_penamaan_labeling_standar",
-      "target": "agents_skills_issue_task_scaffolder_skill_format_judul_tiket",
+      "source": "agents_skills_issue_task_scaffolder_skill_2_standard_naming_labeling_conventions",
+      "target": "agents_skills_issue_task_scaffolder_skill_title_format",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
-      "source": "agents_skills_issue_task_scaffolder_skill_2_format_penamaan_labeling_standar",
-      "target": "agents_skills_issue_task_scaffolder_skill_standar_labeling",
+      "source": "agents_skills_issue_task_scaffolder_skill_2_standard_naming_labeling_conventions",
+      "target": "agents_skills_issue_task_scaffolder_skill_label_conventions",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L36",
+      "source_location": "L37",
       "weight": 1.0
     },
     {
-      "source": "agents_skills_issue_task_scaffolder_skill_3_template_body_tiket_standar",
-      "target": "agents_skills_issue_task_scaffolder_skill_a_format_backend_be",
+      "source": "agents_skills_issue_task_scaffolder_skill_3_standard_issue_body_templates",
+      "target": "agents_skills_issue_task_scaffolder_skill_a_backend_format_be",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L45",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
-      "source": "agents_skills_issue_task_scaffolder_skill_3_template_body_tiket_standar",
-      "target": "agents_skills_issue_task_scaffolder_skill_b_format_frontend_pos_kasir_fe_pos",
+      "source": "agents_skills_issue_task_scaffolder_skill_3_standard_issue_body_templates",
+      "target": "agents_skills_issue_task_scaffolder_skill_b_frontend_pos_cashier_format_fe_pos",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L66",
+      "source_location": "L67",
       "weight": 1.0
     },
     {
-      "source": "agents_skills_issue_task_scaffolder_skill_3_template_body_tiket_standar",
-      "target": "agents_skills_issue_task_scaffolder_skill_c_format_frontend_web_admin_erp_fe_web",
+      "source": "agents_skills_issue_task_scaffolder_skill_3_standard_issue_body_templates",
+      "target": "agents_skills_issue_task_scaffolder_skill_c_frontend_web_admin_erp_format_fe_web",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L82",
+      "source_location": "L83",
       "weight": 1.0
     },
     {
@@ -3495,24 +3735,24 @@
     },
     {
       "source": "agents_skills_issue_task_scaffolder_skill_issue_task_scaffolder_skill_spec_driven_issue_driven_development",
-      "target": "agents_skills_issue_task_scaffolder_skill_2_format_penamaan_labeling_standar",
+      "target": "agents_skills_issue_task_scaffolder_skill_2_standard_naming_labeling_conventions",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L25",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
       "source": "agents_skills_issue_task_scaffolder_skill_issue_task_scaffolder_skill_spec_driven_issue_driven_development",
-      "target": "agents_skills_issue_task_scaffolder_skill_3_template_body_tiket_standar",
+      "target": "agents_skills_issue_task_scaffolder_skill_3_standard_issue_body_templates",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/issue-task-scaffolder/SKILL.md",
-      "source_location": "L43",
+      "source_location": "L44",
       "weight": 1.0
     },
     {
@@ -3528,40 +3768,7 @@
     },
     {
       "source": "agents_skills_trd_dra_scaffolder_skill_2_invariants_standards_for_dra_database_architecture_erd",
-      "target": "agents_skills_trd_dra_scaffolder_skill_2_1_multi_branch_ready_from_day_1_invarian_mutlak",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L28",
-      "weight": 1.0
-    },
-    {
-      "source": "agents_skills_trd_dra_scaffolder_skill_2_invariants_standards_for_dra_database_architecture_erd",
-      "target": "agents_skills_trd_dra_scaffolder_skill_2_2_universal_audit_trail_wajib_di_setiap_tabel",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L35",
-      "weight": 1.0
-    },
-    {
-      "source": "agents_skills_trd_dra_scaffolder_skill_2_invariants_standards_for_dra_database_architecture_erd",
-      "target": "agents_skills_trd_dra_scaffolder_skill_2_3_relational_integrity_deletion_policy",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L45",
-      "weight": 1.0
-    },
-    {
-      "source": "agents_skills_trd_dra_scaffolder_skill_2_invariants_standards_for_dra_database_architecture_erd",
-      "target": "agents_skills_trd_dra_scaffolder_skill_2_4_strict_data_type_conventions",
+      "target": "agents_skills_trd_dra_scaffolder_skill_2_1_multi_branch_ready_from_day_1_absolute_invariant",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3572,7 +3779,7 @@
     },
     {
       "source": "agents_skills_trd_dra_scaffolder_skill_2_invariants_standards_for_dra_database_architecture_erd",
-      "target": "agents_skills_trd_dra_scaffolder_skill_2_5_indexing_strategy_for_pharmacy_performance",
+      "target": "agents_skills_trd_dra_scaffolder_skill_2_2_universal_audit_trail_mandatory_on_every_entity_table",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3582,36 +3789,102 @@
       "weight": 1.0
     },
     {
-      "source": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_trd_api_contracts_architecture",
-      "target": "agents_skills_trd_dra_scaffolder_skill_3_2_context_multi_branch_security",
+      "source": "agents_skills_trd_dra_scaffolder_skill_2_invariants_standards_for_dra_database_architecture_erd",
+      "target": "agents_skills_trd_dra_scaffolder_skill_2_3_relational_integrity_deletion_policy",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L100",
+      "source_location": "L66",
       "weight": 1.0
     },
     {
-      "source": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_trd_api_contracts_architecture",
-      "target": "agents_skills_trd_dra_scaffolder_skill_3_3_hardware_integration_standards_pos_etiket",
+      "source": "agents_skills_trd_dra_scaffolder_skill_2_invariants_standards_for_dra_database_architecture_erd",
+      "target": "agents_skills_trd_dra_scaffolder_skill_2_4_strict_data_type_conventions",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L104",
+      "source_location": "L70",
       "weight": 1.0
     },
     {
-      "source": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_trd_api_contracts_architecture",
+      "source": "agents_skills_trd_dra_scaffolder_skill_2_invariants_standards_for_dra_database_architecture_erd",
+      "target": "agents_skills_trd_dra_scaffolder_skill_2_5_indexing_strategy_for_pharmacy_performance",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
+      "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_trd_dra_scaffolder_skill_3_1_standard_restful_api_envelope",
+      "target": "agents_skills_trd_dra_scaffolder_skill_success_response_http_200_201",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
+      "source_location": "L101",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_trd_dra_scaffolder_skill_3_1_standard_restful_api_envelope",
+      "target": "agents_skills_trd_dra_scaffolder_skill_error_response_http_4xx_5xx",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
+      "source_location": "L116",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_be_fe_architecture",
+      "target": "agents_skills_trd_dra_scaffolder_skill_3_2_backend_be_engineering_standards",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
+      "source_location": "L137",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_be_fe_architecture",
+      "target": "agents_skills_trd_dra_scaffolder_skill_3_3_frontend_fe_web_fe_pos_engineering_standards",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
+      "source_location": "L153",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_be_fe_architecture",
+      "target": "agents_skills_trd_dra_scaffolder_skill_3_4_standard_trd_document_template",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
+      "source_location": "L178",
+      "weight": 1.0
+    },
+    {
+      "source": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_be_fe_architecture",
       "target": "agents_skills_trd_dra_scaffolder_skill_3_1_standard_restful_api_envelope",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L71",
+      "source_location": "L98",
       "weight": 1.0
     },
     {
@@ -3633,18 +3906,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L24",
+      "source_location": "L45",
       "weight": 1.0
     },
     {
       "source": "agents_skills_trd_dra_scaffolder_skill_trd_dra_scaffolder_skill_pharmacy_pos_erp",
-      "target": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_trd_api_contracts_architecture",
+      "target": "agents_skills_trd_dra_scaffolder_skill_3_standards_for_unified_contract_first_trd_be_fe_architecture",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": ".agents/skills/trd-dra-scaffolder/SKILL.md",
-      "source_location": "L69",
+      "source_location": "L90",
       "weight": 1.0
     },
     {
@@ -5716,6 +5989,182 @@
       "weight": 1.0
     },
     {
+      "source": "technical_diagrams_01_diagrams_auth_dan_cabang",
+      "target": "technical_diagrams_01_diagrams_auth_dan_cabang_blueprint_visual_diagram_usecase_alur_proses_scoped_erd",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_diagrams_01_diagrams_auth_dan_cabang",
+      "target": "technical_diagrams_01_diagrams_auth_dan_cabang_modul_autentikasi_dual_ux_hak_akses_rbac_sesi_cabang",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_diagrams_01_diagrams_auth_dan_cabang_3_diagram_alur_proses_sistem_detailed_flowcharts",
+      "target": "technical_diagrams_01_diagrams_auth_dan_cabang_3_2_flowchart_2_alur_persetujuan_supervisor_manager_override_di_meja_kasir",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L127",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_diagrams_01_diagrams_auth_dan_cabang_3_diagram_alur_proses_sistem_detailed_flowcharts",
+      "target": "technical_diagrams_01_diagrams_auth_dan_cabang_3_3_flowchart_3_siklus_pemantauan_masa_berlaku_legalitas_profesi_sipa_strttk",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L158",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_diagrams_01_diagrams_auth_dan_cabang_3_diagram_alur_proses_sistem_detailed_flowcharts",
+      "target": "technical_diagrams_01_diagrams_auth_dan_cabang_3_1_flowchart_1_alur_login_dual_ux_terminal_pos_kasir_vs_web_admin_erp",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_diagrams_01_diagrams_auth_dan_cabang_4_sequence_diagram_interaksi_teknis_antar_komponen",
+      "target": "technical_diagrams_01_diagrams_auth_dan_cabang_4_1_sequence_1_login_cepat_kasir_pos_fast_pin_authentication",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L189",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_diagrams_01_diagrams_auth_dan_cabang_4_sequence_diagram_interaksi_teknis_antar_komponen",
+      "target": "technical_diagrams_01_diagrams_auth_dan_cabang_4_2_sequence_2_dialog_otorisasi_supervisor_manager_override_pop_up",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L229",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_diagrams_01_diagrams_auth_dan_cabang_5_diagram_status_siklus_hidup_state_lifecycle_diagrams",
+      "target": "technical_diagrams_01_diagrams_auth_dan_cabang_5_1_siklus_status_akun_staf_users",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L264",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_diagrams_01_diagrams_auth_dan_cabang_5_diagram_status_siklus_hidup_state_lifecycle_diagrams",
+      "target": "technical_diagrams_01_diagrams_auth_dan_cabang_5_2_siklus_sesi_kerja_kasir_di_cabang_user_branches_kasir_pos",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L288",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_diagrams_01_diagrams_auth_dan_cabang_modul_autentikasi_dual_ux_hak_akses_rbac_sesi_cabang",
+      "target": "technical_diagrams_01_diagrams_auth_dan_cabang_2_diagram_usecase_aktor_vs_fungsionalitas_sistem",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_diagrams_01_diagrams_auth_dan_cabang_modul_autentikasi_dual_ux_hak_akses_rbac_sesi_cabang",
+      "target": "technical_diagrams_01_diagrams_auth_dan_cabang_4_sequence_diagram_interaksi_teknis_antar_komponen",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L187",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_diagrams_01_diagrams_auth_dan_cabang_modul_autentikasi_dual_ux_hak_akses_rbac_sesi_cabang",
+      "target": "technical_diagrams_01_diagrams_auth_dan_cabang_5_diagram_status_siklus_hidup_state_lifecycle_diagrams",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L262",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_diagrams_01_diagrams_auth_dan_cabang_modul_autentikasi_dual_ux_hak_akses_rbac_sesi_cabang",
+      "target": "technical_diagrams_01_diagrams_auth_dan_cabang_6_scoped_erd_khusus_domain_autentikasi_staf_cabang",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L314",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_diagrams_01_diagrams_auth_dan_cabang_modul_autentikasi_dual_ux_hak_akses_rbac_sesi_cabang",
+      "target": "technical_diagrams_01_diagrams_auth_dan_cabang_7_rangkuman_keterkaitan_antara_diagram_dengan_dokumen_spesifikasi",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L390",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_diagrams_01_diagrams_auth_dan_cabang_modul_autentikasi_dual_ux_hak_akses_rbac_sesi_cabang",
+      "target": "technical_diagrams_01_diagrams_auth_dan_cabang_1_metadata_dokumen",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_diagrams_01_diagrams_auth_dan_cabang_modul_autentikasi_dual_ux_hak_akses_rbac_sesi_cabang",
+      "target": "technical_diagrams_01_diagrams_auth_dan_cabang_3_diagram_alur_proses_sistem_detailed_flowcharts",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
       "source": "features_01_prd_auth_user",
       "target": "00_master_prd",
       "relation": "references",
@@ -5860,7 +6309,7 @@
     },
     {
       "source": "progress",
-      "target": "agents_rules_persona_tika",
+      "target": "agents_rules_agent_persona",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6077,8 +6526,30 @@
       "source_file": "PROGRESS.md",
       "source_location": "L43",
       "weight": 1.0
+    },
+    {
+      "source": "technical_diagrams_01_diagrams_auth_dan_cabang",
+      "target": "features_01_prd_auth_user",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "technical_diagrams_01_diagrams_auth_dan_cabang",
+      "target": "features_master_data_01_prd_cabang_dan_gudang",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "technical/diagrams/01-diagrams-auth-dan-cabang.md",
+      "source_location": "L12",
+      "weight": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "c929da0e125b78976e0ce347d13f6a12c9e3ddff"
+  "built_at_commit": "ef321dc8d6a07313d1eb389c58630c38108798ec"
 }
