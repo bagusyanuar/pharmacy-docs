@@ -9,12 +9,12 @@ Dokumen ini adalah matriks pelacak implementasi fitur menyeluruh lintas fase dan
 
 | Kategori | Total Fitur | Docs Selesai | BE Selesai | FE-WEB Selesai | FE-POS Selesai | Status Fase |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Fase 1: Auth & Master Data** | 8 | 6/8 | 0/8 | 0/8 | 0/8 | 🟡 Dalam Desain |
+| **Fase 1: Auth & Master Data** | 8 | 8/8 | 0/8 | 0/8 | 0/8 | 🟡 Dalam Desain |
 | **Fase 2: POS Kasir & Resep** | 7 | 0/7 | 0/7 | - | 0/7 | ⚪ Antrean |
 | **Fase 3: Inventory WMS & FEFO** | 6 | 0/6 | 0/6 | 0/6 | - | ⚪ Antrean |
 | **Fase 4: Pengadaan PBF** | 6 | 0/6 | 0/6 | 0/6 | - | ⚪ Antrean |
 | **Fase 5: Finansial & Regulasi** | 5 | 0/5 | 0/5 | 0/5 | - | ⚪ Antrean |
-| **TOTAL** | **32** | **6/32** | **0/32** | **0/32** | **0/32** | **19% Selesai** |
+| **TOTAL** | **32** | **8/32** | **0/32** | **0/32** | **0/32** | **25% Selesai** |
 
 ---
 
@@ -31,8 +31,8 @@ Fokus: Akses pengguna, legalitas SIPA/STRTTK, isolasi sesi cabang, fondasi multi
 | **F1-01** | **Master Cabang & Gudang:** Struktur cabang tunggal/jaringan, izin apotek (SIA), APA penanggung jawab, gudang cabang vs pusat. | [x] | [ ] | [ ] | [ ] |
 | **F1-02** | **Master Obat, Zat Aktif & Golongan:** Nama obat, nama generik, pabrik, barcode EAN-13, golongan (Bebas/Terbatas/Keras/Narko). | [x] | [ ] | [ ] | [ ] |
 | **F1-03** | **Hierarki Multi-Satuan Bertingkat:** Relasi satuan (Box $\rightarrow$ Strip $\rightarrow$ Tablet) & aturan margin harga jual eceran. | [x] | [ ] | [ ] | [ ] |
-| **F1-04** | **Master Supplier (PBF):** Direktori distributor farmasi, kontak salesman, izin PBF, rekening, default Term of Payment (TOP). | [ ] | [ ] | [ ] | [ ] |
-| **F1-05** | **Master Dokter & Rekam Pasien (PMR):** Dokter perujuk (No SIP) dan Patient Medication Record (alergi, riwayat medikasi). | [ ] | [ ] | [ ] | [ ] |
+| **F1-04** | **Master Supplier (PBF):** Direktori distributor farmasi, kontak salesman, izin PBF, rekening, default Term of Payment (TOP). | [x] | [ ] | [ ] | [ ] |
+| **F1-05** | **Master Dokter & Rekam Pasien (PMR):** Dokter perujuk (No SIP) dan Patient Medication Record (alergi, riwayat medikasi). | [x] | [ ] | [ ] | [ ] |
 
 ---
 

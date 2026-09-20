@@ -40,21 +40,20 @@ Dokumen ini adalah rekam jejak resmi status pengerjaan spesifikasi teknis, arsit
 - [x] [`features/01-prd-auth-user.md`](./features/01-prd-auth-user.md) — Dual-UX Login (Fast PIN POS & Email/Password ERP), profil staf & legalitas profesi (SIPA Apoteker & STRTTK), matriks hak akses 6 persona (RBAC), pop-up otorisasi supervisor (*Manager Override* untuk void/diskon), dan isolasi sesi cabang.
 - [x] [`features/master-data/01-prd-cabang-dan-gudang.md`](./features/master-data/01-prd-cabang-dan-gudang.md) — Master Cabang, klasifikasi tipe cabang (Apotek Ritel/Klinik/Gudang Pusat), izin resmi SIA, prinsip 1 Apotek 1 APA, penugasan staf kasir, zona simpan baku & penomoran rak fisik.
 - [x] [`features/master-data/02-prd-obat-dan-satuan-bertingkat.md`](./features/master-data/02-prd-obat-dan-satuan-bertingkat.md) — Master Obat & Zat Aktif, Penggolongan Regulasi Farmasi (Bebas/Terbatas/Keras/OWA/Psiko/Narko), Hierarki Multi-Satuan Bertingkat (Base Unit, Sub, Outer), Multi-Barcode per kemasan, Seamless Auto-Breakdown di POS dengan pencatatan ganda kartu stok (`AUTO_BREAKDOWN` & `DISPENSE_SALE`), Wizard Konversi Satuan Terkecil, Valuasi HPP Bersih (termasuk bonus barang PBF & diskon bertingkat), dan Dual-View Display stok ramah manusia.
+- [x] [`features/master-data/03-prd-pbf-supplier-dan-dokter.md`](./features/master-data/03-prd-pbf-supplier-dan-dokter.md) — Master Pedagang Besar Farmasi (PBF), izin operasional PBF, sertifikasi CDOB (Cold Chain/Psikotropika), rekening bank terverifikasi, syarat pembayaran (TOP) & batas plafon kredit, direktori dokter perujuk (validasi masa aktif SIP), serta Patient Medication Record (PMR) dengan pendekatan fleksibel 4-tingkat di meja kasir (Walk-in umum anonim < 15 detik, Quick-Tag resep sekali jalan, registrasi regulasi SIPNAP, dan Full PMR dengan alert otomatis alergi zat aktif).
 
 ---
 
 ## 🎯 Antrean Pengerjaan Berikutnya (Next Action Items: Fase 1)
 
-Berikutnya kita akan menyusun spesifikasi **Fase 1: Master Data & Arsitektur Teknis**:
+Berikutnya kita akan menyusun **Spesifikasi Arsitektur Teknis (DRA & TRD)** untuk mengunci seluruh fondasi Master Data & Autentikasi:
 
-1. ⏳ **`features/master-data/03-prd-pbf-supplier-dan-dokter.md`**
-   - *Cakupan Bisnis:* Master distributor PBF, kontak, izin PBF, default TOP kredit, master dokter perujuk (No SIP), dan Patient Medication Record (PMR).
-2. ⏳ **`technical/01-dra-database-erd-master-auth.md`**
-   - *Cakupan Teknis:* Skema DDL PostgreSQL 15+ (tabel cabang, user, profil SIPA, obat, multi-satuan, PBF), Foreign Key `ON DELETE RESTRICT`, invarian `branch_id`, dan diagram Mermaid ERD.
-3. ⏳ **`technical/02-trd-auth-session-api.md`**
-   - *Cakupan Teknis:* Kontrak REST API Autentikasi Dual-UX (PIN & Email), JWT RS256, Refresh Token Rotation, dan validasi header `X-Branch-Id`.
-4. ⏳ **`technical/03-trd-master-data-api.md`**
-   - *Cakupan Teknis:* Kontrak RESTful API CRUD untuk seluruh modul Master Data dengan envelope standar `{ success, data, meta, error }`.
+1. ⏳ **`technical/01-dra-database-erd-master-auth.md`**
+   * *Cakupan Teknis:* Skema DDL PostgreSQL 15+ (tabel cabang, user, profil SIPA, obat, multi-satuan, PBF, dokter, pasien/PMR), Foreign Key `ON DELETE RESTRICT`, invarian `branch_id`, indeks performa FEFO, dan diagram Mermaid ERD komprehensif.
+2. ⏳ **`technical/02-trd-auth-session-api.md`**
+   * *Cakupan Teknis:* Kontrak REST API Autentikasi Dual-UX (PIN & Email), JWT RS256, Refresh Token Rotation, dan validasi header `X-Branch-Id`.
+3. ⏳ **`technical/03-trd-master-data-api.md`**
+   * *Cakupan Teknis:* Kontrak RESTful API CRUD untuk seluruh modul Master Data dengan envelope standar `{ success, data, meta, error }`.
 
 ---
 
@@ -73,4 +72,4 @@ Berikutnya kita akan menyusun spesifikasi **Fase 1: Master Data & Arsitektur Tek
 
 Saat Anda membuka sesi berikutnya, cukup ketik pesan singkat berikut:
 
-> *"Halo Tika, tolong baca `PROGRESS.md` dan kita lanjutkan pengerjaan ke Fase 1: `features/master-data/02-prd-obat-dan-satuan-bertingkat.md`."*
+> *"Halo Tika, tolong baca `PROGRESS.md` dan kita lanjutkan pengerjaan ke Fase 1: `technical/01-dra-database-erd-master-auth.md`."*
